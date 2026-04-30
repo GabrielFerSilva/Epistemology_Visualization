@@ -1,0 +1,50 @@
+**Project: Philosophy of Science Visualizations**
+
+This repository collects the plan and artifacts for the course final project. The goal is to produce visualizations of ideas and debates in the philosophy of science.
+
+**Group Members**:
+
+- **Group:** Arthur Farias Zaneti, Bruno Pereira de Paula, Gabriel Ferreira Silva, Igor Augusto Zwirtes, Pedro Pereira Carvalho
+
+- **Roles / Subgroups:** TODO
+
+
+**Work Plan and Task Division**:
+
+- Deliverables: 1) bibliographic dataset; 2) interactive prototype/mockup; 3) source code and short documentation; 4) final presentation.
+- Example schedule:
+	- Week 1: select bibliography and divide tasks.
+	- Week 2: extract data and define attributes to represent.
+	- Week 3: initial prototype (mockup and/or code sketch).
+	- Week 4: implementation and refinement.
+	- Week 5: documentation, testing, and presentation prep.
+- Example responsibilities:
+	- Text extraction and curation: Name A, Name B
+	- Data modeling (metadata, relations): Name C
+	- Frontend / visualization: Name D, Name E
+	- Design and UX: Name F
+	- Integration and deployment: Name G
+
+**Minimum Bibliography to Represent**:
+- List here the works or articles the group agreed to include (e.g., Kuhn, Popper, Lakatos, Feyerabend, etc.).
+- For each reference include: author, year, title, and the passage/idea to be visualized.
+
+**Type of Visualization (proposed choice)**:
+- Using a connected graph where connects onto the ideas they wrote or have a opinion about. Subject to change by a timeline that shows how the opinions differed through time.
+
+**Visualization Sketch**:
+- Mockup:
+
+![Mockup preview](assets/mockup.png)
+
+- Preliminary code (example):
+
+
+**Inspiration Examples**:
+- Deniz Cemon Duygu — philo gallery: https://www.denizcemonduygu.com/philo/
+- Other visual references and repositories to consider (list links).
+
+**Final Notes & Next Steps**:
+- Fill this section with names and contact info.
+
+
