@@ -6,8 +6,6 @@ This repository collects the plan and artifacts for the course final project. Th
 
 - **Group:** Arthur Farias Zaneti, Bruno Pereira de Paula, Gabriel Ferreira Silva, Igor Augusto Zwirtes, Pedro Pereira Carvalho
 
-- **Roles / Subgroups:** TODO
-
 
 **Work Plan and Task Division**:
 
@@ -19,11 +17,11 @@ This repository collects the plan and artifacts for the course final project. Th
 	- Week 4: implementation and refinement.
 	- Week 5: documentation, testing, and presentation prep.
 - Example responsibilities:
-	- Text extraction and curation: Name A, Name B
-	- Data modeling (metadata, relations): Name C
-	- Frontend / visualization: Name D, Name E
-	- Design and UX: Name F
-	- Integration and deployment: Name G
+	- Text extraction and curation: Arthur Zaneti, Pedro Pereira, Bruno Pereira
+	- Data modeling (metadata, relations): Igor Zwirtes, Gabriel Ferreira
+	- Frontend / visualization: Artur Zaneti, Igor Zwirtes
+	- Design and UX: Gabriel Ferreira, Igor Zwirtes
+	- Integration and deployment: Bruno Pereira, Pedro Pereira
 
 **Minimum Bibliography to Represent**:
 - List here the works or articles the group agreed to include (e.g., Kuhn, Popper, Lakatos, Feyerabend, etc.).
