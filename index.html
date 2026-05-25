@@ -2,15 +2,24 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Visualização Epistemológica</title>
+    <title>Grafo Interativo com Fotos</title>
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>Epistemólogos</h1>
-    
-    <div id="container-circulos"></div>
+    <div id="container">
+        <div id="grafo"></div>
+        
+        <div id="sidebar">
+            <div id="conteudo-sidebar">
+                <h2>Selecione algo</h2>
+                <p>Clique em um nó (foto) ou em uma linha (aresta) para ver os detalhes aqui.</p>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
+
 </body>
 </html>
