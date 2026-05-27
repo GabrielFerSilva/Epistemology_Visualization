@@ -113,24 +113,84 @@ const epistemologos = [{
     livros: ["The Structure of Scientific Revolutions"],
     image: "assets/thomasKuhn.jpg",
     label: "Thomas Kuhn"
+}, {
+    id: "E000004",
+    nome: "Paul Feyerabend",
+    data_nascimento: "1924-01-13",
+    data_morte: "1994-02-11",
+    livros: ["Against Method"],
+    image: "assets/paulFeyerabend.jpg",
+    label: "Paul Feyerabend"
 }];
 
 const ideias = [{
     id: "I000000001",
-    label: "Ideia 1", // Adicionado um rótulo para a aresta conseguir ler
+    label: "Ideia 1", 
     setence: "Não pode haver um conjunto de regras adequadas de escolha que se possam impor ao desejado comportamento individual nos casos concretos que os cientistas encontrarão no decorrer de suas careers",
+    image: "assets/lampada.png"
+}, {
+    id: "I000000002",
+    label: "Ideia 2", 
+    setence: "Incomensurabilidade",
+    image: "assets/lampada.png"
+},{
+    id: "I000000003",
+    label: "Ideia 3", 
+    setence: "Incomensurabilidade Total",
+    image: "assets/lampada.png"
+},{
+    id: "I000000004",
+    label: "Ideia 4", 
+    setence: "Incomensurabilidade Parcial",
     image: "assets/lampada.png"
 }];
 
-const conexoes = [{
-    id: "C00000001", 
+const conexoes_ideia_autor = [{
+    id: "CC00000001", 
     from: "E000003", 
     to: "I000000001", 
-    label: "Escreveu sobre", // Rótulo visível na linha (opcional)
+    label: "Concorda", 
     setence: "Não pode haver um conjunto de regras adequadas...",
     book: "Criticism and the Growth of Knowledge",
     writer: "Thomas Kuhn"
+},{
+    id: "CIA00000002", 
+    from: "E000003", 
+    to: "I000000004", 
+    label: "Concorda", 
+    setence: "Sem sentença",
+    book: "...",
+    writer: "Sem autor"
+},{
+    id: "CIA00000003", 
+    from: "E000002", 
+    to: "I000000002", 
+    label: "Discorda", 
+    setence: "Sem sentença",
+    book: "...",
+    writer: "Sem autor"
+}, {
+    id: "CIA00000004", 
+    from: "E000004", 
+    to: "I000000003", 
+    label: "Concorda", 
+    setence: "Sem sentença",
+    book: "...",
+    writer: "Sem autor"
 }];
+
+const conexoes_ideia_ideia = [{
+    id: "CII00000001",
+    from: "I000000002", 
+    to: "I000000003",
+    label: "Contém"
+}, {
+    id: "CII00000001",
+    from: "I000000002", 
+    to: "I000000003",
+    label: "Contém"
+}];
+
 
 const container = document.getElementById('grafo');
 const todosOsNos = [];
@@ -140,9 +200,9 @@ epistemologos.forEach(e => {
     todosOsNos.push({
         id: e.id,
         label: e.label,
-        shape: 'circularImage', // CORREÇÃO 3: Deixa a foto redonda
+        shape: 'circularImage', 
         image: e.image,
-        tipo: "epistemologo",   // CORREÇÃO 2: Agora o 'tipo' existe para o clique funcionar
+        tipo: "epistemologo",   
         dados: e 
     });
 });
@@ -160,7 +220,7 @@ ideias.forEach(i => {
 });
 
 const nodesData = new vis.DataSet(todosOsNos);
-const edgesData = new vis.DataSet(conexoes);
+const edgesData = new vis.DataSet(conexoes_ideia_autor);
 
 const data = { nodes: nodesData, edges: edgesData };
 const options = {
