@@ -130,18 +130,18 @@ const ideias = [{
     image: "assets/lampada.png"
 }, {
     id: "I000000002",
-    label: "Ideia 2", 
-    setence: "Incomensurabilidade",
+    label: "Incomensurabilidade", 
+    setence: "É a condição em que duas teorias científicas não compartilham uma linguagem ou um padrão de avaliação neutro que permita julgar objetivamente qual delas é superior.",
     image: "assets/lampada.png"
 },{
     id: "I000000003",
-    label: "Ideia 3", 
-    setence: "Incomensurabilidade Total",
+    label: "Incomensurabilidade Tout-Court", 
+    setence: "É a incompatibilidade absoluta e sem concessões entre dois sistemas de pensamento.",
     image: "assets/lampada.png"
 },{
     id: "I000000004",
-    label: "Ideia 4", 
-    setence: "Incomensurabilidade Parcial",
+    label: "É a situação em que a transição entre duas visões de mundo gera descompassos de significado localizados, restritos a um grupo específico de conceitos centrais.", 
+    setence: "",
     image: "assets/lampada.png"
 }];
 
@@ -185,9 +185,9 @@ const conexoes_ideia_ideia = [{
     to: "I000000003",
     label: "Contém"
 }, {
-    id: "CII00000001",
+    id: "CII00000002",
     from: "I000000002", 
-    to: "I000000003",
+    to: "I000000004",
     label: "Contém"
 }];
 
@@ -212,15 +212,40 @@ ideias.forEach(i => {
     todosOsNos.push({
         id: i.id,
         label: i.label,
-        shape: 'circularImage', // CORREÇÃO 1: Permite que a imagem da lâmpada apareça
+        shape: 'circularImage', 
         image: i.image,
-        tipo: "ideia",          // CORREÇÃO 2: Agora o 'tipo' existe para o clique funcionar
+        tipo: "ideia",          
         dados: i
     });
 });
 
 const nodesData = new vis.DataSet(todosOsNos);
-const edgesData = new vis.DataSet(conexoes_ideia_autor);
+
+todasAsArestas = []
+
+conexoes_ideia_autor.forEach( c => {
+    todasAsArestas.push({
+        id: c.id,
+        label: c.label,
+        from: c.from,
+        to: c.to,
+        tipo: "autor-idea"
+    });
+
+})
+
+conexoes_ideia_ideia.forEach( c => {
+    todasAsArestas.push({
+        id: c.id,
+        label: c.label,
+        from: c.from,
+        to: c.to,
+        tipo: "ideia-idea"
+    });
+
+})
+
+const edgesData = new vis.DataSet(todasAsArestas);
 
 const data = { nodes: nodesData, edges: edgesData };
 const options = {
