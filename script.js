@@ -126,7 +126,7 @@ const epistemologos = [{
 const ideias = [{
     id: "I000000001",
     label: "Ideia 1", 
-    setence: "Não pode haver um conjunto de regras adequadas de escolha que se possam impor ao desejado comportamento individual nos casos concretos que os cientistas encontrarão no decorrer de suas careers",
+    setence: "Não pode haver um conjunto de regras adequadas de escolha que se possam impor ao desejado comportamento individual nos casos concretos que os cientistas encontrarão no decorrer de suas careiras",
     image: "assets/lampada.png"
 }, {
     id: "I000000002",
@@ -140,13 +140,13 @@ const ideias = [{
     image: "assets/lampada.png"
 },{
     id: "I000000004",
-    label: "É a situação em que a transição entre duas visões de mundo gera descompassos de significado localizados, restritos a um grupo específico de conceitos centrais.", 
-    setence: "",
+    label: "Incomensurabilidade Parcial", 
+    setence: "É a situação em que a transição entre duas visões de mundo gera descompassos de significado localizados, restritos a um grupo específico de conceitos centrais.",
     image: "assets/lampada.png"
 }];
 
 const conexoes_ideia_autor = [{
-    id: "CC00000001", 
+    id: "CIA00000001", 
     from: "E000003", 
     to: "I000000001", 
     label: "Concorda", 
