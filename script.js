@@ -72,9 +72,35 @@ const options = {
     },
     interaction: { hover: true }
 };
+
 const network = new vis.Network(container, data, options);
 
 const sidebarConteudo = document.getElementById('conteudo-sidebar');
+
+function aplicarFiltro(noId) {
+  const vizinhos = network.getConnectedNodes(noId);
+  const destacados = new Set([noId, ...vizinhos]);
+
+  const updates = nodesData.get().map(no => ({
+    id: no.id,
+    opacity: destacados.has(no.id) ? 1.0 : 0.15
+  }));
+  nodesData.update(updates);
+
+  const arestas = network.getConnectedEdges(noId);
+  const edgeUpdates = edgesData.get().map(e => ({
+    id: e.id,
+    color: arestas.includes(e.id)
+      ? { color: '#4caf50', opacity: 1 }
+      : { color: '#ccc', opacity: 0.1 }
+  }));
+  edgesData.update(edgeUpdates);
+}
+
+function resetarFiltro() {
+  nodesData.update(nodesData.get().map(no => ({ id: no.id, opacity: 1.0 })));
+  edgesData.update(edgesData.get().map(e => ({ id: e.id, color: { color: '#999', opacity: 1 } })));
+}
 
 network.on("click", function (params) {
     if (params.nodes.length > 0) {
@@ -84,6 +110,7 @@ network.on("click", function (params) {
         
         // Agora o 'tipo' existe e a renderização HTML vai acontecer perfeitamente
         if (noSelecionado.tipo === "epistemologo") {
+            aplicarFiltro(noId);
             sidebarConteudo.innerHTML = `
                 <h2>${dadosOriginais.nome}</h2>
                 <span class="meta-info">ID do Vértice: #${noSelecionado.id}</span>
@@ -105,6 +132,8 @@ network.on("click", function (params) {
                     "${dadosOriginais.setence}"
                 </blockquote>
             `;
+        }else{
+            resetarFiltro();
         }
     } 
     else if (params.edges.length > 0) {
