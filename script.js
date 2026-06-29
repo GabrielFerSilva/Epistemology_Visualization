@@ -7,10 +7,17 @@ epistemologos.forEach(e => {
     todosOsNos.push({
         id: e.id,
         label: e.label,
-        shape: 'circularImage', 
+        shape: "circularImage",
         image: e.image,
-        tipo: "epistemologo",   
-        dados: e 
+        size: 40,
+        borderWidth: 4,
+        color: {
+            border: "#444"
+        },
+        tipo: "epistemologo",
+        ano: e.ano,
+        categoria: e.escola,
+        dados: e
     });
 });
 
@@ -19,9 +26,15 @@ ideias.forEach(i => {
     todosOsNos.push({
         id: i.id,
         label: i.label,
-        shape: 'circularImage', 
-        image: i.image,
-        tipo: "ideia",          
+        shape: "dot",
+        size: 25,
+        color: "#f4d35e",
+        font: {
+            size: 18
+        },
+        tipo: "ideia",
+        ano: i.ano,
+        categoria: i.categoria,
         dados: i
     });
 });
@@ -30,45 +43,69 @@ const nodesData = new vis.DataSet(todosOsNos);
 
 todasAsArestas = []
 
-conexoes_ideia_autor.forEach( c => {
+conexoes_ideia_autor.forEach(c => {
+    let cor = "#888";
+    if(c.label === "Concorda")
+        cor = "#2e7d32";
+    if(c.label === "Discorda")
+        cor = "#c62828";
     todasAsArestas.push({
         id: c.id,
-        label: c.label,
         from: c.from,
         to: c.to,
-        tipo: "autor-idea"
+        label: c.label,
+        tipo: "autor-idea",
+        color: {
+            color: cor
+        },
+        arrows: "to",
+        book: c.book,
+        writer: c.writer,
+        setence: c.setence
     });
+});
 
-})
-
-conexoes_ideia_ideia.forEach( c => {
+conexoes_ideia_ideia.forEach(c => {
     todasAsArestas.push({
         id: c.id,
-        label: c.label,
         from: c.from,
         to: c.to,
-        tipo: "ideia-idea"
+        label: c.label,
+        tipo: "ideia-idea",
+        color: {
+            color: "#1565c0"
+        },
+        arrows: "to"
     });
-
-})
+});
 
 const edgesData = new vis.DataSet(todasAsArestas);
 
 const data = { nodes: nodesData, edges: edgesData };
 const options = {
-    nodes: { 
-        size: 40, // Aumentado um pouco para destacar as fotos redondas
-        borderWidth: 4, 
-        color: { border: '#4caf50', background: '#fff' }, // Borda verde combinando
-        font: { size: 14, color: '#333' }
+    nodes: {
+        font: {
+            size: 14,
+            color: "#333"
+        }
     },
-    edges: { 
-        color: '#999',
-        width: 3,        
-        length: 200, 
-        font: { align: 'top', size: 12 }, 
-        hoverWidth: 3,
-        arrows: 'to' 
+    edges: {
+        width: 3,
+        length: 200,
+        arrows: {
+            to: {
+                enabled: true,
+                scaleFactor: 0.8
+            }
+        },
+        smooth: {
+            type: "dynamic"
+        },
+        font: {
+            align: "top",
+            size: 12
+        },
+        hoverWidth: 5
     },
     interaction: { hover: true }
 };
@@ -76,6 +113,12 @@ const options = {
 const network = new vis.Network(container, data, options);
 
 const sidebarConteudo = document.getElementById('conteudo-sidebar');
+
+const slider = document.getElementById("timeline-slider");
+
+slider.addEventListener("input", (e)=>{
+    atualizarTimeline(Number(e.target.value));
+});
 
 function aplicarFiltro(noId) {
   const vizinhos = network.getConnectedNodes(noId);
@@ -100,6 +143,36 @@ function aplicarFiltro(noId) {
 function resetarFiltro() {
   nodesData.update(nodesData.get().map(no => ({ id: no.id, opacity: 1.0 })));
   edgesData.update(edgesData.get().map(e => ({ id: e.id, color: { color: '#999', opacity: 1 } })));
+}
+
+function atualizarTimeline(ano){
+    document
+        .getElementById("timeline-year")
+        .textContent = ano;
+    const atualizacoes = [];
+    nodesData.forEach(node=>{
+        atualizacoes.push({
+            id:node.id,
+            hidden:node.ano > ano
+        });
+    });
+    nodesData.update(atualizacoes);
+    atualizarArestas();
+}
+
+function atualizarArestas(){
+    const updates = [];
+    edgesData.forEach(edge=>{
+        const origem = nodesData.get(edge.from);
+        const destino = nodesData.get(edge.to);
+        updates.push({
+            id:edge.id,
+            hidden:
+                origem.hidden ||
+                destino.hidden
+        });
+    });
+    edgesData.update(updates);
 }
 
 network.on("click", function (params) {
@@ -157,3 +230,5 @@ network.on("click", function (params) {
         `;
     }
 });
+
+atualizarTimeline(2025);
