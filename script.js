@@ -15,7 +15,7 @@ epistemologos.forEach(e => {
             border: "#444"
         },
         tipo: "epistemologo",
-        ano: e.ano,
+        ano: Number(e.data_nascimento.substring(0, 4)),
         categoria: e.escola,
         dados: e
     });
@@ -61,7 +61,7 @@ conexoes_ideia_autor.forEach(c => {
         arrows: "to",
         book: c.book,
         writer: c.writer,
-        setence: c.setence
+        sentence: c.sentence
     });
 });
 
@@ -181,28 +181,65 @@ network.on("click", function (params) {
         const noSelecionado = nodesData.get(noId); 
         const dadosOriginais = noSelecionado.dados;
         
-        // Agora o 'tipo' existe e a renderização HTML vai acontecer perfeitamente
         if (noSelecionado.tipo === "epistemologo") {
             aplicarFiltro(noId);
             sidebarConteudo.innerHTML = `
-                <h2>${dadosOriginais.nome}</h2>
-                <span class="meta-info">ID do Vértice: #${noSelecionado.id}</span>
-                <div style="margin: 15px 0;">
-                    <img src="${dadosOriginais.image}" alt="${dadosOriginais.nome}" style="max-width:100%; border-radius:50%; max-height:180px; object-fit: cover;">
-                </div>
-                <p><strong>Nascimento:</strong> ${dadosOriginais.data_nascimento}</p>
-                <p><strong>Morte:</strong> ${dadosOriginais.data_morte}</p>
-                <p><strong>Obras principais:</strong> ${dadosOriginais.livros.join(', ')}</p>
-            `;
+                    <h2>${dadosOriginais.nome}</h2>
+
+                    <span class="meta-info">
+                        ${dadosOriginais.escola}
+                    </span>
+
+                    <div style="margin:20px 0; text-align:center;">
+                        <img
+                            src="${dadosOriginais.image}"
+                            alt="${dadosOriginais.nome}"
+                            style="
+                                width:180px;
+                                height:180px;
+                                object-fit:cover;
+                                border-radius:50%;
+                            "
+                        >
+                    </div>
+
+                    <p>
+                        <strong>Nascimento:</strong>
+                        ${dadosOriginais.data_nascimento}
+                    </p>
+
+                    <p>
+                        <strong>Falecimento:</strong>
+                        ${dadosOriginais.data_morte}
+                    </p>
+
+                    <p>
+                        <strong>Escola Filosófica:</strong>
+                        ${dadosOriginais.escola}
+                    </p>
+
+                    <p>
+                        <strong>Obras principais:</strong>
+                        ${dadosOriginais.livros.join(", ")}
+                    </p>
+
+                    <hr>
+
+                    <h3>Resumo</h3>
+
+                    <p style="text-align:justify;">
+                        ${dadosOriginais.resumo}
+                    </p>
+                `;
         } else if (noSelecionado.tipo === "ideia") {
             sidebarConteudo.innerHTML = `
-                <h2>Conceito Científico</h2>
+                <h2>${dadosOriginais.label}</h2>
                 <span class="meta-info" style="background:#e8f5e9; color:#2e7d32;">ID do Vértice: #${noSelecionado.id}</span>
                 <div style="margin: 15px 0; text-align:center;">
                     <img src="${dadosOriginais.image}" alt="Ícone Ideia" style="width:80px; height:80px;">
                 </div>
                 <blockquote style="font-style: italic; background: #f5f5f5; padding: 10px; border-left: 4px solid #4caf50; margin: 15px 0;">
-                    "${dadosOriginais.setence}"
+                    "${dadosOriginais.sentence}"
                 </blockquote>
             `;
         }else{

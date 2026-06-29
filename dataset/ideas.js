@@ -1,23 +1,39 @@
 const ideias = [{
     id: "I000000001",
     label: "Ideia 1", 
-    setence: "Não pode haver um conjunto de regras adequadas de escolha que se possam impor ao desejado comportamento individual nos casos concretos que os cientistas encontrarão no decorrer de suas careiras",
-    image: "assets/lampada.png"
+    ano: 1962,
+    categoria: "Incomensurabilidade",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/lampada.png",
+    sentence: "Não pode haver um conjunto de regras adequadas de escolha que se possam impor ao desejado comportamento individual nos casos concretos que os cientistas encontrarão no decorrer de suas careiras",
 }, {
     id: "I000000002",
     label: "Incomensurabilidade", 
-    setence: "É a condição em que duas teorias científicas não compartilham uma linguagem ou um padrão de avaliação neutro que permita julgar objetivamente qual delas é superior.",
-    image: "assets/lampada.png"
+    ano: 1962,
+    categoria: "Incomensurabilidade",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/lampada.png",
+    sentence: "É a condição em que duas teorias científicas não compartilham uma linguagem ou um padrão de avaliação neutro que permita julgar objetivamente qual delas é superior.",
 },{
     id: "I000000003",
     label: "Incomensurabilidade Tout-Court", 
-    setence: "É a incompatibilidade absoluta e sem concessões entre dois sistemas de pensamento.",
-    image: "assets/lampada.png"
+    ano: 1962,
+    categoria: "Incomensurabilidade",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/lampada.png",
+    sentence: "É a incompatibilidade absoluta e sem concessões entre dois sistemas de pensamento.",
 },{
     id: "I000000004",
     label: "Incomensurabilidade Parcial", 
-    setence: "É a situação em que a transição entre duas visões de mundo gera descompassos de significado localizados, restritos a um grupo específico de conceitos centrais.",
-    image: "assets/lampada.png"
+    ano: 1962,
+    categoria: "Incomensurabilidade",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/lampada.png",
+    sentence: "É a situação em que a transição entre duas visões de mundo gera descompassos de significado localizados, restritos a um grupo específico de conceitos centrais.",
 }];
 
 /*

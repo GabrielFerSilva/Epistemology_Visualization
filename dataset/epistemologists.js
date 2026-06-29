@@ -1,33 +1,41 @@
 const epistemologos = [{
     id: "E000001",
     nome: "Francis Bacon",
+    label: "Francis Bacon",
+    escola: "Empirismo",
+    resumo: "Francis Bacon é considerado o pai do empirismo moderno. Ele enfatizou a importância da observação e da experimentação na aquisição do conhecimento, defendendo que a ciência deve ser baseada em evidências empíricas e não apenas em raciocínio abstrato.",
     data_nascimento : "1561-01-22",
     data_morte: "1626-04-09",
     livros: ["Novum Organum"],
     image: "assets/francisBacon.jpg",
-    label: "Francis Bacon" // Alterado para o nome real para fazer sentido na aresta
 },{
     id: "E000002",
     nome: "Karl Popper",
+    label: "Karl Popper",
+    escola: "Falsificacionismo",
+    resumo: "Karl Popper é conhecido por sua filosofia da ciência baseada no falsificacionismo. Ele argumentou que a ciência avança por meio de conjecturas ousadas e refutações, e que teorias científicas devem ser testáveis e passíveis de serem falseadas.",
     data_nascimento: "1902-07-28",
     data_morte: "1994-09-17",
     livros: ["The Logic of Scientific Discovery"],
     image: "assets/karlPopper.jpg",
-    label: "Karl Popper"
 },{
     id: "E000003",
     nome: "Thomas Kuhn",
+    label: "Thomas Kuhn",
+    escola: "Revolutionary Science",
+    resumo: "Thomas Kuhn é conhecido por sua teoria da revolução científica. Ele argumentou que a ciência avança por meio de paradigmas alternativos, onde os cientistas trabalham dentro de um quadro teórico compartilhado até que uma crise leve a uma mudança fundamental.",
     data_nascimento: "1922-07-18",
     data_morte: "1996-06-17",
     livros: ["The Structure of Scientific Revolutions"],
     image: "assets/thomasKuhn.jpg",
-    label: "Thomas Kuhn"
 }, {
     id: "E000004",
     nome: "Paul Feyerabend",
+    label: "Paul Feyerabend",
+    escola: "Revolutionary Science",
+    resumo: "Paul Feyerabend é conhecido por sua crítica ao método científico e defesa da pluralidade dos métodos de investigação. Ele argumentou que não há um único método científico válido e que a ciência avança por meio de múltiplas abordagens.",
     data_nascimento: "1924-01-13",
     data_morte: "1994-02-11",
     livros: ["Against Method"],
     image: "assets/paulFeyerabend.jpg",
-    label: "Paul Feyerabend"
 }];
