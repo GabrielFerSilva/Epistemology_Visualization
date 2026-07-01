@@ -58,6 +58,7 @@ conexoes_ideia_autor.forEach(c => {
         color: {
             color: cor
         },
+        original_color:cor,
         arrows: "to",
         book: c.book,
         writer: c.writer,
@@ -75,6 +76,7 @@ conexoes_ideia_ideia.forEach(c => {
         color: {
             color: "#1565c0"
         },
+        original_color: "#1565c0",
         arrows: "to"
     });
 });
@@ -142,7 +144,7 @@ function aplicarFiltro(noId) {
 
 function resetarFiltro() {
   nodesData.update(nodesData.get().map(no => ({ id: no.id, opacity: 1.0 })));
-  edgesData.update(edgesData.get().map(e => ({ id: e.id, color: { color: '#999', opacity: 1 } })));
+  edgesData.update(edgesData.get().map(e => ({ id: e.id, color: { color: e.original_color, opacity: 1 } })));
 }
 
 function atualizarTimeline(ano){
