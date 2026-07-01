@@ -74,6 +74,40 @@ html, body {
 
 #timeline-slider{
     flex:1;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    border-radius: 999px;
+    background: #d5c8bc;
+    outline: none;
+}
+
+#timeline-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 46px;
+    height: 46px;
+    border: none;
+    border-radius: 0;
+    background: url("assets/slider.png") center/contain no-repeat;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#timeline-slider::-moz-range-thumb {
+    width: 46px;
+    height: 46px;
+    border: none;
+    border-radius: 0;
+    background: url("assets/slider.png") center/contain no-repeat;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#timeline-slider::-moz-range-track {
+    height: 8px;
+    border-radius: 999px;
+    background: #d5c8bc;
 }
 
 #timeline-year{

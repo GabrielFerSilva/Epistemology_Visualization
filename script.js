@@ -27,7 +27,7 @@ ideias.forEach(i => {
         id: i.id,
         label: i.label,
         shape: "dot",
-        size: 25,
+        size: i.size,
         color: "#f4d35e",
         font: {
             size: 18
