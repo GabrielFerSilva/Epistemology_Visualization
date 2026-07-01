@@ -38,4 +38,14 @@ const epistemologos = [{
     data_morte: "1994-02-11",
     livros: ["Against Method"],
     image: "assets/paulFeyerabend.jpg",
+},{
+    id: "E000005",
+    nome: "Imre Lakatos",
+    label: "Imre Lakatos",
+    escola: "Falsificacionismo Sofisticado",
+    resumo: "Imre Lakatos foi um filósofo húngaro da matemática e da ciência, conhecido por sua tese sobre a falibilidade da matemática e sua metodologia de provas e refutações nos estágios pré-axiomáticos de desenvolvimento da disciplina, bem como por introduzir o conceito de 'research program' em sua metodologia dos programas de pesquisa científica",
+    data_nascimento: "1922-11-09",
+    data_morte: "1974-02-02",
+    livros: ["Lakatos, Musgrave ed. (1970). Criticism and the Growth of Knowledge. Cambridge: Cambridge University Press. ISBN 0521078261", "Lakatos (1977). The Methodology of Scientific Research Programmes: Philosophical Papers Volume 1. Cambridge: Cambridge University Press"],
+    image: "assets/imreLakatos.jpeg",
 }];
