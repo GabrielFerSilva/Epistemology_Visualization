@@ -117,8 +117,58 @@ const network = new vis.Network(container, data, options);
 const sidebarConteudo = document.getElementById('conteudo-sidebar');
 
 const slider = document.getElementById("timeline-slider");
+const botaoPlay = document.getElementById("timeline-play");
+
+let timerTimeline = null;
+
+function atualizarTextoBotaoPlay() {
+    botaoPlay.textContent = timerTimeline ? "⏸ Pausar" : "▶ Iniciar";
+}
+
+function pararAnimacaoTimeline() {
+    if (timerTimeline) {
+        clearInterval(timerTimeline);
+        timerTimeline = null;
+        atualizarTextoBotaoPlay();
+    }
+}
+
+function iniciarAnimacaoTimeline() {
+    const anoMin = Number(slider.min);
+    const anoMax = Number(slider.max);
+    let anoAtual = Number(slider.value);
+
+    if (anoAtual >= anoMax) {
+        anoAtual = anoMin;
+        slider.value = String(anoAtual);
+        atualizarTimeline(anoAtual);
+    }
+
+    timerTimeline = setInterval(() => {
+        const ano = Number(slider.value);
+        if (ano >= anoMax) {
+            pararAnimacaoTimeline();
+            return;
+        }
+
+        const proximoAno = ano + 1;
+        slider.value = String(proximoAno);
+        atualizarTimeline(proximoAno);
+    }, 0);
+
+    atualizarTextoBotaoPlay();
+}
+
+botaoPlay.addEventListener("click", () => {
+    if (timerTimeline) {
+        pararAnimacaoTimeline();
+    } else {
+        iniciarAnimacaoTimeline();
+    }
+});
 
 slider.addEventListener("input", (e)=>{
+    pararAnimacaoTimeline();
     atualizarTimeline(Number(e.target.value));
 });
 
@@ -275,3 +325,4 @@ network.on("click", function (params) {
 });
 
 atualizarTimeline(2025);
+atualizarTextoBotaoPlay();

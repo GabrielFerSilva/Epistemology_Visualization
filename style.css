@@ -72,6 +72,20 @@ html, body {
     gap:20px;
 }
 
+#timeline-play{
+    border: 1px solid #b8a898;
+    background: #fff7ee;
+    color: #5d4a38;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#timeline-play:hover{
+    background: #f9e9d8;
+}
+
 #timeline-slider{
     flex:1;
     -webkit-appearance: none;
