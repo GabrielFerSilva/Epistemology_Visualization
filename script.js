@@ -83,6 +83,23 @@ conexoes_ideia_ideia.forEach(c => {
 
 const edgesData = new vis.DataSet(todasAsArestas);
 
+// Calcular tamanho das ideias baseado em número de conexões
+const contagemConexoes = {};
+todasAsArestas.forEach(aresta => {
+    contagemConexoes[aresta.from] = (contagemConexoes[aresta.from] || 0) + 1;
+    contagemConexoes[aresta.to] = (contagemConexoes[aresta.to] || 0) + 1;
+});
+
+nodesData.get().forEach(no => {
+    if (no.tipo === "ideia") {
+        const numConexoes = contagemConexoes[no.id] || 0;
+        const tamanhoBase = 25;
+        const fatorEscala = 10; // Tamanho das ideias
+        const tamanhoNovo = tamanhoBase + (numConexoes * fatorEscala);
+        nodesData.update({ id: no.id, size: tamanhoNovo });
+    }
+});
+
 const data = { nodes: nodesData, edges: edgesData };
 const options = {
     nodes: {
