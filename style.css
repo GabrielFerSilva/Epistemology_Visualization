@@ -76,9 +76,16 @@ html, body {
     border: 1px solid #b8a898;
     background: #fff7ee;
     color: #5d4a38;
-    padding: 8px 12px;
+    width: 120px;
+    height: 40px;
+    padding: 0;
     border-radius: 8px;
     font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    box-sizing: border-box;
     cursor: pointer;
 }
 
