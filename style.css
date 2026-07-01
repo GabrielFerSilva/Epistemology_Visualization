@@ -72,6 +72,31 @@ html, body {
     gap:20px;
 }
 
+.timeline-hidden{
+    display:none !important;
+}
+
+#timeline-interval-toggle{
+    border: 1px solid #b8a898;
+    background: #fff7ee;
+    color: #5d4a38;
+    width: 120px;
+    height: 40px;
+    padding: 0;
+    border-radius: 8px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+#timeline-interval-toggle:hover{
+    background: #f9e9d8;
+}
+
 #timeline-play{
     border: 1px solid #b8a898;
     background: #fff7ee;
@@ -101,6 +126,82 @@ html, body {
     border-radius: 999px;
     background: #d5c8bc;
     outline: none;
+}
+
+#timeline-interval-wrap{
+    position: relative;
+    flex: 1;
+    height: 46px;
+}
+
+#timeline-interval-wrap::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 8px;
+    transform: translateY(-50%);
+    border-radius: 999px;
+    background: #d5c8bc;
+}
+
+#timeline-slider-begin,
+#timeline-slider-end{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 46px;
+    margin: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    outline: none;
+    pointer-events: none;
+}
+
+#timeline-slider-begin::-webkit-slider-thumb,
+#timeline-slider-end::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 46px;
+    height: 46px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+#timeline-slider-begin::-moz-range-thumb,
+#timeline-slider-end::-moz-range-thumb{
+    width: 46px;
+    height: 46px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+#timeline-slider-begin::-webkit-slider-thumb{
+    background: url("assets/sliderBegin.png") center/contain no-repeat;
+}
+
+#timeline-slider-end::-webkit-slider-thumb{
+    background: url("assets/sliderEnd.png?v=2") center/contain no-repeat;
+}
+
+#timeline-slider-begin::-moz-range-thumb{
+    background: url("assets/sliderBegin.png") center/contain no-repeat;
+}
+
+#timeline-slider-end::-moz-range-thumb{
+    background: url("assets/sliderEnd.png?v=2") center/contain no-repeat;
+}
+
+#timeline-slider-begin::-moz-range-track,
+#timeline-slider-end::-moz-range-track{
+    background: transparent;
 }
 
 #timeline-slider::-webkit-slider-thumb {

@@ -226,8 +226,25 @@ const sidebarConteudo = document.getElementById('conteudo-sidebar');
 
 const slider = document.getElementById("timeline-slider");
 const botaoPlay = document.getElementById("timeline-play");
+const botaoIntervalo = document.getElementById("timeline-interval-toggle");
+const sliderBegin = document.getElementById("timeline-slider-begin");
+const sliderEnd = document.getElementById("timeline-slider-end");
+const intervalWrap = document.getElementById("timeline-interval-wrap");
 
 let timerTimeline = null;
+let modoIntervalo = false;
+
+function atualizarUIControlesTimeline() {
+    if (modoIntervalo) {
+        slider.classList.add("timeline-hidden");
+        intervalWrap.classList.remove("timeline-hidden");
+        botaoIntervalo.textContent = "✓ Intervalo";
+    } else {
+        slider.classList.remove("timeline-hidden");
+        intervalWrap.classList.add("timeline-hidden");
+        botaoIntervalo.textContent = "⟷ Intervalo";
+    }
+}
 
 function atualizarTextoBotaoPlay() {
     botaoPlay.textContent = timerTimeline ? "⏸ Pausar" : "▶ Iniciar";
@@ -242,27 +259,40 @@ function pararAnimacaoTimeline() {
 }
 
 function iniciarAnimacaoTimeline() {
-    const anoMin = Number(slider.min);
-    const anoMax = Number(slider.max);
-    let anoAtual = Number(slider.value);
+    const sliderAtivo = modoIntervalo ? sliderEnd : slider;
+    const anoMin = Number(sliderAtivo.min);
+    const anoMax = Number(sliderAtivo.max);
+    let anoAtual = Number(sliderAtivo.value);
 
     if (anoAtual >= anoMax) {
         anoAtual = anoMin;
-        slider.value = String(anoAtual);
-        atualizarTimeline(anoAtual);
+        sliderAtivo.value = String(anoAtual);
+        if (modoIntervalo) {
+            sliderBegin.value = String(anoMin);
+            atualizarTimelineIntervalo(anoMin, anoAtual);
+        } else {
+            atualizarTimeline(anoAtual);
+        }
     }
 
     timerTimeline = setInterval(() => {
-        const ano = Number(slider.value);
+        const ano = Number(sliderAtivo.value);
         if (ano >= anoMax) {
             pararAnimacaoTimeline();
             return;
         }
 
         const proximoAno = ano + 1;
-        slider.value = String(proximoAno);
-        atualizarTimeline(proximoAno);
-    }, 0);
+        sliderAtivo.value = String(proximoAno);
+        if (modoIntervalo) {
+            if (Number(sliderBegin.value) > proximoAno) {
+                sliderBegin.value = String(proximoAno);
+            }
+            atualizarTimelineIntervalo(Number(sliderBegin.value), proximoAno);
+        } else {
+            atualizarTimeline(proximoAno);
+        }
+    }, 120);
 
     atualizarTextoBotaoPlay();
 }
@@ -278,6 +308,45 @@ botaoPlay.addEventListener("click", () => {
 slider.addEventListener("input", (e)=>{
     pararAnimacaoTimeline();
     atualizarTimeline(Number(e.target.value));
+});
+
+botaoIntervalo.addEventListener("click", () => {
+    pararAnimacaoTimeline();
+    modoIntervalo = !modoIntervalo;
+    atualizarUIControlesTimeline();
+
+    if (modoIntervalo) {
+        sliderBegin.value = sliderBegin.value || slider.min;
+        sliderEnd.value = slider.value;
+        if (Number(sliderBegin.value) > Number(sliderEnd.value)) {
+            sliderBegin.value = sliderEnd.value;
+        }
+        atualizarTimelineIntervalo(Number(sliderBegin.value), Number(sliderEnd.value));
+    } else {
+        atualizarTimeline(Number(slider.value));
+    }
+});
+
+sliderBegin.addEventListener("input", (e) => {
+    pararAnimacaoTimeline();
+    let inicio = Number(e.target.value);
+    let fim = Number(sliderEnd.value);
+    if (inicio > fim) {
+        fim = inicio;
+        sliderEnd.value = String(fim);
+    }
+    atualizarTimelineIntervalo(inicio, fim);
+});
+
+sliderEnd.addEventListener("input", (e) => {
+    pararAnimacaoTimeline();
+    let fim = Number(e.target.value);
+    let inicio = Number(sliderBegin.value);
+    if (fim < inicio) {
+        inicio = fim;
+        sliderBegin.value = String(inicio);
+    }
+    atualizarTimelineIntervalo(inicio, fim);
 });
 
 function aplicarFiltro(noId) {
@@ -320,16 +389,67 @@ function atualizarTimeline(ano){
     atualizarArestas();
 }
 
+function atualizarTimelineIntervalo(inicio, fim) {
+    document
+        .getElementById("timeline-year")
+        .textContent = `${inicio} - ${fim}`;
+
+    const atualizacoes = [];
+    nodesData.forEach(node => {
+        let hidden = false;
+        if (node.tipo === 'epistemologo') {
+            hidden = node.ano < inicio || node.ano > fim;
+        }
+        atualizacoes.push({
+            id: node.id,
+            hidden
+        });
+    });
+    nodesData.update(atualizacoes);
+    atualizarArestas();
+}
+
 function atualizarArestas(){
+    const allNodes = nodesData.get();
+    const nodeById = new Map(allNodes.map(node => [node.id, node]));
+
+    // 1) Descobrir ideias que têm pelo menos um autor visível conectado
+    const ideiasComAutorVisivel = new Set();
+    edgesData.forEach(edge => {
+        if (edge.tipo !== 'autor-idea') return;
+
+        const autor = nodeById.get(edge.from);
+        const ideia = nodeById.get(edge.to);
+        if (!autor || !ideia) return;
+
+        if (!autor.hidden && !ideia.hidden) {
+            ideiasComAutorVisivel.add(edge.to);
+        }
+    });
+
+    // 2) Ocultar ideias sem autor visível
+    const ideiaUpdates = [];
+    allNodes.forEach(node => {
+        if (node.tipo !== 'ideia') return;
+
+        const hiddenPorContexto = !!node.hidden;
+        const hiddenSemAutorVisivel = !ideiasComAutorVisivel.has(node.id);
+        ideiaUpdates.push({
+            id: node.id,
+            hidden: hiddenPorContexto || hiddenSemAutorVisivel
+        });
+    });
+    nodesData.update(ideiaUpdates);
+
+    // 3) Recalcular visibilidade das arestas com estado final dos nós
     const updates = [];
-    edgesData.forEach(edge=>{
+    edgesData.forEach(edge => {
         const origem = nodesData.get(edge.from);
         const destino = nodesData.get(edge.to);
+
         updates.push({
-            id:edge.id,
-            hidden:
-                origem.hidden ||
-                destino.hidden
+            id: edge.id,
+            hidden: origem.hidden || destino.hidden
         });
     });
     edgesData.update(updates);
@@ -434,3 +554,4 @@ network.on("click", function (params) {
 
 atualizarTimeline(2025);
 atualizarTextoBotaoPlay();
+atualizarUIControlesTimeline();
