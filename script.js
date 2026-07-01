@@ -2,6 +2,57 @@
 const container = document.getElementById('grafo');
 const todosOsNos = [];
 
+const corBaseIdeia = '#f4d35e';
+const corConcorda = '#2e7d32';
+const corDiscorda = '#c62828';
+const corPadraoBordaPorTopico = {
+    Incomensurabilidade: '#67c4ca'
+    
+};
+
+function hexToRgb(hex) {
+    const limpa = hex.replace('#', '');
+    const expandida = limpa.length === 3
+        ? limpa.split('').map(ch => ch + ch).join('')
+        : limpa;
+    const valor = parseInt(expandida, 16);
+    return {
+        r: (valor >> 16) & 255,
+        g: (valor >> 8) & 255,
+        b: valor & 255
+    };
+}
+
+function rgbToHex(r, g, b) {
+    return '#' + [r, g, b]
+        .map(valor => Math.max(0, Math.min(255, Math.round(valor))).toString(16).padStart(2, '0'))
+        .join('');
+}
+
+function mixHexColors(hexA, hexB, ratio) {
+    const a = hexToRgb(hexA);
+    const b = hexToRgb(hexB);
+    const t = Math.max(0, Math.min(1, ratio));
+    return rgbToHex(
+        a.r + (b.r - a.r) * t,
+        a.g + (b.g - a.g) * t,
+        a.b + (b.b - a.b) * t
+    );
+}
+
+function corDoPreenchimentoPorConexao(totalConcorda, totalDiscorda) {
+    const total = totalConcorda + totalDiscorda;
+    if (total === 0) return corBaseIdeia;
+
+    const saldo = (totalConcorda - totalDiscorda) / total;
+    const maxIntensidade = 0.1;
+    if (saldo >= 0) {
+        return mixHexColors(corBaseIdeia, corConcorda, saldo * maxIntensidade);
+    }
+
+    return mixHexColors(corDiscorda, corBaseIdeia, (1 + saldo) * maxIntensidade);
+}
+
 // 1. Formatando Epistemólogos (Correção: circularImage e tipo adicionado)
 epistemologos.forEach(e => {
     todosOsNos.push({
@@ -28,7 +79,15 @@ ideias.forEach(i => {
         label: i.label,
         shape: "dot",
         size: i.size,
-        color: "#f4d35e",
+        color: {
+            background: corBaseIdeia,
+            border: corPadraoBordaPorTopico[i.categoria] || '#9e9e9e',
+            highlight: {
+                background: corBaseIdeia,
+                border: corPadraoBordaPorTopico[i.categoria] || '#757575'
+            }
+        },
+        borderWidth: 3,
         font: {
             size: 18
         },
@@ -82,6 +141,38 @@ conexoes_ideia_ideia.forEach(c => {
 });
 
 const edgesData = new vis.DataSet(todasAsArestas);
+
+// Recalcular cores das ideias com base nas conexões de concordância/discordância
+const votosPorIdeia = {};
+todasAsArestas.forEach(aresta => {
+    if (aresta.tipo !== 'autor-idea') return;
+    if (!votosPorIdeia[aresta.to]) {
+        votosPorIdeia[aresta.to] = { concorda: 0, discorda: 0 };
+    }
+
+    if (aresta.label === 'Concorda') votosPorIdeia[aresta.to].concorda += 1;
+    if (aresta.label === 'Discorda') votosPorIdeia[aresta.to].discorda += 1;
+});
+
+nodesData.get().forEach(no => {
+    if (no.tipo === 'ideia') {
+        const votos = votosPorIdeia[no.id] || { concorda: 0, discorda: 0 };
+        const corPreenchimento = corDoPreenchimentoPorConexao(votos.concorda, votos.discorda);
+        const corBorda = corPadraoBordaPorTopico[no.categoria] || '#9e9e9e';
+
+        nodesData.update({
+            id: no.id,
+            color: {
+                background: corPreenchimento,
+                border: corBorda,
+                highlight: {
+                    background: corPreenchimento,
+                    border: corBorda
+                }
+            }
+        });
+    }
+});
 
 // Calcular tamanho das ideias baseado em número de conexões
 const contagemConexoes = {};
