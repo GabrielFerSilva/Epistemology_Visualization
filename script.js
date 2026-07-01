@@ -180,8 +180,10 @@ network.on("click", function (params) {
         const noId = params.nodes[0];
         const noSelecionado = nodesData.get(noId); 
         const dadosOriginais = noSelecionado.dados;
-        
+
+
         if (noSelecionado.tipo === "epistemologo") {
+            
             aplicarFiltro(noId);
             sidebarConteudo.innerHTML = `
                     <h2>${dadosOriginais.nome}</h2>
@@ -232,6 +234,7 @@ network.on("click", function (params) {
                     </p>
                 `;
         } else if (noSelecionado.tipo === "ideia") {
+            resetarFiltro();
             sidebarConteudo.innerHTML = `
                 <h2>${dadosOriginais.label}</h2>
                 <span class="meta-info" style="background:#e8f5e9; color:#2e7d32;">ID do Vértice: #${noSelecionado.id}</span>
@@ -261,6 +264,7 @@ network.on("click", function (params) {
         `;
     }
     else {
+        resetarFiltro();
         sidebarConteudo.innerHTML = `
             <h2>Selecione algo</h2>
             <p>Clique em um nó (foto) ou em uma linha (aresta) para ver os detalhes aqui.</p>
