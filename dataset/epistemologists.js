@@ -7,7 +7,7 @@ const epistemologos = [{
     data_nascimento : "1561-01-22",
     data_morte: "1626-04-09",
     livros: ["Novum Organum"],
-    image: "assets/francisBacon.jpg",
+    image: "assets/photos/francisBacon.jpg",
 },{
     id: "E000002",
     nome: "Karl Popper",
@@ -17,7 +17,7 @@ const epistemologos = [{
     data_nascimento: "1902-07-28",
     data_morte: "1994-09-17",
     livros: ["The Logic of Scientific Discovery"],
-    image: "assets/karlPopper.jpg",
+    image: "assets/photos/karlPopper.jpg",
 },{
     id: "E000003",
     nome: "Thomas Kuhn",
@@ -27,7 +27,7 @@ const epistemologos = [{
     data_nascimento: "1922-07-18",
     data_morte: "1996-06-17",
     livros: ["The Structure of Scientific Revolutions"],
-    image: "assets/thomasKuhn.jpg",
+    image: "assets/photos/thomasKuhn.jpg",
 }, {
     id: "E000004",
     nome: "Paul Feyerabend",
@@ -37,7 +37,7 @@ const epistemologos = [{
     data_nascimento: "1924-01-13",
     data_morte: "1994-02-11",
     livros: ["Against Method"],
-    image: "assets/paulFeyerabend.jpg",
+    image: "assets/photos/paulFeyerabend.jpg",
 },{
     id: "E000005",
     nome: "Imre Lakatos",
@@ -47,5 +47,5 @@ const epistemologos = [{
     data_nascimento: "1922-11-09",
     data_morte: "1974-02-02",
     livros: ["Lakatos, Musgrave ed. (1970). Criticism and the Growth of Knowledge. Cambridge: Cambridge University Press. ISBN 0521078261", "Lakatos (1977). The Methodology of Scientific Research Programmes: Philosophical Papers Volume 1. Cambridge: Cambridge University Press"],
-    image: "assets/imreLakatos.jpeg",
+    image: "assets/photos/imreLakatos.jpeg",
 }];

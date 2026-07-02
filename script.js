@@ -222,6 +222,8 @@ const options = {
 
 const network = new vis.Network(container, data, options);
 
+const timeline = document.getElementById('timeline');
+const timelineToggle = document.getElementById('timeline-toggle');
 const sidebarConteudo = document.getElementById('conteudo-sidebar');
 const sidebar = document.getElementById('sidebar');
 
@@ -234,6 +236,29 @@ const intervalWrap = document.getElementById("timeline-interval-wrap");
 
 let timerTimeline = null;
 let modoIntervalo = false;
+let timelineVisivel = true;
+
+function mostrarTimeline() {
+    timeline.classList.remove('timeline-collapsed');
+    timelineVisivel = true;
+    timelineToggle.classList.add('timeline-open');
+}
+
+function ocultarTimeline() {
+    timeline.classList.add('timeline-collapsed');
+    timelineVisivel = false;
+    timelineToggle.classList.remove('timeline-open');
+}
+
+function alternarTimeline() {
+    if (timelineVisivel) {
+        ocultarTimeline();
+    } else {
+        mostrarTimeline();
+    }
+}
+
+timelineToggle.addEventListener('click', alternarTimeline);
 
 function mostrarSidebar() {
     sidebar.classList.remove('sidebar-hidden');
@@ -557,11 +582,11 @@ network.on("click", function (params) {
     else {
         resetarFiltro();
         ocultarSidebar();
-        sidebarConteudo.innerHTML = ` `;
     }
 });
 
 atualizarTimeline(2025);
 atualizarTextoBotaoPlay();
 atualizarUIControlesTimeline();
+ocultarTimeline();
 ocultarSidebar();
