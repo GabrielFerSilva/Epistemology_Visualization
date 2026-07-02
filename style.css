@@ -634,3 +634,35 @@ body.dark-mode .citacao-ideia {
 #sidebar.timeline-open {
     padding-top: 80px; /* Ajuste este valor para ficar do tamanho exato da altura da sua barra superior */
 }
+
+/* Estilos para os itens da lista de interseção */
+.author-intersection-item {
+    cursor: pointer;
+    padding: 8px 12px;
+    margin-bottom: 4px;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+    user-select: none; /* Evita selecionar o texto acidentalmente ao clicar rápido */
+}
+
+/* Efeito de passar o rato por cima */
+.author-intersection-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* Estilo de quando o autor é clicado e selecionado (Botão esquerdo) */
+.author-intersection-item.selected {
+    background-color: #dcedc8;
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+/* Cores adaptadas para o MODO ESCURO */
+body.dark-mode .author-intersection-item:hover {
+    background-color: #333333;
+}
+
+body.dark-mode .author-intersection-item.selected {
+    background-color: #1b3320;
+    color: #81c784;
+}

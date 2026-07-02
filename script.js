@@ -6,7 +6,6 @@ const corConcorda = '#2e7d32';
 const corDiscorda = '#c62828';
 const corPadraoBordaPorTopico = {
     Incomensurabilidade: '#67c4ca'
-    
 };
 
 function hexToRgb(hex) {
@@ -52,7 +51,7 @@ function corDoPreenchimentoPorConexao(totalConcorda, totalDiscorda) {
     return mixHexColors(corDiscorda, corBaseIdeia, (1 + saldo) * maxIntensidade);
 }
 
-// 1. Formatando Epistemólogos (Correção: circularImage e tipo adicionado)
+// 1. Formatando Epistemólogos
 epistemologos.forEach(e => {
     todosOsNos.push({
         id: e.id,
@@ -72,7 +71,7 @@ epistemologos.forEach(e => {
     });
 });
 
-// 2. Formatando Ideias (Correção: circularImage e tipo adicionado)
+// 2. Formatando Ideias
 ideias.forEach(i => {
     todosOsNos.push({
         id: i.id,
@@ -100,25 +99,20 @@ ideias.forEach(i => {
 });
 
 const nodesData = new vis.DataSet(todosOsNos);
-
-todasAsArestas = []
+const todasAsArestas = [];
 
 conexoes_ideia_autor.forEach(c => {
     let cor = "#888";
-    if(c.label === "Concorda")
-        cor = "#2e7d32";
-    if(c.label === "Discorda")
-        cor = "#c62828";
+    if(c.label === "Concorda") cor = "#2e7d32";
+    if(c.label === "Discorda") cor = "#c62828";
     todasAsArestas.push({
         id: c.id,
         from: c.from,
         to: c.to,
         label: c.label,
         tipo: "autor-idea",
-        color: {
-            color: cor
-        },
-        original_color:cor,
+        color: { color: cor },
+        original_color: cor,
         arrows: "to",
         book: c.book,
         writer: c.writer,
@@ -133,9 +127,7 @@ conexoes_ideia_ideia.forEach(c => {
         to: c.to,
         label: c.label,
         tipo: "ideia-idea",
-        color: {
-            color: "#1565c0"
-        },
+        color: { color: "#1565c0" },
         original_color: "#1565c0",
         arrows: "to"
     });
@@ -143,14 +135,13 @@ conexoes_ideia_ideia.forEach(c => {
 
 const edgesData = new vis.DataSet(todasAsArestas);
 
-// Recalcular cores das ideias com base nas conexões de concordância/discordância
+// Recalcular cores das ideias com base nas conexões
 const votosPorIdeia = {};
 todasAsArestas.forEach(aresta => {
     if (aresta.tipo !== 'autor-idea') return;
     if (!votosPorIdeia[aresta.to]) {
         votosPorIdeia[aresta.to] = { concorda: 0, discorda: 0 };
     }
-
     if (aresta.label === 'Concorda') votosPorIdeia[aresta.to].concorda += 1;
     if (aresta.label === 'Discorda') votosPorIdeia[aresta.to].discorda += 1;
 });
@@ -175,7 +166,7 @@ nodesData.get().forEach(no => {
     }
 });
 
-// Calcular tamanho das ideias baseado em número de conexões
+// Calcular tamanho das ideias
 const contagemConexoes = {};
 todasAsArestas.forEach(aresta => {
     contagemConexoes[aresta.from] = (contagemConexoes[aresta.from] || 0) + 1;
@@ -186,7 +177,7 @@ nodesData.get().forEach(no => {
     if (no.tipo === "ideia") {
         const numConexoes = contagemConexoes[no.id] || 0;
         const tamanhoBase = 25;
-        const fatorEscala = 10; // Tamanho das ideias
+        const fatorEscala = 10; 
         const tamanhoNovo = tamanhoBase + (numConexoes * fatorEscala);
         nodesData.update({ id: no.id, size: tamanhoNovo });
     }
@@ -201,22 +192,13 @@ const options = {
             strokeWidth: 3,
             strokeColor: "#ffffff"
         },
-        chosen: {
-            label: false
-        }
+        chosen: { label: false }
     },
     edges: {
         width: 3,
         length: 200,
-        arrows: {
-            to: {
-                enabled: true,
-                scaleFactor: 0.8
-            }
-        },
-        smooth: {
-            type: "dynamic"
-        },
+        arrows: { to: { enabled: true, scaleFactor: 0.8 } },
+        smooth: { type: "dynamic" },
         font: {
             align: "top",
             size: 12,
@@ -229,6 +211,10 @@ const options = {
 };
 
 const network = new vis.Network(container, data, options);
+
+// ==========================================================================
+// Timeline e Controles
+// ==========================================================================
 
 const timeline = document.getElementById('timeline');
 const timelineToggle = document.getElementById('timeline-toggle');
@@ -250,20 +236,19 @@ function mostrarTimeline() {
     timeline.classList.remove('timeline-collapsed');
     timelineVisivel = true;
     timelineToggle.classList.add('timeline-open');
+    sincronizarFiltroComTimeline();
 }
 
 function ocultarTimeline() {
     timeline.classList.add('timeline-collapsed');
     timelineVisivel = false;
     timelineToggle.classList.remove('timeline-open');
+    sincronizarFiltroComTimeline();
 }
 
 function alternarTimeline() {
-    if (timelineVisivel) {
-        ocultarTimeline();
-    } else {
-        mostrarTimeline();
-    }
+    if (timelineVisivel) ocultarTimeline();
+    else mostrarTimeline();
 }
 
 timelineToggle.addEventListener('click', alternarTimeline);
@@ -340,11 +325,8 @@ function iniciarAnimacaoTimeline() {
 }
 
 botaoPlay.addEventListener("click", () => {
-    if (timerTimeline) {
-        pararAnimacaoTimeline();
-    } else {
-        iniciarAnimacaoTimeline();
-    }
+    if (timerTimeline) pararAnimacaoTimeline();
+    else iniciarAnimacaoTimeline();
 });
 
 slider.addEventListener("input", (e)=>{
@@ -416,9 +398,6 @@ function resetarFiltro() {
   edgesData.update(edgesData.get().map(e => ({ id: e.id, color: { color: e.original_color, opacity: 1 } })));
 }
 
-// Versão genérica de aplicarFiltro: destaca um conjunto de nós e um conjunto de
-// arestas específicas (em vez de somente os vizinhos diretos de um único nó).
-// Usada pela ferramenta de interseção entre autores.
 function aplicarFiltroConjunto(idsNosDestacados, idsArestasDestacadas) {
   const destacados = new Set(idsNosDestacados);
   const arestas = new Set(idsArestasDestacadas);
@@ -439,35 +418,24 @@ function aplicarFiltroConjunto(idsNosDestacados, idsArestasDestacadas) {
 }
 
 function atualizarTimeline(ano){
-    document
-        .getElementById("timeline-year")
-        .textContent = ano;
+    document.getElementById("timeline-year").textContent = ano;
     const atualizacoes = [];
     nodesData.forEach(node=>{
-        atualizacoes.push({
-            id:node.id,
-            hidden:node.ano > ano
-        });
+        atualizacoes.push({ id:node.id, hidden:node.ano > ano });
     });
     nodesData.update(atualizacoes);
     atualizarArestas();
 }
 
 function atualizarTimelineIntervalo(inicio, fim) {
-    document
-        .getElementById("timeline-year")
-        .textContent = `${inicio} - ${fim}`;
-
+    document.getElementById("timeline-year").textContent = `${inicio} - ${fim}`;
     const atualizacoes = [];
     nodesData.forEach(node => {
         let hidden = false;
         if (node.tipo === 'epistemologo') {
             hidden = node.ano < inicio || node.ano > fim;
         }
-        atualizacoes.push({
-            id: node.id,
-            hidden
-        });
+        atualizacoes.push({ id: node.id, hidden });
     });
     nodesData.update(atualizacoes);
     atualizarArestas();
@@ -477,11 +445,9 @@ function atualizarArestas(){
     const allNodes = nodesData.get();
     const nodeById = new Map(allNodes.map(node => [node.id, node]));
 
-    // 1) Descobrir ideias que têm pelo menos um autor visível conectado
     const ideiasComAutorVisivel = new Set();
     edgesData.forEach(edge => {
         if (edge.tipo !== 'autor-idea') return;
-
         const autor = nodeById.get(edge.from);
         const ideia = nodeById.get(edge.to);
         if (!autor || !ideia) return;
@@ -491,11 +457,9 @@ function atualizarArestas(){
         }
     });
 
-    // 2) Ocultar ideias sem autor visível
     const ideiaUpdates = [];
     allNodes.forEach(node => {
         if (node.tipo !== 'ideia') return;
-
         const hiddenPorContexto = !!node.hidden;
         const hiddenSemAutorVisivel = !ideiasComAutorVisivel.has(node.id);
         ideiaUpdates.push({
@@ -505,12 +469,10 @@ function atualizarArestas(){
     });
     nodesData.update(ideiaUpdates);
 
-    // 3) Recalcular visibilidade das arestas com estado final dos nós
     const updates = [];
     edgesData.forEach(edge => {
         const origem = nodesData.get(edge.from);
         const destino = nodesData.get(edge.to);
-
         updates.push({
             id: edge.id,
             hidden: origem.hidden || destino.hidden
@@ -527,51 +489,17 @@ function exibirEpistemologo(noId) {
     mostrarSidebar();
     sidebarConteudo.innerHTML = `
             <h2>${dadosOriginais.nome}</h2>
-
-            <span class="meta-info">
-                ${dadosOriginais.escola}
-            </span>
-
+            <span class="meta-info">${dadosOriginais.escola}</span>
             <div style="margin:20px 0; text-align:center;">
-                <img
-                    src="${dadosOriginais.image}"
-                    alt="${dadosOriginais.nome}"
-                    style="
-                        width:180px;
-                        height:180px;
-                        object-fit:cover;
-                        border-radius:50%;
-                    "
-                >
+                <img src="${dadosOriginais.image}" alt="${dadosOriginais.nome}" style="width:180px; height:180px; object-fit:cover; border-radius:50%;">
             </div>
-
-            <p>
-                <strong>Nascimento:</strong>
-                ${dadosOriginais.data_nascimento}
-            </p>
-
-            <p>
-                <strong>Falecimento:</strong>
-                ${dadosOriginais.data_morte}
-            </p>
-
-            <p>
-                <strong>Escola Filosófica:</strong>
-                ${dadosOriginais.escola}
-            </p>
-
-            <p>
-                <strong>Obras principais:</strong>
-                ${dadosOriginais.livros.join(", ")}
-            </p>
-
+            <p><strong>Nascimento:</strong> ${dadosOriginais.data_nascimento}</p>
+            <p><strong>Falecimento:</strong> ${dadosOriginais.data_morte}</p>
+            <p><strong>Escola Filosófica:</strong> ${dadosOriginais.escola}</p>
+            <p><strong>Obras principais:</strong> ${dadosOriginais.livros.join(", ")}</p>
             <hr>
-
             <h3>Resumo</h3>
-
-            <p style="text-align:justify;">
-                ${dadosOriginais.resumo}
-            </p>
+            <p style="text-align:justify;">${dadosOriginais.resumo}</p>
         `;
 }
 
@@ -587,16 +515,140 @@ function exibirIdeia(noId) {
         <div style="margin: 15px 0; text-align:center;">
             <img src="${dadosOriginais.image}" alt="Ícone Ideia" style="width:80px; height:80px;">
         </div>
-        <blockquote class="citacao-ideia">
-            "${dadosOriginais.sentence}"
-        </blockquote>
+        <blockquote class="citacao-ideia">"${dadosOriginais.sentence}"</blockquote>
     `;
 }
+
+// ==========================================================================
+// Interseção entre autores (Seleção Direta no Grafo via Cliques)
+// ==========================================================================
+
+let modoInterseccao = false;
+let autoresInterseccao = new Set();
+
+const authorIntersectionToggle = document.getElementById('author-intersection-toggle');
+const authorIntersectionPanel = document.getElementById('author-intersection-panel');
+const authorIntersectionList = document.getElementById('author-intersection-list');
+const authorIntersectionClose = document.getElementById('author-intersection-close');
+const authorIntersectionHint = document.getElementById('author-intersection-hint');
+
+function alternarPainelInterseccao() {
+    modoInterseccao = !modoInterseccao;
+    
+    if (modoInterseccao) {
+        autoresInterseccao.clear();
+        authorIntersectionPanel.classList.remove('panel-hidden');
+        if (authorIntersectionHint) {
+            authorIntersectionHint.textContent = 'Modo Interseção Ativo: Clique nos autores no grafo com o botão ESQUERDO. Botão DIREITO em qualquer lugar limpa e sai.';
+        }
+        authorIntersectionList.innerHTML = '<p style="padding:5px; font-style:italic; color:#888;">Nenhum autor selecionado no grafo ainda.</p>';
+    } else {
+        limparTudoEFechar();
+    }
+}
+
+function atualizarInterseccaoDoGrafo() {
+    const selecionados = Array.from(autoresInterseccao);
+
+    if (selecionados.length === 0) {
+        authorIntersectionList.innerHTML = '<p style="padding:5px; font-style:italic; color:#888;">Nenhum autor selecionado no grafo ainda.</p>';
+        resetarFiltro();
+        ocultarSidebar();
+        network.unselectNodes();
+        return;
+    }
+
+    const nomesLista = selecionados.map(id => `<li>• <strong>${nodesData.get(id).label}</strong></li>`).join('');
+    authorIntersectionList.innerHTML = `<ul style="list-style:none; padding:5px; margin:0;">${nomesLista}</ul>`;
+
+    if (selecionados.length < 2) {
+        resetarFiltro();
+        ocultarSidebar();
+        network.selectNodes(selecionados); 
+        return;
+    }
+
+    const ideiasComuns = calcularInterseccaoDeIdeias(selecionados);
+
+    const nosDestacados = new Set([...selecionados, ...ideiasComuns]);
+    const arestasDestacadas = new Set();
+    edgesData.forEach(edge => {
+        if (edge.tipo === 'autor-idea' && selecionados.includes(edge.from) && ideiasComuns.has(edge.to)) {
+            arestasDestacadas.add(edge.id);
+        }
+        if (edge.tipo === 'ideia-idea' && ideiasComuns.has(edge.from) && ideiasComuns.has(edge.to)) {
+            arestasDestacadas.add(edge.id);
+        }
+    });
+
+    aplicarFiltroConjunto(nosDestacados, arestasDestacadas);
+    network.selectNodes(selecionados); 
+    mostrarSidebar();
+
+    const nomesAutores = selecionados.map(id => nodesData.get(id).label).join(', ');
+    const listaIdeias = [...ideiasComuns].map(id => `<li>${nodesData.get(id).label}</li>`).join('');
+
+    sidebarConteudo.innerHTML = `
+        <h2>Interseção entre autores</h2>
+        <span class="meta-info">${nomesAutores}</span>
+        <p style="margin-top:15px;"><strong>Ideias em comum:</strong></p>
+        <ul>${listaIdeias || '<li>Nenhuma ideia em comum</li>'}</ul>
+    `;
+}
+
+function limparTudoEFechar(e) {
+    if (e && typeof e.preventDefault === 'function') e.preventDefault(); 
+
+    modoInterseccao = false;
+    autoresInterseccao.clear();
+    
+    if (authorIntersectionHint) authorIntersectionHint.textContent = '';
+    authorIntersectionList.innerHTML = '';
+    
+    resetarFiltro();
+    ocultarSidebar();
+    network.unselectNodes();
+    
+    authorIntersectionPanel.classList.add('panel-hidden');
+}
+
+function calcularInterseccaoDeIdeias(idsAutores) {
+    const ideiasPorAutor = idsAutores.map(autorId => {
+        const conjunto = new Set();
+        edgesData.forEach(edge => {
+            if (edge.tipo === 'autor-idea' && edge.from === autorId) {
+                conjunto.add(edge.to);
+            }
+        });
+        return conjunto;
+    });
+
+    const [primeiro, ...resto] = ideiasPorAutor;
+    const ideiasComuns = new Set(
+        [...primeiro].filter(ideiaId => resto.every(conjunto => conjunto.has(ideiaId)))
+    );
+
+    return ideiasComuns;
+}
+
+
+// ==========================================================================
+// Ações de Eventos do Grafo (Cliques)
+// ==========================================================================
 
 network.on("click", function (params) {
     if (params.nodes.length > 0) {
         const noId = params.nodes[0];
         const noSelecionado = nodesData.get(noId);
+
+        if (modoInterseccao) {
+            if (noSelecionado.tipo === "epistemologo") {
+                if (autoresInterseccao.has(noId)) autoresInterseccao.delete(noId);
+                else autoresInterseccao.add(noId);
+                atualizarInterseccaoDoGrafo();
+            }
+            return;
+        }
 
         if (noSelecionado.tipo === "epistemologo") {
             exibirEpistemologo(noId);
@@ -608,10 +660,11 @@ network.on("click", function (params) {
         }
     } 
     else if (params.edges.length > 0) {
+        if (modoInterseccao) return;
+        
         mostrarSidebar();
         const arestaId = params.edges[0];
         const arestaSelecionada = edgesData.get(arestaId);
-        
         const noOrigem = nodesData.get(arestaSelecionada.from).label;
         const noDestino = nodesData.get(arestaSelecionada.to).label;
 
@@ -623,10 +676,25 @@ network.on("click", function (params) {
         `;
     }
     else {
+        // Se clicar no VAZIO do grafo, fechar o painel se estiver aberto
+        if (modoInterseccao) {
+            limparTudoEFechar();
+            return;
+        }
         resetarFiltro();
         ocultarSidebar();
     }
 });
+
+// Captura o clique com o botão DIREITO no grafo para fechar
+network.on("context", function (params) {
+    if (params.event) params.event.preventDefault();
+    limparTudoEFechar();
+});
+
+authorIntersectionToggle.addEventListener('click', alternarPainelInterseccao);
+
+if (authorIntersectionClose) authorIntersectionClose.addEventListener('click', limparTudoEFechar);
 
 // ==========================================================================
 // Filtro por autor (canto superior esquerdo)
@@ -662,148 +730,10 @@ authorFilterSelect.addEventListener('change', (e) => {
     exibirEpistemologo(autorId);
 });
 
-// A barra de filtro acompanha o botão da timeline: quando a timeline está
-// visível, ela desce para não ficar por baixo/colada na barra superior.
 function sincronizarFiltroComTimeline() {
     authorFilterPanel.classList.toggle('timeline-open', timelineVisivel);
-    sidebar.classList.toggle('timeline-open', timelineVisivel); // <-- ADICIONE ESTA LINHA
+    sidebar.classList.toggle('timeline-open', timelineVisivel);
 }
-
-const mostrarTimelineOriginal = mostrarTimeline;
-mostrarTimeline = function () {
-    mostrarTimelineOriginal();
-    sincronizarFiltroComTimeline();
-};
-
-const ocultarTimelineOriginal = ocultarTimeline;
-ocultarTimeline = function () {
-    ocultarTimelineOriginal();
-    sincronizarFiltroComTimeline();
-};
-
-// ==========================================================================
-// Interseção entre autores (canto inferior esquerdo)
-// ==========================================================================
-
-const authorIntersectionToggle = document.getElementById('author-intersection-toggle');
-const authorIntersectionPanel = document.getElementById('author-intersection-panel');
-const authorIntersectionList = document.getElementById('author-intersection-list');
-const authorIntersectionApply = document.getElementById('author-intersection-apply');
-const authorIntersectionClear = document.getElementById('author-intersection-clear');
-const authorIntersectionClose = document.getElementById('author-intersection-close');
-const authorIntersectionHint = document.getElementById('author-intersection-hint');
-
-function popularListaInterseccao() {
-    const autores = nodesData.get()
-        .filter(no => no.tipo === 'epistemologo')
-        .sort((a, b) => a.label.localeCompare(b.label, 'pt-BR'));
-
-    autores.forEach(autor => {
-        const linha = document.createElement('label');
-        linha.className = 'author-intersection-item';
-
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.value = autor.id;
-
-        linha.appendChild(checkbox);
-        linha.appendChild(document.createTextNode(autor.label));
-        authorIntersectionList.appendChild(linha);
-    });
-}
-
-function alternarPainelInterseccao() {
-    authorIntersectionPanel.classList.toggle('panel-hidden');
-}
-
-authorIntersectionToggle.addEventListener('click', alternarPainelInterseccao);
-authorIntersectionClose.addEventListener('click', () => {
-    authorIntersectionPanel.classList.add('panel-hidden');
-});
-
-// Descobre, para cada autor selecionado, o conjunto de ideias às quais ele
-// está ligado (concordando ou discordando) e devolve apenas as ideias
-// compartilhadas por TODOS os autores selecionados — como um caminho no
-// grafo que os conecta.
-function calcularInterseccaoDeIdeias(idsAutores) {
-    const ideiasPorAutor = idsAutores.map(autorId => {
-        const conjunto = new Set();
-        edgesData.forEach(edge => {
-            if (edge.tipo === 'autor-idea' && edge.from === autorId) {
-                conjunto.add(edge.to);
-            }
-        });
-        return conjunto;
-    });
-
-    const [primeiro, ...resto] = ideiasPorAutor;
-    const ideiasComuns = new Set(
-        [...primeiro].filter(ideiaId => resto.every(conjunto => conjunto.has(ideiaId)))
-    );
-
-    return ideiasComuns;
-}
-
-authorIntersectionApply.addEventListener('click', () => {
-    const idsSelecionados = Array.from(
-        authorIntersectionList.querySelectorAll('input[type="checkbox"]:checked')
-    ).map(cb => cb.value);
-
-    if (idsSelecionados.length < 2) {
-        authorIntersectionHint.textContent = 'Selecione ao menos dois autores.';
-        return;
-    }
-
-    const ideiasComuns = calcularInterseccaoDeIdeias(idsSelecionados);
-
-    if (ideiasComuns.size === 0) {
-        authorIntersectionHint.textContent = 'Esses autores não compartilham nenhuma ideia.';
-    } else {
-        authorIntersectionHint.textContent = `${ideiasComuns.size} ideia(s) em comum encontrada(s).`;
-    }
-
-    // Nós destacados: autores selecionados + ideias em comum
-    const nosDestacados = new Set([...idsSelecionados, ...ideiasComuns]);
-
-    // Arestas destacadas: todas as ligações autor-ideia entre os autores
-    // selecionados e as ideias em comum, além de possíveis ligações
-    // ideia-ideia entre essas próprias ideias em comum (formando o "caminho").
-    const arestasDestacadas = new Set();
-    edgesData.forEach(edge => {
-        if (edge.tipo === 'autor-idea' && idsSelecionados.includes(edge.from) && ideiasComuns.has(edge.to)) {
-            arestasDestacadas.add(edge.id);
-        }
-        if (edge.tipo === 'ideia-idea' && ideiasComuns.has(edge.from) && ideiasComuns.has(edge.to)) {
-            arestasDestacadas.add(edge.id);
-        }
-    });
-
-    aplicarFiltroConjunto(nosDestacados, arestasDestacadas);
-    mostrarSidebar();
-
-    const nomesAutores = idsSelecionados
-        .map(id => nodesData.get(id).label)
-        .join(', ');
-    const listaIdeias = [...ideiasComuns]
-        .map(id => `<li>${nodesData.get(id).label}</li>`)
-        .join('');
-
-    sidebarConteudo.innerHTML = `
-        <h2>Interseção entre autores</h2>
-        <span class="meta-info">${nomesAutores}</span>
-        <p style="margin-top:15px;"><strong>Ideias em comum:</strong></p>
-        <ul>${listaIdeias || '<li>Nenhuma ideia em comum</li>'}</ul>
-    `;
-});
-
-authorIntersectionClear.addEventListener('click', () => {
-    authorIntersectionList.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-        cb.checked = false;
-    });
-    authorIntersectionHint.textContent = '';
-    resetarFiltro();
-    ocultarSidebar();
-});
 
 // ==========================================================================
 // Modo escuro (engrenagem)
@@ -820,7 +750,6 @@ settingsToggle.addEventListener('click', () => {
 function aplicarModoEscuro(ativo) {
     document.body.classList.toggle('dark-mode', ativo);
 
-    // 1. Aplica as cores globais (afeta os epistemólogos e as arestas)
     network.setOptions({
         nodes: {
             font: {
@@ -836,14 +765,12 @@ function aplicarModoEscuro(ativo) {
         }
     });
 
-    // 2. Força os nós do tipo "ideia" a NÃO inverterem a cor do texto
     const updates = nodesData.get().map(no => {
         if (no.tipo === 'ideia') {
             return {
                 id: no.id,
-                font: {
-                    color: '#ffffff', 
-                    strokeColor: '#333333' 
+                font: { color: ativo ? '#f2ece2' : '#333333',
+                    strokeColor: ativo ? '#1b1815' : '#ffffff'
                 }
             };
         }
@@ -856,19 +783,21 @@ darkModeToggle.addEventListener('change', (e) => {
     aplicarModoEscuro(e.target.checked);
 });
 
-// Fecha os painéis flutuantes ao clicar fora deles
+// Fechar painéis flutuantes ao clicar fora
 document.addEventListener('click', (e) => {
     if (!authorIntersectionPanel.contains(e.target) && e.target !== authorIntersectionToggle && !authorIntersectionToggle.contains(e.target)) {
-        authorIntersectionPanel.classList.add('panel-hidden');
+        if (!modoInterseccao) authorIntersectionPanel.classList.add('panel-hidden');
     }
     if (!settingsPanel.contains(e.target) && e.target !== settingsToggle && !settingsToggle.contains(e.target)) {
         settingsPanel.classList.add('panel-hidden');
     }
-});
+}, true);
+
+// ==========================================================================
+// Inicialização do Sistema
+// ==========================================================================
 
 popularFiltroAutores();
-popularListaInterseccao();
-
 atualizarTimeline(2025);
 atualizarTextoBotaoPlay();
 atualizarUIControlesTimeline();
