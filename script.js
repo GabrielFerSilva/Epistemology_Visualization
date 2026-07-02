@@ -255,10 +255,16 @@ timelineToggle.addEventListener('click', alternarTimeline);
 
 function mostrarSidebar() {
     sidebar.classList.remove('sidebar-hidden');
+    sidebar.style.transform = 'translateX(0)';
+    sidebar.style.opacity = '1';
+    sidebar.style.pointerEvents = 'auto';
 }
 
 function ocultarSidebar() {
     sidebar.classList.add('sidebar-hidden');
+    sidebar.style.transform = 'translateX(100%)';
+    sidebar.style.opacity = '0';
+    sidebar.style.pointerEvents = 'none';
 }
 
 function atualizarUIControlesTimeline() {
@@ -532,19 +538,53 @@ const authorIntersectionList = document.getElementById('author-intersection-list
 const authorIntersectionClose = document.getElementById('author-intersection-close');
 const authorIntersectionHint = document.getElementById('author-intersection-hint');
 
-function alternarPainelInterseccao() {
-    modoInterseccao = !modoInterseccao;
+// Função vazia apenas para não quebrar inicializações
+function popularListaInterseccao() {}
+
+function limparTudoEFechar(e) {
+    if (e && typeof e.preventDefault === 'function') e.preventDefault(); 
+    if (e && typeof e.stopPropagation === 'function') e.stopPropagation(); 
+
+    modoInterseccao = false;
+    autoresInterseccao.clear();
     
+    if (authorIntersectionHint) authorIntersectionHint.textContent = '';
+    if (authorIntersectionList) authorIntersectionList.innerHTML = '<p style="padding:5px; font-style:italic; color:#888;">Nenhum autor selecionado no grafo ainda.</p>';
+    
+    resetarFiltro();
+    ocultarSidebar();
+    
+    // Atraso de 10ms previne o bug do background preso no Vis.js
+    setTimeout(() => {
+        network.unselectNodes();
+    }, 10);
+    
+    if (authorIntersectionPanel) authorIntersectionPanel.classList.add('panel-hidden');
+}
+
+// Lógica de "interruptor": um clique abre, outro clique fecha!
+function alternarPainelInterseccao(e) {
+    if (e && typeof e.preventDefault === 'function') e.preventDefault();
+    if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
+
     if (modoInterseccao) {
+        limparTudoEFechar();
+    } else {
+        modoInterseccao = true;
         autoresInterseccao.clear();
-        authorIntersectionPanel.classList.remove('panel-hidden');
+        if (authorIntersectionPanel) authorIntersectionPanel.classList.remove('panel-hidden');
         if (authorIntersectionHint) {
             authorIntersectionHint.textContent = 'Modo Interseção Ativo: Clique nos autores no grafo com o botão ESQUERDO. Botão DIREITO em qualquer lugar limpa e sai.';
         }
-        authorIntersectionList.innerHTML = '<p style="padding:5px; font-style:italic; color:#888;">Nenhum autor selecionado no grafo ainda.</p>';
-    } else {
-        limparTudoEFechar();
+        if (authorIntersectionList) {
+            authorIntersectionList.innerHTML = '<p style="padding:5px; font-style:italic; color:#888;">Nenhum autor selecionado no grafo ainda.</p>';
+        }
     }
+}
+
+authorIntersectionToggle.addEventListener('click', alternarPainelInterseccao);
+if (authorIntersectionClose) {
+    authorIntersectionClose.addEventListener('click', limparTudoEFechar);
 }
 
 function atualizarInterseccaoDoGrafo() {
@@ -554,7 +594,7 @@ function atualizarInterseccaoDoGrafo() {
         authorIntersectionList.innerHTML = '<p style="padding:5px; font-style:italic; color:#888;">Nenhum autor selecionado no grafo ainda.</p>';
         resetarFiltro();
         ocultarSidebar();
-        network.unselectNodes();
+        setTimeout(() => network.unselectNodes(), 10);
         return;
     }
 
@@ -564,7 +604,7 @@ function atualizarInterseccaoDoGrafo() {
     if (selecionados.length < 2) {
         resetarFiltro();
         ocultarSidebar();
-        network.selectNodes(selecionados); 
+        setTimeout(() => network.selectNodes(selecionados), 10); 
         return;
     }
 
@@ -582,7 +622,7 @@ function atualizarInterseccaoDoGrafo() {
     });
 
     aplicarFiltroConjunto(nosDestacados, arestasDestacadas);
-    network.selectNodes(selecionados); 
+    setTimeout(() => network.selectNodes(selecionados), 10); 
     mostrarSidebar();
 
     const nomesAutores = selecionados.map(id => nodesData.get(id).label).join(', ');
@@ -594,22 +634,6 @@ function atualizarInterseccaoDoGrafo() {
         <p style="margin-top:15px;"><strong>Ideias em comum:</strong></p>
         <ul>${listaIdeias || '<li>Nenhuma ideia em comum</li>'}</ul>
     `;
-}
-
-function limparTudoEFechar(e) {
-    if (e && typeof e.preventDefault === 'function') e.preventDefault(); 
-
-    modoInterseccao = false;
-    autoresInterseccao.clear();
-    
-    if (authorIntersectionHint) authorIntersectionHint.textContent = '';
-    authorIntersectionList.innerHTML = '';
-    
-    resetarFiltro();
-    ocultarSidebar();
-    network.unselectNodes();
-    
-    authorIntersectionPanel.classList.add('panel-hidden');
 }
 
 function calcularInterseccaoDeIdeias(idsAutores) {
@@ -637,64 +661,66 @@ function calcularInterseccaoDeIdeias(idsAutores) {
 // ==========================================================================
 
 network.on("click", function (params) {
-    if (params.nodes.length > 0) {
-        const noId = params.nodes[0];
-        const noSelecionado = nodesData.get(noId);
+    // Usamos um pequeno timeout para evitar que as manipulações de dados corrompam o estado do ponteiro do mouse no Vis.js
+    setTimeout(() => {
+        if (params.nodes.length > 0) {
+            const noId = params.nodes[0];
+            const noSelecionado = nodesData.get(noId);
 
-        if (modoInterseccao) {
-            if (noSelecionado.tipo === "epistemologo") {
-                if (autoresInterseccao.has(noId)) autoresInterseccao.delete(noId);
-                else autoresInterseccao.add(noId);
-                atualizarInterseccaoDoGrafo();
+            if (modoInterseccao) {
+                if (noSelecionado.tipo === "epistemologo") {
+                    if (autoresInterseccao.has(noId)) autoresInterseccao.delete(noId);
+                    else autoresInterseccao.add(noId);
+                    atualizarInterseccaoDoGrafo();
+                }
+                return;
             }
-            return;
-        }
 
-        if (noSelecionado.tipo === "epistemologo") {
-            exibirEpistemologo(noId);
-        } else if (noSelecionado.tipo === "ideia") {
-            exibirIdeia(noId);
-        } else {
-            resetarFiltro();
+            if (noSelecionado.tipo === "epistemologo") {
+                exibirEpistemologo(noId);
+            } else if (noSelecionado.tipo === "ideia") {
+                exibirIdeia(noId);
+            } else {
+                resetarFiltro();
+                mostrarSidebar();
+            }
+        } 
+        else if (params.edges.length > 0) {
+            if (modoInterseccao) return;
+            
             mostrarSidebar();
-        }
-    } 
-    else if (params.edges.length > 0) {
-        if (modoInterseccao) return;
-        
-        mostrarSidebar();
-        const arestaId = params.edges[0];
-        const arestaSelecionada = edgesData.get(arestaId);
-        const noOrigem = nodesData.get(arestaSelecionada.from).label;
-        const noDestino = nodesData.get(arestaSelecionada.to).label;
+            const arestaId = params.edges[0];
+            const arestaSelecionada = edgesData.get(arestaId);
+            const noOrigem = nodesData.get(arestaSelecionada.from).label;
+            const noDestino = nodesData.get(arestaSelecionada.to).label;
 
-        sidebarConteudo.innerHTML = `
-            <h2>Conexão: ${arestaSelecionada.label || 'Sem Nome'}</h2>
-            <p style="margin-top: 15px;"><strong>Conecta:</strong> ${noOrigem} ➔ ${noDestino}</p>
-            <p><strong>Livro de Referência:</strong> ${arestaSelecionada.book}</p>
-            <p><strong>Autor da Citação:</strong> ${arestaSelecionada.writer}</p>
-        `;
-    }
-    else {
-        // Se clicar no VAZIO do grafo, fechar o painel se estiver aberto
-        if (modoInterseccao) {
-            limparTudoEFechar();
-            return;
+            sidebarConteudo.innerHTML = `
+                <h2>Conexão: ${arestaSelecionada.label || 'Sem Nome'}</h2>
+                <p style="margin-top: 15px;"><strong>Conecta:</strong> ${noOrigem} ➔ ${noDestino}</p>
+                <p><strong>Livro de Referência:</strong> ${arestaSelecionada.book}</p>
+                <p><strong>Autor da Citação:</strong> ${arestaSelecionada.writer}</p>
+            `;
         }
-        resetarFiltro();
-        ocultarSidebar();
-    }
+        else {
+            // Se clicar no VAZIO do grafo, fechar o painel se estiver aberto
+            if (modoInterseccao) {
+                limparTudoEFechar();
+                return;
+            }
+            resetarFiltro();
+            ocultarSidebar();
+        }
+    }, 10);
 });
 
 // Captura o clique com o botão DIREITO no grafo para fechar
 network.on("context", function (params) {
     if (params.event) params.event.preventDefault();
-    limparTudoEFechar();
+    setTimeout(() => {
+        limparTudoEFechar();
+    }, 10);
 });
 
-authorIntersectionToggle.addEventListener('click', alternarPainelInterseccao);
-
-if (authorIntersectionClose) authorIntersectionClose.addEventListener('click', limparTudoEFechar);
 
 // ==========================================================================
 // Filtro por autor (canto superior esquerdo)
@@ -725,14 +751,17 @@ authorFilterSelect.addEventListener('change', (e) => {
         return;
     }
 
-    network.selectNodes([autorId]);
-    network.focus(autorId, { scale: 1, animation: { duration: 400 } });
+    setTimeout(() => {
+        network.selectNodes([autorId]);
+        network.focus(autorId, { scale: 1, animation: { duration: 400 } });
+    }, 10);
+    
     exibirEpistemologo(autorId);
 });
 
 function sincronizarFiltroComTimeline() {
-    authorFilterPanel.classList.toggle('timeline-open', timelineVisivel);
-    sidebar.classList.toggle('timeline-open', timelineVisivel);
+    if (authorFilterPanel) authorFilterPanel.classList.toggle('timeline-open', timelineVisivel);
+    if (sidebar) sidebar.classList.toggle('timeline-open', timelineVisivel);
 }
 
 // ==========================================================================
@@ -744,7 +773,7 @@ const settingsPanel = document.getElementById('settings-panel');
 const darkModeToggle = document.getElementById('dark-mode-toggle');
 
 settingsToggle.addEventListener('click', () => {
-    settingsPanel.classList.toggle('panel-hidden');
+    if (settingsPanel) settingsPanel.classList.toggle('panel-hidden');
 });
 
 function aplicarModoEscuro(ativo) {
@@ -769,9 +798,7 @@ function aplicarModoEscuro(ativo) {
         if (no.tipo === 'ideia') {
             return {
                 id: no.id,
-                font: { color: ativo ? '#f2ece2' : '#333333',
-                    strokeColor: ativo ? '#1b1815' : '#ffffff'
-                }
+                font: { color: '#333333', strokeColor: '#ffffff' }
             };
         }
         return { id: no.id };
@@ -785,11 +812,15 @@ darkModeToggle.addEventListener('change', (e) => {
 
 // Fechar painéis flutuantes ao clicar fora
 document.addEventListener('click', (e) => {
-    if (!authorIntersectionPanel.contains(e.target) && e.target !== authorIntersectionToggle && !authorIntersectionToggle.contains(e.target)) {
-        if (!modoInterseccao) authorIntersectionPanel.classList.add('panel-hidden');
+    if (authorIntersectionPanel && authorIntersectionToggle) {
+        if (!authorIntersectionPanel.contains(e.target) && !authorIntersectionToggle.contains(e.target)) {
+            if (!modoInterseccao) authorIntersectionPanel.classList.add('panel-hidden');
+        }
     }
-    if (!settingsPanel.contains(e.target) && e.target !== settingsToggle && !settingsToggle.contains(e.target)) {
-        settingsPanel.classList.add('panel-hidden');
+    if (settingsPanel && settingsToggle) {
+        if (!settingsPanel.contains(e.target) && !settingsToggle.contains(e.target)) {
+            settingsPanel.classList.add('panel-hidden');
+        }
     }
 }, true);
 
