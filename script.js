@@ -223,6 +223,7 @@ const options = {
 const network = new vis.Network(container, data, options);
 
 const sidebarConteudo = document.getElementById('conteudo-sidebar');
+const sidebar = document.getElementById('sidebar');
 
 const slider = document.getElementById("timeline-slider");
 const botaoPlay = document.getElementById("timeline-play");
@@ -233,6 +234,14 @@ const intervalWrap = document.getElementById("timeline-interval-wrap");
 
 let timerTimeline = null;
 let modoIntervalo = false;
+
+function mostrarSidebar() {
+    sidebar.classList.remove('sidebar-hidden');
+}
+
+function ocultarSidebar() {
+    sidebar.classList.add('sidebar-hidden');
+}
 
 function atualizarUIControlesTimeline() {
     if (modoIntervalo) {
@@ -457,6 +466,7 @@ function atualizarArestas(){
 
 network.on("click", function (params) {
     if (params.nodes.length > 0) {
+        mostrarSidebar();
         const noId = params.nodes[0];
         const noSelecionado = nodesData.get(noId); 
         const dadosOriginais = noSelecionado.dados;
@@ -530,6 +540,7 @@ network.on("click", function (params) {
         }
     } 
     else if (params.edges.length > 0) {
+        mostrarSidebar();
         const arestaId = params.edges[0];
         const arestaSelecionada = edgesData.get(arestaId);
         
@@ -545,6 +556,7 @@ network.on("click", function (params) {
     }
     else {
         resetarFiltro();
+        ocultarSidebar();
         sidebarConteudo.innerHTML = `
             <h2>Selecione algo</h2>
             <p>Clique em um nó (foto) ou em uma linha (aresta) para ver os detalhes aqui.</p>
@@ -555,3 +567,4 @@ network.on("click", function (params) {
 atualizarTimeline(2025);
 atualizarTextoBotaoPlay();
 atualizarUIControlesTimeline();
+ocultarSidebar();
