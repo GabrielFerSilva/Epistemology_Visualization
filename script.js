@@ -557,10 +557,7 @@ network.on("click", function (params) {
     else {
         resetarFiltro();
         ocultarSidebar();
-        sidebarConteudo.innerHTML = `
-            <h2>Selecione algo</h2>
-            <p>Clique em um nó (foto) ou em uma linha (aresta) para ver os detalhes aqui.</p>
-        `;
+        sidebarConteudo.innerHTML = ` `;
     }
 });
 
