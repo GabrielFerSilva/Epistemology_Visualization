@@ -869,7 +869,10 @@ function aplicarModoEscuro(ativo) {
         if (no.tipo === 'ideia') {
             return {
                 id: no.id,
-                font: { color: '#333333', strokeColor: '#ffffff' }
+                font: {
+                    color: ativo ? '#f2ece2' : '#333333',
+                    strokeColor: ativo ? '#1b1815' : '#ffffff'
+                }
             };
         }
         return { id: no.id };
