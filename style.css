@@ -403,6 +403,25 @@ html, body {
     transition: transform 0.2s ease, background 0.3s ease, border-color 0.3s ease;
 }
 
+#help-toggle{
+    position: fixed;
+    top: 12px;
+    right: 64px; /* fica ao lado do botão de configurações */
+    z-index: 20;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #b8a898;
+    background: #fff7ee;
+    color: #5d4a38;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
 #settings-toggle:hover{
     transform: rotate(30deg);
     background: #f9e9d8;
@@ -420,6 +439,21 @@ html, body {
     box-shadow: 0 2px 6px rgba(0,0,0,0.08);
     color: #5d4a38;
     transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+#help-panel{
+    position: fixed;
+    top: 60px;
+    right: 64px; /* alinha com o botão de ajuda */
+    z-index: 21;
+    background: #fff7ee;
+    border: 1px solid #b8a898;
+    border-radius: 8px;
+    padding: 12px 16px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    color: #5d4a38;
+    transition: background 0.3s ease, border-color 0.3s ease;
+    max-width: 320px;
 }
 
 #settings-panel h3{
@@ -488,7 +522,8 @@ html, body {
 }
 
 #author-intersection-panel.panel-hidden,
-#settings-panel.panel-hidden{
+#settings-panel.panel-hidden,
+#help-panel.panel-hidden{
     display: none;
 }
 
@@ -611,7 +646,8 @@ body.dark-mode #timeline-year{
 body.dark-mode #author-filter-panel,
 body.dark-mode #idea-filter-panel,
 body.dark-mode #settings-panel,
-body.dark-mode #author-intersection-panel{
+body.dark-mode #author-intersection-panel,
+body.dark-mode #help-panel{
     background: #211d18;
     border-color: #665640;
     color: #f2ece2;
@@ -626,6 +662,7 @@ body.dark-mode .author-intersection-actions button{
 }
 
 body.dark-mode #settings-toggle,
+body.dark-mode #help-toggle,
 body.dark-mode #author-intersection-toggle{
     background: #2c2620;
     border-color: #665640;

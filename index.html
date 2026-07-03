@@ -29,12 +29,23 @@
 
     <button id="settings-toggle" type="button" aria-label="Configurações de exibição">⚙</button>
 
+    <button id="help-toggle" type="button" aria-label="Como usar">?</button>
+
     <div id="settings-panel" class="panel-hidden">
         <h3>Configurações</h3>
         <label class="settings-row">
             <input type="checkbox" id="dark-mode-toggle">
             Modo escuro
         </label>
+    </div>
+
+    <div id="help-panel">
+        <h3>Como usar</h3>
+        <p>Bem-vindo! Use os filtros no canto superior esquerdo para localizar autores ou ideias. Clique nos nós do grafo para ver detalhes à direita. Use a linha do tempo para filtrar por ano e o botão de interseção para selecionar autores em comum.</p>
+        <p>Para explorar: selecione um autor ou ideia, clique no grafo, ou utilize o botão ▶ para animar a linha do tempo.</p>
+        <div class="author-intersection-actions" style="margin-top:10px;">
+            <button id="help-close" type="button">Fechar</button>
+        </div>
     </div>
 
     <button id="author-intersection-toggle" type="button" aria-label="Interseção entre autores">

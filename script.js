@@ -797,6 +797,30 @@ function sincronizarFiltroComTimeline() {
     if (sidebar) sidebar.classList.toggle('timeline-open', timelineVisivel);
 }
 
+// Painel de 'Como usar' (help)
+const helpToggle = document.getElementById('help-toggle');
+const helpPanel = document.getElementById('help-panel');
+const helpClose = document.getElementById('help-close');
+
+if (helpToggle && helpPanel) {
+    helpToggle.addEventListener('click', (e) => {
+        if (e && typeof e.preventDefault === 'function') e.preventDefault();
+        helpPanel.classList.toggle('panel-hidden');
+    });
+}
+
+if (helpClose && helpPanel) {
+    helpClose.addEventListener('click', (e) => {
+        if (e && typeof e.preventDefault === 'function') e.preventDefault();
+        helpPanel.classList.add('panel-hidden');
+    });
+}
+
+// Mostrar o painel de ajuda ao iniciar (script é executado após o DOM)
+if (helpPanel) {
+    helpPanel.classList.remove('panel-hidden');
+}
+
 // ==========================================================================
 // Modo escuro (engrenagem)
 // ==========================================================================
