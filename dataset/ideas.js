@@ -1,12 +1,12 @@
 const ideias = [{
     id: "I000000001",
-    label: "Ideia 1", 
+    label: "Ciência Normal", 
     ano: 1962,
-    categoria: "Incomensurabilidade",
+    categoria: "Categorização",
     color: "#f4d35e",
     size: 25,
     image: "assets/ideas/lampada.png",
-    sentence: "Não pode haver um conjunto de regras adequadas de escolha que se possam impor ao desejado comportamento individual nos casos concretos que os cientistas encontrarão no decorrer de suas careiras",
+    sentence: "Pesquisa científica baseada em conquistas passadas reconhecidas por uma comunidade como fundamento de sua prática, cujo objetivo é resolver quebra-cabeças dentro de um quadro teórico já aceito, não testar esse quadro."
 }, {
     id: "I000000002",
     label: "Incomensurabilidade", 
@@ -34,6 +34,60 @@ const ideias = [{
     size: 25,
     image: "assets/ideas/lampada.png",
     sentence: "É a situação em que a transição entre duas visões de mundo gera descompassos de significado localizados, restritos a um grupo específico de conceitos centrais.",
+},{
+    id: "I000000005",
+    label: "Paradigma", 
+    ano: 1962,
+    categoria: "Categorização",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Conjunto de exemplares, técnicas, valores e generalizações compartilhadas por uma comunidade de pesquisa, que determina quais problemas são legítimos e quais soluções são aceitáveis."
+},{
+    id: "I000000006",
+    label: "Anomalia", 
+    ano: 1962,
+    categoria: "Categorização",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Observação ou resultado que resiste à assimilação pelas categorias de um quadro teórico vigente, sem que isso implique seu abandono imediato."
+},{
+    id: "I000000007",
+    label: "Crise", 
+    ano: 1962,
+    categoria: "Categorização",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Período de insegurança em uma comunidade científica, gerado pelo acúmulo de anomalias não resolvidas, no qual as regras vigentes se tornam confusas e concorrentes."
+},{
+    id: "I000000008",
+    label: "Revolução Científica", 
+    ano: 1962,
+    categoria: "Categorização",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Substituição não cumulativa de um paradigma por outro incompatível, episódio análogo a uma mudança de gestalt, não redutível à lógica de confirmação/refutação."
+},{
+    id: "I000000009",
+    label: "Tensão Essencial", 
+    ano: 1962,
+    categoria: "Argumentação",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "A criatividade científica depende de um equilíbrio entre rigidez tradicional (apego a um quadro teórico) e flexibilidade para rompê-lo; convergência e divergência são igualmente necessárias ao progresso do conhecimento."
+},{
+    id: "I000000010",
+    label: "Insuficiência da Refutação Isolada", 
+    ano: 1962,
+    categoria: "Argumentação",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Uma anomalia ou resultado negativo isolado não é, por si só, suficiente para justificar o abandono de uma teoria ou quadro teórico; testes negativos costumam ser tolerados ou atribuídos a erro experimental."
 }];
 
 /*
