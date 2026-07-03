@@ -531,7 +531,7 @@ function exibirIdeia(noId) {
     mostrarSidebar();
     sidebarConteudo.innerHTML = `
         <h2>${dadosOriginais.label}</h2>
-        <span class="meta-info meta-ideia">ID do Vértice: #${noSelecionado.id}</span>
+        <span class="meta-info meta-ideia">Tópico: ${dadosOriginais.categoria}</span>
         <div style="margin: 15px 0; text-align:center;">
             <img src="${dadosOriginais.image}" alt="Ícone Ideia" style="width:80px; height:80px;">
         </div>
