@@ -309,12 +309,12 @@ html, body {
 }
 
 /* ==========================================================================
-   Filtro por autor (canto superior esquerdo)
+   Filtro por autor e por ideia (canto superior esquerdo)
    ========================================================================== */
 
-#author-filter-panel{
+#author-filter-panel,
+#idea-filter-panel {
     position: fixed;
-    top: 10px;
     left: 12px;
     z-index: 20;
     display: flex;
@@ -328,60 +328,44 @@ html, body {
     transition: top 0.35s ease, background 0.3s ease, border-color 0.3s ease;
     font-size: 12px;
     color: #5d4a38;
+    
+    /* ADICIONADO: Define largura fixa para ambos terem exatamente o mesmo tamanho */
+    width: 220px; 
+    box-sizing: border-box;
 }
 
-#author-filter-panel.timeline-open{
+#author-filter-panel {
+    top: 10px;
+}
+
+#author-filter-panel.timeline-open {
     top: 100px;
 }
 
-#author-filter-panel label{
-    font-weight: bold;
-}
-
-#author-filter-panel select{
-    border: 1px solid #b8a898;
-    background: #ffffff;
-    color: #5d4a38;
-    border-radius: 6px;
-    padding: 5px 6px;
-    font-size: 13px;
-    max-width: 220px;
-}
-
-#idea-filter-panel{
-    position: fixed;
+#idea-filter-panel {
     top: 80px; /* abaixo do painel de autor */
-    left: 12px;
-    z-index: 20;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    background: #fff7ee;
-    border: 1px solid #b8a898;
-    border-radius: 8px;
-    padding: 8px 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    transition: top 0.35s ease, background 0.3s ease, border-color 0.3s ease;
-    font-size: 12px;
-    color: #5d4a38;
 }
 
-#idea-filter-panel.timeline-open{
+#idea-filter-panel.timeline-open {
     top: 170px; /* desloca para baixo quando a timeline abre (80 + 90) */
 }
 
-#idea-filter-panel label{
+#author-filter-panel label,
+#idea-filter-panel label {
     font-weight: bold;
 }
 
-#idea-filter-panel select{
+/* Define que os menus suspensos ocupem 100% da largura da caixa */
+#author-filter-panel select,
+#idea-filter-panel select {
     border: 1px solid #b8a898;
     background: #ffffff;
     color: #5d4a38;
     border-radius: 6px;
     padding: 5px 6px;
     font-size: 13px;
-    max-width: 220px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* ==========================================================================
