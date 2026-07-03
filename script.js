@@ -212,9 +212,25 @@ const options = {
 const network = new vis.Network(container, data, options);
 
 const tamanhoPadraoBase = 40;
+const limiteZoomParaOcultarPadrao = 0.35;
+const gridToggle = document.getElementById('grid-toggle');
 
 function atualizarPadraoDeFundo(scale = 1) {
-    const tamanho = Math.max(16, Math.round(tamanhoPadraoBase * scale));
+    const escala = Number(scale) || 1;
+    const ocultarPeloZoom = escala <= limiteZoomParaOcultarPadrao;
+    const ocultarPeloToggle = gridToggle ? gridToggle.checked : false;
+    const deveOcultar = ocultarPeloZoom || ocultarPeloToggle;
+
+    if (!container) return;
+
+    container.classList.toggle('sem-grid', deveOcultar);
+
+    if (deveOcultar) {
+        container.style.removeProperty('background-size');
+        return;
+    }
+
+    const tamanho = Math.max(16, Math.round(tamanhoPadraoBase * escala));
     container.style.setProperty('background-size', `${tamanho}px ${tamanho}px`, 'important');
 }
 
@@ -894,14 +910,9 @@ if (edgeLabelsToggle) {
 // Configuração: Ocultar/Mostrar Detalhes do Fundo (Grid)
 // ==========================================================================
 
-const gridToggle = document.getElementById('grid-toggle');
-
 if (gridToggle) {
-    gridToggle.addEventListener('change', (e) => {
-        // O elemento 'container' já está definido no topo do script como o seu #grafo
-        if (container) {
-            container.classList.toggle('sem-grid', e.target.checked);
-        }
+    gridToggle.addEventListener('change', () => {
+        atualizarPadraoDeFundo(network.getScale());
     });
 }
 
