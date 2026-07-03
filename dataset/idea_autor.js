@@ -15,7 +15,7 @@ const conexoes_ideia_autor = [{
     sentence: "Sem sentença",
     book: "...",
     page: "...",
-    writer: "Sem autor"
+    writer: "Sem autor",
 },{
     id: "CIA00000003", 
     from: "E000002", 
@@ -24,7 +24,7 @@ const conexoes_ideia_autor = [{
     sentence: "Sem sentença",
     book: "...",
     page: "...",
-    writer: "Sem autor"
+    writer: "Sem autor",
 }, {
     id: "CIA00000004", 
     from: "E000004", 
@@ -33,5 +33,5 @@ const conexoes_ideia_autor = [{
     sentence: "Sem sentença",
     book: "...",
     page: "...",
-    writer: "Sem autor"
+    writer: "Sem autor",
 }];

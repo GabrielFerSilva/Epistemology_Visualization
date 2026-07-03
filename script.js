@@ -520,6 +520,11 @@ function exibirEpistemologo(noId) {
     const noSelecionado = nodesData.get(noId);
     const dadosOriginais = noSelecionado.dados;
 
+    // Converte o array de livros em uma lista HTML (<li>Livro A</li><li>Livro B</li>...)
+    const listaLivrosHTML = dadosOriginais.livros
+        .map(livro => `<li>${livro}</li>`)
+        .join("");
+
     aplicarFiltro(noId);
     mostrarSidebar();
     sidebarConteudo.innerHTML = `
@@ -531,7 +536,12 @@ function exibirEpistemologo(noId) {
             <p><strong>Nascimento:</strong> ${dadosOriginais.data_nascimento}</p>
             <p><strong>Falecimento:</strong> ${dadosOriginais.data_morte}</p>
             <p><strong>Escola Filosófica:</strong> ${dadosOriginais.escola}</p>
-            <p><strong>Obras principais:</strong> ${dadosOriginais.livros.join(", ")}</p>
+            
+            <p style="margin-bottom: 4px;"><strong>Obras principais:</strong></p>
+            <ul style="margin-top: 0; padding-left: 20px;">
+                ${listaLivrosHTML}
+            </ul>
+            
             <hr>
             <h3>Resumo</h3>
             <p style="text-align:justify;">${dadosOriginais.resumo}</p>
@@ -563,6 +573,49 @@ function exibirIdeia(noId) {
         </blockquote>
     `;
 }
+
+// ==========================================================================
+// Utilitário para recolher textos longos (Expandir / Recolher)
+// ==========================================================================
+function formatarTextoExpansivel(texto, limite = 150) {
+    if (!texto) return '<span>Sem citação disponível.</span>';
+    
+    if (texto.length <= limite) {
+        return `<span>"${texto}"</span>`;
+    }
+
+    const parteCurta = texto.substring(0, limite) + '...';
+    
+    return `
+        <div class="citacao-container">
+            <span class="citacao-curta">"${parteCurta}"</span>
+            <span class="citacao-longa" style="display: none;">"${texto}"</span>
+            <div style="margin-top: 8px; text-align: right;">
+                <button type="button" class="btn-expandir-citacao" onclick="alternarCitacao(this)">
+                    Ler citação completa ▾
+                </button>
+            </div>
+        </div>
+    `;
+}
+
+// Função global para o botão alternar a visibilidade
+window.alternarCitacao = function(botao) {
+    const container = botao.closest('.citacao-container');
+    if (!container) return;
+    const curta = container.querySelector('.citacao-curta');
+    const longa = container.querySelector('.citacao-longa');
+
+    if (curta && curta.style.display !== 'none') {
+        curta.style.display = 'none';
+        if (longa) longa.style.display = 'inline';
+        botao.innerHTML = 'Recolher citação ▴';
+    } else {
+        if (curta) curta.style.display = 'inline';
+        if (longa) longa.style.display = 'none';
+        botao.innerHTML = 'Ler citação completa ▾';
+    }
+};
 
 // ==========================================================================
 // Interseção entre autores (Seleção Direta no Grafo via Cliques)
@@ -733,11 +786,21 @@ network.on("click", function (params) {
             const noOrigem = nodesData.get(arestaSelecionada.from).label;
             const noDestino = nodesData.get(arestaSelecionada.to).label;
 
+            // Formata a citação (se existir) com limite de 150 caracteres
+            const citacaoFormatada = formatarTextoExpansivel(arestaSelecionada.sentence, 150);
+
             sidebarConteudo.innerHTML = `
                 <h2>Conexão: ${arestaSelecionada.label || 'Sem Nome'}</h2>
                 <p style="margin-top: 15px;"><strong>Conecta:</strong> ${noOrigem} ➔ ${noDestino}</p>
-                <p><strong>Livro de Referência:</strong> ${arestaSelecionada.book}</p>
-                <p><strong>Autor da Citação:</strong> ${arestaSelecionada.writer}</p>
+                <p><strong>Livro de Referência:</strong> ${arestaSelecionada.book || 'N/A'}</p>
+                <p><strong>Autor da Citação:</strong> ${arestaSelecionada.writer || 'N/A'}</p>
+                ${arestaSelecionada.sentence ? `
+                <div style="margin-top: 15px;">
+                    <strong>Citação:</strong>
+                    <blockquote class="citacao-ideia" style="margin-top: 5px;">
+                        ${citacaoFormatada}
+                    </blockquote>
+                </div>` : ''}
             `;
         }
         else {

@@ -388,7 +388,7 @@ html, body {
     background: #fff7ee;
     color: #5d4a38;
     border-radius: 50%;
-    font-size: 18px;
+    font-size: 12px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -734,5 +734,30 @@ body.dark-mode .author-intersection-item:hover {
 
 body.dark-mode .author-intersection-item.selected {
     background-color: #1b3320;
+    color: #81c784;
+}
+
+/* ==========================================================================
+   Botão Expandir/Recolher Citações na Sidebar
+   ========================================================================== */
+
+.btn-expandir-citacao {
+    background: none;
+    border: none;
+    color: #2e7d32;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 2px 4px;
+    transition: opacity 0.2s;
+    text-decoration: underline;
+}
+
+.btn-expandir-citacao:hover {
+    opacity: 0.8;
+}
+
+/* Modo escuro para o botão de citação */
+body.dark-mode .btn-expandir-citacao {
     color: #81c784;
 }
