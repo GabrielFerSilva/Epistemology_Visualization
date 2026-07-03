@@ -212,6 +212,20 @@ const options = {
 
 const network = new vis.Network(container, data, options);
 
+const tamanhoPadraoBase = 40;
+
+function atualizarPadraoDeFundo(scale = 1) {
+    const tamanho = Math.max(16, Math.round(tamanhoPadraoBase * scale));
+    container.style.setProperty('background-size', `${tamanho}px ${tamanho}px`, 'important');
+}
+
+network.on('zoom', function(params) {
+    const escala = (params && params.scale) || 1;
+    atualizarPadraoDeFundo(escala);
+});
+
+atualizarPadraoDeFundo(1);
+
 // ==========================================================================
 // Timeline e Controles
 // ==========================================================================
