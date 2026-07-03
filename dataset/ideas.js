@@ -97,6 +97,15 @@ const ideias = [{
     size: 25,
     image: "assets/ideas/lampada.png",
     sentence: "Argumento que sustenta ou defende a existência ou a relevância da ciência normal para o progresso científico."
+}, {
+    id: "I000000012",
+    label: "Pesquisa Normal", 
+    ano: 1962,
+    categoria: "Categorização",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "A pesquisa normal é o trabalho rotineiro e de aperfeiçoamento levado a cabo pelos cientistas. Eles não tentam testar ou deitar abaixo as teorias basilares da sua área, mas sim aplicá-las rigorosamente para resolver pequenos enigmas específicos definidos pelo paradigma em vigor."
 }];
 
 /*

@@ -1,12 +1,12 @@
 const conexoes_ideia_autor = [{
     id: "CIA00000001", 
     from: "E000003", 
-    to: "I000000001", 
+    to: "I000000012", 
     label: "Concorda", 
-    sentence: "Não pode haver um conjunto de regras adequadas...",
-    book: "Criticism and the Growth of Knowledge",
-    page: "p. 79",
-    writer: "Thomas Kuhn"
+    sentence: "A Pesquisa Normal consiste, em grande parte, na solução dessas anomalias através de ajustamentos adequados, que deixam intacto o paradigma.",
+    book: "KUHN, Thomas S. A Estrutura das Revoluções Científicas. Tradução de Beatriz Vianna Boeira e Nelson Boeira. São Paulo: Editora Perspectiva, [1962].",
+    page: "44",
+    writer: "Thomas Kuhn",
 },{
     id: "CIA00000002", 
     from: "E000003", 
@@ -34,12 +34,12 @@ const conexoes_ideia_autor = [{
     book: "...",
     page: "...",
     writer: "Sem autor",
-}, {
+},{
     id: "CIA00000005", 
     from: "E000003", 
     to: "I000000005", 
     label: "Concorda", 
-    sentence: "Utilizei alhures o termo “paradigma” em lugar de “teoria” para denotar o que é rejeitado e substituído durante as revoluções científicas.",
+    sentence: "Utilizei alhures o termo 'paradigma' em lugar de “teoria” para denotar o que é rejeitado e substituído durante as revoluções científicas.",
     book: "KUHN, Thomas S. Lógica da descoberta ou psicologia da pesquisa? In: LAKATOS, Imre; MUSGRAVE, Alan (Org.). A Crítica e o Desenvolvimento do Conhecimento. Tradução de Octavio Mendes Cajado. São Paulo: Cultrix; Ed. da Universidade de São Paulo, 1979.",
     page: "6",
     writer: "Thomas Kuhn",
@@ -60,5 +60,23 @@ const conexoes_ideia_autor = [{
     sentence: "A ciência normal é uma atividade altamente determinada, mas não precisa ser inteiramente determinada por regras.",
     book: "KUHN, Thomas S. A Estrutura das Revoluções Científicas. Tradução de Beatriz Vianna Boeira e Nelson Boeira. São Paulo: Editora Perspectiva, [1962].",
     page: "70",
+    writer: "Thomas Kuhn",
+},{
+    id: "CIA00000008", 
+    from: "E000003", 
+    to: "I000000011", 
+    label: "Concorda", 
+    sentence: "A existência da ciência normal é um corolário da existência de revoluções, um ponto implícito no trabalho de Sir Karl e explícito no de Lakatos, Se ela não existisse (ou se fosse não-essencial, dispensável à ciência), as revoluções também estariam comprometidas.",
+    book: "KUHN, Thomas S. Reflexões sobre os meus críticos. In: LAKATOS, Imre; MUSGRAVE, Alan (Org.). A Crítica e o Desenvolvimento do Conhecimento. Tradução de Octavio Mendes Cajado. São Paulo: Cultrix; Ed. da Universidade de São Paulo, 1979.",
+    page: "288",
+    writer: "Thomas Kuhn",
+},{
+    id: "CIA00000009", 
+    from: "E000003", 
+    to: "I000000006", 
+    label: "Concorda", 
+    sentence: "A descoberta não surge quando algo caminha corretamente, mas quando alguma coisa se desvia; uma inovação que vai contra o que é esperado. Em resumo, o que parece ser uma anomalia.",
+    book: "KUHN, Thomas S. A Estrutura das Revoluções Científicas. Tradução de Beatriz Vianna Boeira e Nelson Boeira. São Paulo: Editora Perspectiva, [1962].",
+    page: "23",
     writer: "Thomas Kuhn",
 }];
