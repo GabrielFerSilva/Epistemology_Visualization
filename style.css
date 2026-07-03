@@ -449,12 +449,13 @@ html, body {
     font-size: 14px;
 }
 
-.settings-row{
+.settings-row {
     display: flex;
     align-items: center;
     gap: 8px;
     font-size: 13px;
     cursor: pointer;
+    user-select: none; /* Evita selecionar o texto sem querer ao clicar no checkbox */
 }
 
 /* ==========================================================================

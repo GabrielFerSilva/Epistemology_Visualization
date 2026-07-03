@@ -1,6 +1,5 @@
 const container = document.getElementById('grafo');
 const todosOsNos = [];
-
 const corBaseIdeia = '#f4d35e';
 const corConcorda = '#2e7d32';
 const corDiscorda = '#c62828';
@@ -836,6 +835,52 @@ if (helpPanel) {
 }
 
 // ==========================================================================
+// Configuração: Ocultar/Mostrar Textos das Flechas
+// ==========================================================================
+
+// Referência ao botão no HTML (coloque junto com os outros getElementById no topo ou final do arquivo)
+const edgeLabelsToggle = document.getElementById('edge-labels-toggle');
+
+// Função global para ocultar ou mostrar os textos das flechas
+function atualizarVisibilidadeTextosFlechas() {
+    if (!edgeLabelsToggle || !network) return;
+
+    const esconder = edgeLabelsToggle.checked;
+    const modoEscuroAtivo = document.body.classList.contains('dark-mode');
+
+    if (esconder) {
+        // Se for para esconder, reduzimos a fonte para 0 e deixamos transparente
+        network.setOptions({
+            edges: {
+                font: {
+                    size: 0,
+                    color: 'transparent',
+                    background: 'transparent',
+                    strokeWidth: 0
+                }
+            }
+        });
+    } else {
+        // Se for para mostrar, restauramos o tamanho e as cores originais
+        network.setOptions({
+            edges: {
+                font: {
+                    size: 11, // Tamanho padrão da fonte das flechas
+                    color: modoEscuroAtivo ? '#f2ece2' : '#343434',
+                    background: modoEscuroAtivo ? 'rgba(33, 29, 24, 0.8)' : 'rgba(255, 255, 255, 0.8)',
+                    strokeWidth: 0
+                }
+            }
+        });
+    }
+}
+
+// Adiciona o ouvinte de clique no checkbox
+if (edgeLabelsToggle) {
+    edgeLabelsToggle.addEventListener('change', atualizarVisibilidadeTextosFlechas);
+}
+
+// ==========================================================================
 // Modo escuro (engrenagem)
 // ==========================================================================
 
@@ -882,6 +927,7 @@ function aplicarModoEscuro(ativo) {
 
 darkModeToggle.addEventListener('change', (e) => {
     aplicarModoEscuro(e.target.checked);
+    atualizarVisibilidadeTextosFlechas();
 });
 
 // Fechar painéis flutuantes ao clicar fora
