@@ -27,6 +27,11 @@ html, body {
     background-size: 20px 20px;
 }
 
+/* Remove o padrão de cruzadinhas/grid do fundo do grafo */
+#grafo.sem-grid {
+    background-image: none !important;
+}
+
 /* A barra lateral ocupa o restante (25% da largura) */
 #sidebar {
     position: absolute;

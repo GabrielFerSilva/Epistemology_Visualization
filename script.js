@@ -881,6 +881,21 @@ if (edgeLabelsToggle) {
 }
 
 // ==========================================================================
+// Configuração: Ocultar/Mostrar Detalhes do Fundo (Grid)
+// ==========================================================================
+
+const gridToggle = document.getElementById('grid-toggle');
+
+if (gridToggle) {
+    gridToggle.addEventListener('change', (e) => {
+        // O elemento 'container' já está definido no topo do script como o seu #grafo
+        if (container) {
+            container.classList.toggle('sem-grid', e.target.checked);
+        }
+    });
+}
+
+// ==========================================================================
 // Modo escuro (engrenagem)
 // ==========================================================================
 
