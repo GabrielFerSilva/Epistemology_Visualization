@@ -26,7 +26,7 @@ const epistemologos = [{
     resumo: "Thomas Kuhn é conhecido por sua teoria da revolução científica. Ele argumentou que a ciência avança por meio de paradigmas alternativos, onde os cientistas trabalham dentro de um quadro teórico compartilhado até que uma crise leve a uma mudança fundamental.",
     data_nascimento: "1922-07-18",
     data_morte: "1996-06-17",
-    livros: ["The Structure of Scientific Revolutions"],
+    livros: ["KUHN, Thomas S. A Estrutura das Revoluções Científicas. Tradução de Beatriz Vianna Boeira e Nelson Boeira. São Paulo: Editora Perspectiva."],
     image: "assets/photos/thomasKuhn.jpg",
 }, {
     id: "E000004",
@@ -46,6 +46,6 @@ const epistemologos = [{
     resumo: "Imre Lakatos foi um filósofo húngaro da matemática e da ciência, conhecido por sua tese sobre a falibilidade da matemática e sua metodologia de provas e refutações nos estágios pré-axiomáticos de desenvolvimento da disciplina, bem como por introduzir o conceito de 'research program' em sua metodologia dos programas de pesquisa científica",
     data_nascimento: "1922-11-09",
     data_morte: "1974-02-02",
-    livros: ["Lakatos, Musgrave ed. (1970). Criticism and the Growth of Knowledge. Cambridge: Cambridge University Press. ISBN 0521078261", "Lakatos (1977). The Methodology of Scientific Research Programmes: Philosophical Papers Volume 1. Cambridge: Cambridge University Press"],
+    livros: ["LAKATOS, Imre; MUSGRAVE, Alan (Org.). A Crítica e o Desenvolvimento do Conhecimento. Tradução de Octavio Mendes Cajado. São Paulo: Cultrix; Ed. da Universidade de São Paulo, 1979."],
     image: "assets/photos/imreLakatos.jpeg",
 }];

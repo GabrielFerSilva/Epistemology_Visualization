@@ -88,6 +88,15 @@ const ideias = [{
     size: 25,
     image: "assets/ideas/lampada.png",
     sentence: "Uma anomalia ou resultado negativo isolado não é, por si só, suficiente para justificar o abandono de uma teoria ou quadro teórico; testes negativos costumam ser tolerados ou atribuídos a erro experimental."
+}, {
+    id: "I000000011",
+    label: "Existência da Ciência Normal", 
+    ano: 1962,
+    categoria: "Argumentação",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Argumento que sustenta ou defende a existência ou a relevância da ciência normal para o progresso científico."
 }];
 
 /*
