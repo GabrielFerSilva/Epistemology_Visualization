@@ -948,6 +948,7 @@ document.addEventListener('click', (e) => {
 // Inicialização do Sistema
 // ==========================================================================
 
+atualizarVisibilidadeTextosFlechas(); // pra não ficar pulando na tela na 1a vez que carrega
 popularFiltroAutores();
 popularFiltroIdeias();
 atualizarTimeline(2025);
