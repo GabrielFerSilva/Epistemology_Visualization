@@ -526,15 +526,25 @@ function exibirIdeia(noId) {
     const noSelecionado = nodesData.get(noId);
     const dadosOriginais = noSelecionado.dados;
 
+    // Busca a cor no dicionário pelo nome do tópico. 
+    // Se não encontrar no dicionário, usa a cor padrão verde (#4caf50)
+    const corTopico = corPadraoBordaPorTopico[dadosOriginais.categoria] || '#4caf50';
+
     resetarFiltro();
     mostrarSidebar();
+    
+    // Aplicamos a corTopico no style da meta-info (fundo) e da citação (borda esquerda)
     sidebarConteudo.innerHTML = `
         <h2>${dadosOriginais.label}</h2>
-        <span class="meta-info meta-ideia">Tópico: ${dadosOriginais.categoria}</span>
+        <span class="meta-info meta-ideia" style="background-color: ${corTopico}; color: #ffffff;">
+            Tópico: ${dadosOriginais.categoria}
+        </span>
         <div style="margin: 15px 0; text-align:center;">
             <img src="${dadosOriginais.image}" alt="Ícone Ideia" style="width:80px; height:80px;">
         </div>
-        <blockquote class="citacao-ideia">"${dadosOriginais.sentence}"</blockquote>
+        <blockquote class="citacao-ideia" style="border-left-color: ${corTopico};">
+            "${dadosOriginais.sentence}"
+        </blockquote>
     `;
 }
 
