@@ -723,11 +723,16 @@ network.on("context", function (params) {
 
 
 // ==========================================================================
-// Filtro por autor (canto superior esquerdo)
+// Filtro por autor e ideia (canto superior esquerdo)
 // ==========================================================================
 
+// Filtro por autor
 const authorFilterPanel = document.getElementById('author-filter-panel');
 const authorFilterSelect = document.getElementById('author-filter-select');
+
+// Filtro por ideia
+const ideaFilterPanel = document.getElementById('idea-filter-panel');
+const ideaFilterSelect = document.getElementById('idea-filter-select');
 
 function popularFiltroAutores() {
     const autores = nodesData.get()
@@ -739,6 +744,19 @@ function popularFiltroAutores() {
         opcao.value = autor.id;
         opcao.textContent = autor.label;
         authorFilterSelect.appendChild(opcao);
+    });
+}
+
+function popularFiltroIdeias() {
+    const ideiasList = nodesData.get()
+        .filter(no => no.tipo === 'ideia')
+        .sort((a, b) => a.label.localeCompare(b.label, 'pt-BR'));
+
+    ideiasList.forEach(ideia => {
+        const opcao = document.createElement('option');
+        opcao.value = ideia.id;
+        opcao.textContent = ideia.label;
+        ideaFilterSelect.appendChild(opcao);
     });
 }
 
@@ -759,8 +777,23 @@ authorFilterSelect.addEventListener('change', (e) => {
     exibirEpistemologo(autorId);
 });
 
+ideaFilterSelect.addEventListener('change', (e) => {
+    const ideiaId = e.target.value;
+
+    if (!ideiaId) {
+        resetarFiltro();
+        ocultarSidebar();
+        return;
+    }
+
+    network.selectNodes([ideiaId]);
+    network.focus(ideiaId, { scale: 1, animation: { duration: 400 } });
+    exibirIdeia(ideiaId);
+});
+
 function sincronizarFiltroComTimeline() {
     if (authorFilterPanel) authorFilterPanel.classList.toggle('timeline-open', timelineVisivel);
+    if (ideaFilterPanel) ideaFilterPanel.classList.toggle('timeline-open', timelineVisivel);
     if (sidebar) sidebar.classList.toggle('timeline-open', timelineVisivel);
 }
 
@@ -829,6 +862,7 @@ document.addEventListener('click', (e) => {
 // ==========================================================================
 
 popularFiltroAutores();
+popularFiltroIdeias();
 atualizarTimeline(2025);
 atualizarTextoBotaoPlay();
 atualizarUIControlesTimeline();
