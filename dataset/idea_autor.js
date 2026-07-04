@@ -115,4 +115,151 @@ const conexoes_ideia_autor = [{
     book: "POPPER, Karl. A Ciência Normal e Seus Perigos. In: LAKATOS, Imre; MUSGRAVE, Alan (Org.). A Crítica e o Desenvolvimento do Conhecimento. Tradução de Octavio Mendes Cajado. São Paulo: Cultrix; Ed. da Universidade de São Paulo, 1979.",
     page: "65",
     writer: "Karl Popper",
+},
+// Continuação do array conexoes_ideia_autor
+{
+    id: "CIA00000014",
+    from: "E000003",
+    to: "I000000013",
+    label: "Concorda",
+    sentence: "Não pode haver um conjunto de regras adequadas de escolha que se possam impor ao desejado comportamento individual nos casos concretos que os cientistas encontrarão no decorrer de suas carreiras.",
+    book: "Lógica da Descoberta ou Psicologia da Pesquisa? (In: A Crítica e o Desenvolvimento do Conhecimento)",
+    page: "20",
+    writer: "Thomas Kuhn"
+}, {
+    id: "CIA00000015",
+    from: "E000001",
+    to: "I000000014",
+    label: "Concorda",
+    sentence: "O conhecimento não pode ser gerado de modo puramente intelectual; ele deve ser baseado na observação, no experimento e na indução sistemática.",
+    book: "Novum Organum ou Verdadeiras Indicações Acerca da Interpretação da Natureza",
+    page: "Aforismo XIV",
+    writer: "Francis Bacon"
+}, {
+    id: "CIA00000016",
+    from: "E000001",
+    to: "I000000015",
+    label: "Concorda",
+    sentence: "A lógica tal como hoje é usada vale mais para consolidar e perpetuar erros, fundados em noções vulgares, que para a indagação da verdade, de sorte que é mais danosa do que útil.",
+    book: "Novum Organum ou Verdadeiras Indicações Acerca da Interpretação da Natureza",
+    page: "Aforismo XII",
+    writer: "Francis Bacon"
+}, {
+    id: "CIA00000017",
+    from: "E000001",
+    to: "I000000016",
+    label: "Concorda",
+    sentence: "Tudo o mais que o homem até aqui tem usado são aberrações... Aqui está por que a única esperança radica na verdadeira indução.",
+    book: "Novum Organum ou Verdadeiras Indicações Acerca da Interpretação da Natureza",
+    page: "Aforismo XIV",
+    writer: "Francis Bacon"
+}, {
+    id: "CIA00000018",
+    from: "E000001",
+    to: "I000000017",
+    label: "Concorda",
+    sentence: "Os ídolos e noções falsas que ora ocupam o intelecto humano e nele se acham implantados não somente o obstruem a ponto de ser difícil o acesso da verdade, como, mesmo depois de seu pórtico logrado, reviverão.",
+    book: "Novum Organum ou Verdadeiras Indicações Acerca da Interpretação da Natureza",
+    page: "Aforismo XXXVIII",
+    writer: "Francis Bacon"
+}, {
+    id: "CIA00000019",
+    from: "E000001",
+    to: "I000000018",
+    label: "Concorda",
+    sentence: "Os ídolos da tribo estão fundados na própria natureza humana, na própria tribo ou espécie humana. É falsa a asserção de que os sentidos do homem são a medida das coisas.",
+    book: "Novum Organum ou Verdadeiras Indicações Acerca da Interpretação da Natureza",
+    page: "Aforismo XLI",
+    writer: "Francis Bacon"
+}, {
+    id: "CIA00000020",
+    from: "E000001",
+    to: "I000000019",
+    label: "Concorda",
+    sentence: "Os ídolos da caverna são os dos homens enquanto indivíduos. Pois, cada um — além das aberrações próprias da natureza humana em geral — tem uma caverna ou uma cova que intercepta e corrompe a luz da natureza.",
+    book: "Novum Organum ou Verdadeiras Indicações Acerca da Interpretação da Natureza",
+    page: "Aforismo XLII",
+    writer: "Francis Bacon"
+}, {
+    id: "CIA00000021",
+    from: "E000001",
+    to: "I000000020",
+    label: "Concorda",
+    sentence: "Há também os ídolos do foro [ou do mercado] devido ao comércio e consórcio entre os homens. Com efeito, os homens se associam graças ao discurso, e as palavras são cunhadas pelo vulgo.",
+    book: "Novum Organum ou Verdadeiras Indicações Acerca da Interpretação da Natureza",
+    page: "Aforismo XLIII",
+    writer: "Francis Bacon"
+}, {
+    id: "CIA00000022",
+    from: "E000001",
+    to: "I000000021",
+    label: "Concorda",
+    sentence: "Há, por fim, ídolos que imigraram para o espírito dos homens por meio das diversas doutrinas filosóficas e também pelas regras viciosas da demonstração. A estes chamamos de Ídolos do Teatro.",
+    book: "Novum Organum ou Verdadeiras Indicações Acerca da Interpretação da Natureza",
+    page: "Aforismo XLIV",
+    writer: "Francis Bacon"
+}, {
+    id: "CIA00000023",
+    from: "E000002",
+    to: "I000000022",
+    label: "Concorda",
+    sentence: "O que me impressionou mais na teoria da relatividade de Einstein foi a clara afirmação do próprio Einstein de que consideraria sua teoria insustentável se ela viesse a falhar em certos testes.",
+    book: "Conjecturas e Refutações",
+    page: "36",
+    writer: "Karl Popper"
+}, {
+    id: "CIA00000024",
+    from: "E000002",
+    to: "I000000023",
+    label: "Concorda",
+    sentence: "O método da ciência é o método de conjecturas ousadas e de tentativas engenhosas e severas de refutá-las.",
+    book: "Conjecturas e Refutações",
+    page: "51",
+    writer: "Karl Popper"
+}, {
+    id: "CIA00000025",
+    from: "E000002",
+    to: "I000000024",
+    label: "Concorda",
+    sentence: "O critério de demarcação inerente à lógica indutiva equivale à exigência de que todos os enunciados da ciência empírica devem ser passíveis de uma decisão definitiva quanto à sua verdade e falsidade... Mas eu proponho a falseabilidade como critério.",
+    book: "A Lógica da Pesquisa Científica",
+    page: "40",
+    writer: "Karl Popper"
+}, {
+    id: "CIA00000026",
+    from: "E000002",
+    to: "I000000025",
+    label: "Concorda",
+    sentence: "Nenhuma teoria científica pode ser provada definitivamente verdadeira. Se ela sobrevive a repetidos e variados testes de falsificação ela ganha corroboração, mas permanece sempre conjectural.",
+    book: "A Lógica da Pesquisa Científica",
+    page: "45",
+    writer: "Karl Popper"
+}, {
+    id: "CIA00000027",
+    from: "E000002",
+    to: "I000000026",
+    label: "Concorda",
+    sentence: "Os testes e experimentos não servem para verificar ou comprovar a verdade de uma teoria, mas sim como instâncias rigorosas através das quais tentamos ativamente falseá-la.",
+    book: "A Lógica da Pesquisa Científica",
+    page: "42",
+    writer: "Karl Popper"
+}, {
+    id: "CIA00000028",
+    from: "E000006",
+    to: "I000000027",
+    label: "Concorda",
+    sentence: "O físico nunca pode submeter ao controle da experiência uma hipótese isolada, mas somente todo um conjunto de hipóteses. Nossos enunciados sobre o mundo exterior enfrentam o tribunal da experiência empírica como um corpo coletivo.",
+    book: "O Objetivo e a Estrutura da Teoria Física / Dois Dogmas do Empirismo",
+    page: "41",
+    writer: "Pierre Duhem / Willard Van Orman Quine"
+},
+, {
+    id: "CIA00000029",
+    from: "E000007",
+    to: "I000000027",
+    label: "Concorda",
+    sentence: "O físico nunca pode submeter ao controle da experiência uma hipótese isolada, mas somente todo um conjunto de hipóteses. Nossos enunciados sobre o mundo exterior enfrentam o tribunal da experiência empírica como um corpo coletivo.",
+    book: "O Objetivo e a Estrutura da Teoria Física / Dois Dogmas do Empirismo",
+    page: "41",
+    writer: "Pierre Duhem / Willard Van Orman Quine"
 }];

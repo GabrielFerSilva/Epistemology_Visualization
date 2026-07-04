@@ -106,94 +106,141 @@ const ideias = [{
     size: 25,
     image: "assets/ideas/lampada.png",
     sentence: "A pesquisa normal é o trabalho rotineiro e de aperfeiçoamento levado a cabo pelos cientistas. Eles não tentam testar ou deitar abaixo as teorias basilares da sua área, mas sim aplicá-las rigorosamente para resolver pequenos enigmas específicos definidos pelo paradigma em vigor."
-}];
+},
 
-/*
-const ideas = [{
-    id: "I000000001",
-    setence: "Não pode haver um conjunto de regras adequadas de escolha que se possam impor ao desejado comportamento individual nos casos concretos que os cientistas encontrarão no decorrer de suas carreiras",
-    book: "Criticism and the Growth of Knowledge",
-    writer: "Thomas Kuhn"
-},{
-    id: "I000000002",
-    setence: "O conhecimento não pode ser gerado de modo puramente intelectual, ele deve ser baseado na observação, experimento e indução",
-    book: "Novum Organum",
-    writer: "Francis Bacon"},
 {
-    id: "I000000003",
-    setence: "Métodos dedutivos so conseguem revelar conclusões que estavam escondidas nas premissas, não podem gerar conhecimentos novos por si próprios.",
-    book: "Novum Organum",
-    writer: "Francis Bacon"},
-{
-    id: "I000000004",
-    setence: "Indução: Podemos inferir leis gerais da natureza a partir da observação controlada, repetida e sistemática de fenômenos particulares",
-    book: "Novum Organum",
-    writer: "Francis Bacon"},
-{
-     id: "I000000005",
-    setence: "Os \"Ídolos\" de Bacon são tendências naturais do pensamento humano que distorcem nossa compreensão da realidade e dificultam a investigação científica objetiva.",
-    book: "Novum Organum",
-    writer: "Francis Bacon"
-},
-{
-    id: "I000000006",
-    setence: "Ídolos da Tribo: Erros da natureza humana, enxergar padrões e confirmações onde elas não existem por exemplo.",
-    book: "Novum Organum",
-    writer: "Francis Bacon"
-},
-{
-    id: "I000000007",
-    setence: "Ídolos da Caverna: Erros causados pelos vieses pessoais do observador, da sua \"caverna\" mental",
-    book: "Novum Organum",
-    writer: "Francis Bacon"
-},
-{
-    id: "I000000008",
-    setence: "Ídolos do Mercado: Erros gerados pela linguagem imprecisa e pelo uso confuso das palavras.",
-    book: "Novum Organum",
-    writer: "Francis Bacon"
-},
-{
-    id: "I000000009",
-    setence: "Ídolos do Teatro: Aceitação de sistemas intelectuais sem verificação. Confundir o teatro pela realidade. ",
-    book: "Novum Organum",
-    writer: "Francis Bacon"
-},
-{
-    id: "I0000000010",
-    setence: "Popper respeitava muito a Teoria da Relatividade de Einstein pois ela faz previsões arriscadas que podem ser falseadas",
-    book: "The Logic of Scientific Discovery",
-    writer: "Karl Popper"
-},
-{
-    id: "I0000000011",
-    setence: "A ciência avança por conjecturas ousadas e refutações, não pela verificação.",
-    book: "The Logic of Scientific Discovery",
-    writer: "Karl Popper"
-},
-{
-    id: "I0000000012",
-    setence: "Uma teoria é científica se, e somente se, é falseável.",
-    book: "The Logic of Scientific Discovery",
-    writer: "Karl Popper"
-},
-{
-    id: "I0000000013",
-    setence: "Nenhuma teoria científica é provada definitivamente verdadeira. Se a teoria sobreviveu a repetidos e variados testes de falsificação ela ganha reputação, mas nunca pode ser provada definitivamente verdadeira.",
-    book: "The Logic of Scientific Discovery",
-    writer: "Karl Popper"
-},
-{
-    id: "I0000000014",
-    setence: "Observação e experimentos são importantes como métodos pelos quais se tenta falsear uma teoria",
-    book: "The Logic of Scientific Discovery",
-    writer: "Karl Popper"
-},
-,
-{
-    id: "I0000000015",
-    setence: "Problema de Duhem-Quine: Verificar falseabilidade de um teoria de modo não ambíguo é impossível. Uma teoria nunca é testada isoladamente. Podemos sempre atribuir a falha de predição da teoria a um erro do experimento em si ou das hipóteses",
-    book: "The Aim and Structure of Physical Theory / Two Dogmas of Empiricism",
-    writer: "Pierre Duhem e Willard Van Orman Quine"
+    id: "I000000013",
+    label: "Escolha de Teorias", 
+    ano: 1970,
+    categoria: "Argumentação",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Não pode haver um conjunto de regras adequadas de escolha que se possam impor ao desejado comportamento individual nos casos concretos que os cientistas encontrarão no decorrer de suas carreiras."
+}, {
+    id: "I000000014",
+    label: "Base Empírica", 
+    ano: 1620,
+    categoria: "Argumentação",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "O conhecimento não pode ser gerado de modo puramente intelectual, ele deve ser baseado na observação, experimento e indução."
+}, {
+    id: "I000000015",
+    label: "Limitação da Dedução", 
+    ano: 1620,
+    categoria: "Argumentação",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Métodos dedutivos só conseguem revelar conclusões que estavam escondidas nas premissas, não podem gerar conhecimentos novos por si próprios."
+}, {
+    id: "I000000016",
+    label: "Método Indutivo", 
+    ano: 1620,
+    categoria: "Argumentação",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Indução: Podemos inferir leis gerais da natureza a partir da observação controlada, repetida e sistemática de fenômenos particulares."
+}, {
+    id: "I000000017",
+    label: "Teoria dos Ídolos", 
+    ano: 1620,
+    categoria: "Categorização",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Os \"Ídolos\" de Bacon são tendências naturais do pensamento humano que distorcem nossa compreensão da realidade e dificultam a investigação científica objetiva."
+}, {
+    id: "I000000018",
+    label: "Ídolos da Tribo", 
+    ano: 1620,
+    categoria: "Categorização",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Ídolos da Tribo: Erros da natureza humana, enxergar padrões e confirmações onde elas não existem por exemplo."
+}, {
+    id: "I000000019",
+    label: "Ídolos da Caverna", 
+    ano: 1620,
+    categoria: "Categorização",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Ídolos da Caverna: Erros causados pelos vieses pessoais do observador, da sua \"caverna\" mental."
+}, {
+    id: "I000000020",
+    label: "Ídolos do Mercado", 
+    ano: 1620,
+    categoria: "Categorização",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Ídolos do Mercado: Erros gerados pela linguagem imprecisa e pelo uso confuso das palavras."
+}, {
+    id: "I000000021",
+    label: "Ídolos do Teatro", 
+    ano: 1620,
+    categoria: "Categorização",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Ídolos do Teatro: Aceitação de sistemas intelectuais sem verificação. Confundir o teatro pela realidade."
+}, {
+    id: "I000000022",
+    label: "Previsões Arriscadas", 
+    ano: 1934,
+    categoria: "Argumentação",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Popper respeitava muito a Teoria da Relatividade de Einstein pois ela faz previsões arriscadas que podem ser falseadas."
+}, {
+    id: "I000000023",
+    label: "Conjecturas e Refutações", 
+    ano: 1934,
+    categoria: "Argumentação",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "A ciência avança por conjecturas ousadas e refutações, não pela verificação."
+}, {
+    id: "I000000024",
+    label: "Falseabilidade", 
+    ano: 1934,
+    categoria: "Argumentação",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Uma teoria é científica se, e somente se, é falseável."
+}, {
+    id: "I000000025",
+    label: "Incompletude da Prova", 
+    ano: 1934,
+    categoria: "Argumentação",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Nenhuma teoria científica é provada definitivamente verdadeira. Se a teoria sobreviveu a repetidos e variados testes de falsificação ela ganha reputação, mas nunca pode ser provada definitivamente verdadeira."
+}, {
+    id: "I000000026",
+    label: "Papel dos Testes", 
+    ano: 1934,
+    categoria: "Argumentação",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Observação e experimentos são importantes como métodos pelos quais se tenta falsear uma teoria."
+}, {
+    id: "I000000027",
+    label: "Tese Duhem-Quine", 
+    ano: 1951,
+    categoria: "Argumentação",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Problema de Duhem-Quine: Verificar falseabilidade de um teoria de modo não ambíguo é impossível. Uma teoria nunca é testada isoladamente. Podemos sempre atribuir a falha de predição da teoria a um erro do experimento em si ou das hipóteses."
 }];
-*/
