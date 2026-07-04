@@ -163,43 +163,8 @@ const conexoes_ideia_autor = [{
     book: "Novum Organum ou Verdadeiras Indicações Acerca da Interpretação da Natureza",
     page: "Aforismo XXXVIII",
     writer: "Francis Bacon"
-}, {
-    id: "CIA00000019",
-    from: "E000001",
-    to: "I000000018",
-    label: "Concorda",
-    sentence: "Os ídolos da tribo estão fundados na própria natureza humana, na própria tribo ou espécie humana. É falsa a asserção de que os sentidos do homem são a medida das coisas.",
-    book: "Novum Organum ou Verdadeiras Indicações Acerca da Interpretação da Natureza",
-    page: "Aforismo XLI",
-    writer: "Francis Bacon"
-}, {
-    id: "CIA00000020",
-    from: "E000001",
-    to: "I000000019",
-    label: "Concorda",
-    sentence: "Os ídolos da caverna são os dos homens enquanto indivíduos. Pois, cada um — além das aberrações próprias da natureza humana em geral — tem uma caverna ou uma cova que intercepta e corrompe a luz da natureza.",
-    book: "Novum Organum ou Verdadeiras Indicações Acerca da Interpretação da Natureza",
-    page: "Aforismo XLII",
-    writer: "Francis Bacon"
-}, {
-    id: "CIA00000021",
-    from: "E000001",
-    to: "I000000020",
-    label: "Concorda",
-    sentence: "Há também os ídolos do foro [ou do mercado] devido ao comércio e consórcio entre os homens. Com efeito, os homens se associam graças ao discurso, e as palavras são cunhadas pelo vulgo.",
-    book: "Novum Organum ou Verdadeiras Indicações Acerca da Interpretação da Natureza",
-    page: "Aforismo XLIII",
-    writer: "Francis Bacon"
-}, {
-    id: "CIA00000022",
-    from: "E000001",
-    to: "I000000021",
-    label: "Concorda",
-    sentence: "Há, por fim, ídolos que imigraram para o espírito dos homens por meio das diversas doutrinas filosóficas e também pelas regras viciosas da demonstração. A estes chamamos de Ídolos do Teatro.",
-    book: "Novum Organum ou Verdadeiras Indicações Acerca da Interpretação da Natureza",
-    page: "Aforismo XLIV",
-    writer: "Francis Bacon"
-}, {
+},
+{
     id: "CIA00000023",
     from: "E000002",
     to: "I000000022",
