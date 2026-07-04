@@ -106,6 +106,164 @@ const ideias = [{
     size: 25,
     image: "assets/ideas/lampada.png",
     sentence: "A pesquisa normal é o trabalho rotineiro e de aperfeiçoamento levado a cabo pelos cientistas. Eles não tentam testar ou deitar abaixo as teorias basilares da sua área, mas sim aplicá-las rigorosamente para resolver pequenos enigmas específicos definidos pelo paradigma em vigor."
+}, {
+    id: "I000000013",
+    label: "Escolha de Teorias", 
+    ano: 1970,
+    categoria: "Argumentação",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Não pode haver um conjunto de regras adequadas de escolha que se possam impor ao desejado comportamento individual nos casos concretos que os cientistas encontrarão no decorrer de suas carreiras."
+}, {
+    id: "I000000014",
+    label: "Base Empírica", 
+    ano: 1620,
+    categoria: "Argumentação",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "O conhecimento não pode ser gerado de modo puramente intelectual, ele deve ser baseado na observação, experimento e indução."
+}, {
+    id: "I000000015",
+    label: "Limitação da Dedução", 
+    ano: 1620,
+    categoria: "Argumentação",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Métodos dedutivos só conseguem revelar conclusões que estavam escondidas nas premissas, não podem gerar conhecimentos novos por si próprios."
+}, {
+    id: "I000000016",
+    label: "Método Indutivo", 
+    ano: 1620,
+    categoria: "Argumentação",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Indução: Podemos inferir leis gerais da natureza a partir da observação controlada, repetida e sistemática de fenômenos particulares."
+}, {
+    id: "I000000017",
+    label: "Teoria dos Ídolos", 
+    ano: 1620,
+    categoria: "Categorização",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Os \"Ídolos\" de Bacon são tendências naturais do pensamento humano que distorcem nossa compreensão da realidade e dificultam a investigação científica objetiva."
+}, {
+    id: "I000000018",
+    label: "Ídolos da Tribo", 
+    ano: 1620,
+    categoria: "Categorização",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Ídolos da Tribo: Erros da natureza humana, enxergar padrões e confirmações onde elas não existem por exemplo."
+}, {
+    id: "I000000019",
+    label: "Ídolos da Caverna", 
+    ano: 1620,
+    categoria: "Categorização",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Ídolos da Caverna: Erros causados pelos vieses pessoais do observador, da sua \"caverna\" mental."
+}, {
+    id: "I000000020",
+    label: "Ídolos do Mercado", 
+    ano: 1620,
+    categoria: "Categorização",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Ídolos do Mercado: Erros gerados pela linguagem imprecisa e pelo uso confuso das palavras."
+}, {
+    id: "I000000021",
+    label: "Ídolos do Teatro", 
+    ano: 1620,
+    categoria: "Categorização",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Ídolos do Teatro: Aceitação de sistemas intelectuais sem verificação. Confundir o teatro pela realidade."
+}, {
+    id: "I000000022",
+    label: "Previsões Arriscadas", 
+    ano: 1934,
+    categoria: "Argumentação",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Popper respeitava muito a Teoria da Relatividade de Einstein pois ela faz previsões arriscadas que podem ser falseadas."
+}, {
+    id: "I000000023",
+    label: "Conjecturas e Refutações", 
+    ano: 1934,
+    categoria: "Argumentação",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "A ciência avança por conjecturas ousadas e refutações, não pela verificação."
+}, {
+    id: "I000000024",
+    label: "Falseabilidade", 
+    ano: 1934,
+    categoria: "Argumentação",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Uma teoria é científica se, e somente se, é falseável."
+}, {
+    id: "I000000025",
+    label: "Incompletude da Prova", 
+    ano: 1934,
+    categoria: "Argumentação",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Nenhuma teoria científica é provada definitivamente verdadeira. Se a teoria sobreviveu a repetidos e variados testes de falsificação ela ganha reputação, mas nunca pode ser provada definitivamente verdadeira."
+}, {
+    id: "I000000026",
+    label: "Papel dos Testes", 
+    ano: 1934,
+    categoria: "Argumentação",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Observação e experimentos são importantes como métodos pelos quais se tenta falsear uma teoria."
+}, {
+    id: "I000000027",
+    label: "Tese Duhem-Quine", 
+    ano: 1951,
+    categoria: "Argumentação",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Problema de Duhem-Quine: Verificar falseabilidade de um teoria de modo não ambíguo é impossível. Uma teoria nunca é testada isoladamente. Podemos sempre atribuir a falha de predição da teoria a um erro do experimento em si ou das hipóteses."
+}, {
+    id: "I000000028",
+    label: "Tudo Vale (Anything Goes)",
+    size: 25,
+    categoria: "Metodologia",
+    ano: 1975,
+    sentence: "A ideia de que a ciência deve operar sob regras fixas sufoca a inovação; na pesquisa revolucionária, o único princípio defensável é o 'tudo vale'."
+},
+{
+    id: "I000000029",
+    label: "Proliferação de Teorias",
+    size: 20,
+    categoria: "Progresso Científico",
+    ano: 1975,
+    sentence: "A ciência progride melhor através da competição entre múltiplas teorias incompatíveis, evitando a estagnação dogmática de um único paradigma."
+},
+{
+    id: "I000000030",
+    label: "Perigo do Relativismo",
+    size: 20,
+    categoria: "Demarcação",
+    ano: 1976,
+    sentence: "A ausência total de padrões metodológicos de avaliação impede a distinção entre a ciência legítima, que produz resultados práticos, e outras crenças irracionais."
 }];
 
 /*

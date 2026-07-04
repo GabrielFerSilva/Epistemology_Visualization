@@ -104,6 +104,8 @@ conexoes_ideia_autor.forEach(c => {
     let cor = "#888";
     if(c.label === "Concorda") cor = "#2e7d32";
     if(c.label === "Discorda") cor = "#c62828";
+    if(c.label === "Criador") cor = '#c1d2dd';
+    if(c.label === "Neutro") cor = '#898989';
     todasAsArestas.push({
         id: c.id,
         from: c.from,
@@ -141,7 +143,7 @@ todasAsArestas.forEach(aresta => {
     if (!votosPorIdeia[aresta.to]) {
         votosPorIdeia[aresta.to] = { concorda: 0, discorda: 0 };
     }
-    if (aresta.label === 'Concorda') votosPorIdeia[aresta.to].concorda += 1;
+    if (aresta.label === 'Concorda' || aresta.label === 'Criador') votosPorIdeia[aresta.to].concorda += 1;
     if (aresta.label === 'Discorda') votosPorIdeia[aresta.to].discorda += 1;
 });
 
