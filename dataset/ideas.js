@@ -10,7 +10,7 @@ const ideias = [{
 }, {
     id: "I000000002",
     label: "Incomensurabilidade", 
-    ano: 1962,
+    ano: 1934,
     categoria: "Incomensurabilidade",
     color: "#f4d35e",
     size: 25,
