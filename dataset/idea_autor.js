@@ -118,6 +118,7 @@ const conexoes_ideia_autor = [{
 },
 // Continuação do array conexoes_ideia_autor
 {
+}, {
     id: "CIA00000014",
     from: "E000003",
     to: "I000000013",
@@ -262,4 +263,88 @@ const conexoes_ideia_autor = [{
     book: "O Objetivo e a Estrutura da Teoria Física / Dois Dogmas do Empirismo",
     page: "41",
     writer: "Pierre Duhem / Willard Van Orman Quine"
-}];
+},
+    // Conexões Feyerabend (E000004)
+    {
+        id: "CIA00000030",
+        from: "E000004",
+        to: "I000000028", 
+        label: "Criador",
+        sentence: "Há apenas um princípio que pode ser defendido em todas as circunstâncias e em todos os estágios do desenvolvimento humano. É o princípio: tudo vale.",
+        book: "Contra o Método",
+        writer: "Paul Feyerabend"
+    },
+    {
+        id: "CIA00000031",
+        from: "E000004",
+        to: "I000000029", 
+        label: "Criador",
+        sentence: "A proliferação de teorias é benéfica para a ciência, enquanto a uniformidade prejudica seu poder crítico. A uniformidade também ameaça o livre desenvolvimento do indivíduo.",
+        book: "Contra o Método",
+        writer: "Paul Feyerabend"
+    },
+    {
+        id: "CIA00000032",
+        from: "E000004",
+        to: "I000000001", 
+        label: "Discorda",
+        sentence: "Feyerabend vê a fase de 'ciência normal' descrita por Kuhn como um grave perigo para o pensamento crítico, argumentando que a imposição de um único paradigma assemelha-se a uma lavagem cerebral institucional.",
+        book: "Contra o Método",
+        writer: "Paul Feyerabend"
+    },
+    {
+        id: "CIA00000033",
+        from: "E000004",
+        to: "I000000002", 
+        label: "Criador", 
+        sentence: "Teorias universais e fundamentalmente divergentes podem ser incomensuráveis; a tentativa de avaliá-las sob um único padrão empírico neutro é ilusória.",
+        book: "Contra o Método",
+        writer: "Paul Feyerabend"
+    },
+    {
+        id: "CIA00000034",
+        from: "E000004",
+        to: "I000000030", 
+        label: "Discorda",
+        sentence: "Feyerabend não enxerga a ausência de um método absoluto como um 'perigo relativista' a ser evitado, mas sim como a constatação natural, libertadora e realista da natureza do conhecimento humano.",
+        book: "A Ciência em uma Sociedade Livre",
+        writer: "Paul Feyerabend"
+    },
+
+    // Conexões Chalmers (E000008)
+    {
+        id: "CIA00000035",
+        from: "E000008",
+        to: "I000000030", 
+        label: "Criador",
+        sentence: "Embora Feyerabend tenha demonstrado o fracasso de metodologias universais, sua conclusão de que não há padrão algum de avaliação do conhecimento científico é um passo ilegítimo e perigoso.",
+        book: "O que é ciência afinal?",
+        writer: "Alan F. Chalmers"
+    },
+    {
+        id: "CIA00000036",
+        from: "E000008",
+        to: "I000000028", 
+        label: "Discorda",
+        sentence: "Se o princípio de Feyerabend do 'tudo vale' for aceito na sua totalidade, e a ciência não for distinguível de outras formas de conhecimento como o vodu ou a astrologia, então os defensores da racionalidade têm motivos para se preocupar.",
+        book: "O que é ciência afinal?",
+        writer: "Alan F. Chalmers"
+    },
+    {
+        id: "CIA00000037",
+        from: "E000008",
+        to: "I000000001", 
+        label: "Neutro",
+        sentence: "Chalmers reconhece a precisão histórica da descrição de Kuhn sobre os períodos de ciência normal e resolução de quebra-cabeças, mas mantém uma postura analítica crítica quanto ao relativismo que essa estrutura pode implicar.",
+        book: "O que é ciência afinal?",
+        writer: "Alan F. Chalmers"
+    },
+    {
+        id: "CIA00000038",
+        from: "E000008",
+        to: "I000000002", 
+        label: "Neutro",
+        sentence: "Chalmers dedica extensas análises ao conceito de incomensurabilidade, admitindo a complexidade de comparar teorias rivais na ausência de uma linguagem neutra, mas rechaça o uso do conceito para justificar o vale-tudo metodológico.",
+        book: "O que é ciência afinal?",
+        writer: "Alan F. Chalmers"
+    }];

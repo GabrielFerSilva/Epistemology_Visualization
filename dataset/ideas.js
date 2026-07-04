@@ -106,9 +106,7 @@ const ideias = [{
     size: 25,
     image: "assets/ideas/lampada.png",
     sentence: "A pesquisa normal é o trabalho rotineiro e de aperfeiçoamento levado a cabo pelos cientistas. Eles não tentam testar ou deitar abaixo as teorias basilares da sua área, mas sim aplicá-las rigorosamente para resolver pequenos enigmas específicos definidos pelo paradigma em vigor."
-},
-
-{
+}, {
     id: "I000000013",
     label: "Escolha de Teorias", 
     ano: 1970,
@@ -243,4 +241,28 @@ const ideias = [{
     size: 25,
     image: "assets/ideas/lampada.png",
     sentence: "Problema de Duhem-Quine: Verificar falseabilidade de um teoria de modo não ambíguo é impossível. Uma teoria nunca é testada isoladamente. Podemos sempre atribuir a falha de predição da teoria a um erro do experimento em si ou das hipóteses."
+}, {
+    id: "I000000028",
+    label: "Tudo Vale (Anything Goes)",
+    size: 25,
+    categoria: "Metodologia",
+    ano: 1975,
+    sentence: "A ideia de que a ciência deve operar sob regras fixas sufoca a inovação; na pesquisa revolucionária, o único princípio defensável é o 'tudo vale'."
+},
+{
+    id: "I000000029",
+    label: "Proliferação de Teorias",
+    size: 20,
+    categoria: "Progresso Científico",
+    ano: 1975,
+    sentence: "A ciência progride melhor através da competição entre múltiplas teorias incompatíveis, evitando a estagnação dogmática de um único paradigma."
+},
+{
+    id: "I000000030",
+    label: "Perigo do Relativismo",
+    size: 20,
+    categoria: "Demarcação",
+    ano: 1976,
+    sentence: "A ausência total de padrões metodológicos de avaliação impede a distinção entre a ciência legítima, que produz resultados práticos, e outras crenças irracionais."
 }];
+
