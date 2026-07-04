@@ -36,8 +36,7 @@ const epistemologos = [{
     resumo: "Feyerabend é o principal proponente do anarquismo epistemológico. Em 'Contra o Método', ele argumenta que não existe um método científico universal, atemporal e aplicável a todas as ciências. Por análises históricas autorais de eventos como a revolução copernicana defendida por Galileu, Feyerabend evidencia que o progresso científico ocorreu justamente porque os cientistas violaram ativamente as regras metodológicas vigentes. Ele defende o princípio do 'tudo vale' (anything goes), afirmando que a imposição de dogmas procedurais ou racionalistas sufoca a criatividade e levaria a paralisia do avanço científico.",
     data_nascimento: "1924-01-13",
     data_morte: "1994-02-11",
-    livros: ["Contra o Método (1975)",
-        "A Ciência em uma Sociedade Livre (1978)"],
+    livros: ["Contra o Método (1975)"],
     image: "assets/photos/paulFeyerabend.jpg",
 },{
     id: "E000005",
@@ -77,7 +76,6 @@ const epistemologos = [{
     resumo: "Chalmers é um dos mais influentes sistematizadores da filosofia da ciência. Em sua obra de 1976, ele analisa e critica metodologias como o indutivismo, o falseacionismo de Popper e os paradigmas de Kuhn. Ao avaliar Feyerabend, Chalmers concorda que não há um método universal e a-histórico que garanta a verdade. No entanto, ele rejeita o anarquismo absoluto. Chalmers alerta que a aceitação irrestrita do 'tudo vale' conduz a um relativismo extremo, onde a física moderna e a astrologia possuiriam o mesmo peso cognitivo. Ele defende que a ciência possui padrões objetivos e avaliativos de progresso, mesmo que esses padrões evoluam historicamente.",
     data_nascimento: "1924-01-13",
     data_morte: "Vivo",
-    livros: ["O que é ciência afinal? (1976)",
-        "A Fabricação da Ciência (1990)"],
+    livros: ["O que é ciência afinal? (1976)"],
     image: "assets/photos/alanChalmers.jpg",
 }];

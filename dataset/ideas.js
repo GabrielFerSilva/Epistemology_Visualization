@@ -244,25 +244,30 @@ const ideias = [{
 }, {
     id: "I000000028",
     label: "Tudo Vale (Anything Goes)",
-    size: 25,
-    categoria: "Metodologia",
     ano: 1975,
-    sentence: "A ideia de que a ciência deve operar sob regras fixas sufoca a inovação; na pesquisa revolucionária, o único princípio defensável é o 'tudo vale'."
+    categoria: "Metodologia",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "A ideia de um método que contenha princípios firmes, imutáveis e absolutamente vinculativos esbarra em dificuldades históricas e sufoca a inovação. O único princípio defensável é o 'tudo vale'."
 },
 {
     id: "I000000029",
     label: "Proliferação de Teorias",
-    size: 20,
-    categoria: "Progresso Científico",
     ano: 1975,
-    sentence: "A ciência progride melhor através da competição entre múltiplas teorias incompatíveis, evitando a estagnação dogmática de um único paradigma."
+    categoria: "Progresso Científico",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "A proliferação de teorias incompatíveis é benéfica para a ciência, enquanto a exigência de uniformidade teórica prejudica seu poder crítico e paralisa o desenvolvimento."
 },
 {
     id: "I000000030",
     label: "Perigo do Relativismo",
-    size: 20,
-    categoria: "Demarcação",
     ano: 1976,
-    sentence: "A ausência total de padrões metodológicos de avaliação impede a distinção entre a ciência legítima, que produz resultados práticos, e outras crenças irracionais."
+    categoria: "Demarcação",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Se o princípio do 'tudo vale' for aceito na sua totalidade, a ciência não será distinguível de outras formas de conhecimento como a astrologia, caindo em um relativismo absoluto."
 }];
-

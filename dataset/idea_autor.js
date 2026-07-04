@@ -216,93 +216,133 @@ const conexoes_ideia_autor = [{
     page: "Parte II, Cap. VI, Seção 2",
     writer: "Pierre Duhem"
 },
-    // Conexões Feyerabend (E000004)
+
+    // Feyerabend
     {
         id: "CIA00000030",
         from: "E000004",
-        to: "I000000028", 
+        to: "I000000028",
         label: "Criador",
-        sentence: "Há apenas um princípio que pode ser defendido em todas as circunstâncias e em todos os estágios do desenvolvimento humano. É o princípio: tudo vale.",
-        book: "Contra o Método",
+        sentence: "Os que tomam do rico material da história, sem a preocupação de empobrecê-lo para agradar a seus baixos instintos, a seu anseio de segurança intelectual (que se manifesta como desejo de clareza, precisão, ‘objetividade’, ‘verdade’), esses vêem claro que só há um princípio que pode ser defendido em todas as circunstâncias e em todos os estágios do desenvolvimento humano. É o princípio: tudo vale.",
+        book: "FEYERABEND, Paul. Contra o método. Tradução de Octanny S. da Mota e Leonidas Hegenberg. Rio de Janeiro, F. Alves, 1977.",
+        page: "34",
         writer: "Paul Feyerabend"
     },
     {
         id: "CIA00000031",
         from: "E000004",
-        to: "I000000029", 
+        to: "I000000029",
         label: "Criador",
-        sentence: "A proliferação de teorias é benéfica para a ciência, enquanto a uniformidade prejudica seu poder crítico. A uniformidade também ameaça o livre desenvolvimento do indivíduo.",
-        book: "Contra o Método",
+        sentence: "Unanimidade de opinião pode ser adequada para uma igreja, para as vítimas temerosas ou ambiciosas de algum mito (antigo ou moderno) ou para os fracos e conformados seguidores de algum tirano. A variedade de opiniões é necessária para o conhecimento objetivo. ",
+        book: "FEYERABEND, Paul. Contra o método. Tradução de Octanny S. da Mota e Leonidas Hegenberg. Rio de Janeiro, F. Alves, 1977.",
+        page: "57",
         writer: "Paul Feyerabend"
     },
     {
         id: "CIA00000032",
         from: "E000004",
-        to: "I000000001", 
+        to: "I000000001",
         label: "Discorda",
-        sentence: "Feyerabend vê a fase de 'ciência normal' descrita por Kuhn como um grave perigo para o pensamento crítico, argumentando que a imposição de um único paradigma assemelha-se a uma lavagem cerebral institucional.",
-        book: "Contra o Método",
+        sentence: "A condição de coerência, por força da qual se exige que as hipóteses novas se ajustem a teorias aceitas, é desarrazoada, pois preserva a teoria mais antiga e não a melhor. [...] A idéia de que a ciência pode e deve ser elaborada com obediência a regras fixas e universais é, a um tempo, quimérica e perniciosa.",
+        book: "FEYERABEND, Paul. Contra o método. Tradução de Octanny S. da Mota e Leonidas Hegenberg. Rio de Janeiro, F. Alves, 1977.",
+        page: "45, 449",
         writer: "Paul Feyerabend"
     },
     {
         id: "CIA00000033",
         from: "E000004",
-        to: "I000000002", 
+        to: "I000000002",
         label: "Criador", 
-        sentence: "Teorias universais e fundamentalmente divergentes podem ser incomensuráveis; a tentativa de avaliá-las sob um único padrão empírico neutro é ilusória.",
-        book: "Contra o Método",
+        sentence: "A análise feita por Einstein, a propósito da simultaneidade, desvelou alguns traços da cosmologia newtoniana que, embora desconhecidos, haviam influenciado todos os argumentos acerca de espaço e tempo e Niels Bohr verificou, em acréscimo, que o mundo físico não poderia ser encarado como algo independente por completo do observador e admitiu a ideia de independência que era parte da física clássica10. Tendo em conta casos como esses verificamos que os argumentos científicos podem, sem dúvida, ver-se expostos a resistências padronizadas, cabendo esperar que a incomensurabilidade também se manifeste entre teorias. ",
+        book: "FEYERABEND, Paul. Contra o método. Tradução de Octanny S. da Mota e Leonidas Hegenberg. Rio de Janeiro, F. Alves, 1977. ",
+        page: "350, 351",
         writer: "Paul Feyerabend"
     },
     {
         id: "CIA00000034",
         from: "E000004",
-        to: "I000000030", 
+        to: "I000000030",
         label: "Discorda",
-        sentence: "Feyerabend não enxerga a ausência de um método absoluto como um 'perigo relativista' a ser evitado, mas sim como a constatação natural, libertadora e realista da natureza do conhecimento humano.",
-        book: "A Ciência em uma Sociedade Livre",
+        sentence: "A tentativa de fazer crescer a liberdade, de atingir vida completa e gratificadora e a tentativa correspondente de descobrir os segredos da natureza e do homem implicam, portanto, rejeição de todos os padrões universais e de todas as tradições rígidas.",
+        book: "FEYERABEND, Paul. Contra o método. Tradução de Octanny S. da Mota e Leonidas Hegenberg. Rio de Janeiro, F. Alves, 1977.",
+        page: "22",
         writer: "Paul Feyerabend"
     },
-
-    // Conexões Chalmers (E000008)
     {
         id: "CIA00000035",
-        from: "E000008",
-        to: "I000000030", 
-        label: "Criador",
-        sentence: "Embora Feyerabend tenha demonstrado o fracasso de metodologias universais, sua conclusão de que não há padrão algum de avaliação do conhecimento científico é um passo ilegítimo e perigoso.",
-        book: "O que é ciência afinal?",
-        writer: "Alan F. Chalmers"
+        from: "E000004",
+        to: "I000000024",
+        label: "Discorda",
+        sentence: "Nos termos dos resultados atuais, teoria alguma é coerente com os fatos. A exigência de só admitir teorias consistentes com os fatos conhecidos e aceitos deixa-nos, repitamos, sem teoria alguma. [...] O método correto não deverá conter regras que nos levem a escolher entre teorias, tomando por base o falseamento. Ao contrário, suas regras devem capacitar-nos a escolher entre teorias que já submetemos a teste e que são teorias falseadas.",
+        book: "FEYERABEND, Paul. Contra o Método. Tradução de Octanny S. da Mota e Leonidas Hegenberg. Rio de Janeiro, F. Alves, 1977.",
+        page: "87",
+        writer: "Paul Feyerabend"
     },
     {
         id: "CIA00000036",
-        from: "E000008",
-        to: "I000000028", 
+        from: "E000004",
+        to: "I000000009",
         label: "Discorda",
-        sentence: "Se o princípio de Feyerabend do 'tudo vale' for aceito na sua totalidade, e a ciência não for distinguível de outras formas de conhecimento como o vodu ou a astrologia, então os defensores da racionalidade têm motivos para se preocupar.",
-        book: "O que é ciência afinal?",
-        writer: "Alan F. Chalmers"
+        sentence: "Como será possível submeter a teste ou aprimorar a verdade de uma teoria, se ela é elaborada de maneira tal que qualquer acontecimento concebível pode ser descrito e explicado nos termos de seus princípios? A única maneira... seria compará-los com um conjunto de outros princípios igualmente abrangentes — mas a possibilidade desse procedimento está, desde o início, afastada. [...] Esse é, a meu ver, o mais forte argumento contra qualquer método que estimule a uniformidade, quer seja esse método empírico ou não.",
+        book: "FEYERABEND, Paul. Contra o Método. Tradução de Octanny S. da Mota e Leonidas Hegenberg. Rio de Janeiro, F. Alves, 1977.",
+        page: "56, 57",
+        writer: "Paul Feyerabend"
     },
     {
         id: "CIA00000037",
-        from: "E000008",
-        to: "I000000001", 
-        label: "Neutro",
-        sentence: "Chalmers reconhece a precisão histórica da descrição de Kuhn sobre os períodos de ciência normal e resolução de quebra-cabeças, mas mantém uma postura analítica crítica quanto ao relativismo que essa estrutura pode implicar.",
-        book: "O que é ciência afinal?",
-        writer: "Alan F. Chalmers"
+        from: "E000004",
+        to: "I000000027",
+        label: "Concorda",
+        sentence: "As regras metodológicas falam de 'teorias', 'observações' e 'resultados experimentais' como se se tratasse de objetos claros e bem definidos... Todavia, o material de que o cientista realmente dispõe... sempre se acha contaminado por princípios que o cientista não conhece... [...] teorias não explicitamente formuladas passam a participar do debate, sob o disfarce de termos de observação. Novamente nos damos conta de que os termos de observação são cavalos de Tróia, que importa observar cuidadosamente.",
+        book: "FEYERABEND, Paul. Contra o Método. Tradução de Octanny S. da Mota e Leonidas Hegenberg. Rio de Janeiro, F. Alves, 1977.",
+        page: "88, 110",
+        writer: "Paul Feyerabend"
     },
+
+    // Chalmers
     {
         id: "CIA00000038",
         from: "E000008",
-        to: "I000000002", 
-        label: "Neutro",
-        sentence: "Chalmers dedica extensas análises ao conceito de incomensurabilidade, admitindo a complexidade de comparar teorias rivais na ausência de uma linguagem neutra, mas rechaça o uso do conceito para justificar o vale-tudo metodológico.",
-        book: "O que é ciência afinal?",
+        to: "I000000030",
+        label: "Criador",
+        sentence: "De acordo com a visão mais extremada dos escritos de Feyerabend, a ciência não tem características especiais que a tornem intrinsecamente superior a outros ramos do conhecimento tais como mitos antigos ou vodu. [...] Feyerabend contrasta a ciência com o vodu, com a astrologia e coisas semelhantes e argumenta que estes últimos não podem ser excluídos recorrendo-se a algum critério de cientificidade ou racionalidade. Há dois motivos para que eu esteja infeliz com esta ênfase. O primeiro é que não estou convencido de que um estudo detalhado como vodu ou astrologia revelaria que eles possuem objetivos bem definidos e métodos de alcançálos... Certamente nada que Feyerabend escreve me encoraja a mudar de opinião. O segundo motivo é que o status do vodu, da astrologia e similares não é um problema urgente em nossa sociedade, aqui e agora. ",
+        book: "CHALMERS, Alan. O que é ciência afinal?, Tradução: Raul Filker. Editora Brasiliense, 1993",
+        page: "20, 184, 185",
         writer: "Alan F. Chalmers"
     },
-    
+    {
+        id: "CIA00000039",
+        from: "E000008",
+        to: "I000000028",
+        label: "Discorda",
+        sentence: "Feyerabend argumenta, com sucesso, contra o método na extensão em que mostrou que não é aconselhável que as escolhas e decisões dos cientistas sejam restringidas por regras estabelecidas ou implícitas nas metodologias da ciência... [Porém] se você quer fazer uma contribuição para a física, por exemplo, não é necessário que esteja familiarizado com as metodologias da ciência contemporânea, mas sim que esteja familiarizado com aspectos da física. Não será suficiente seguir somente os caprichos e inclinações de maneira desinformada. Na ciência não se dá o fato de que vale tudo num sentido sem limites.",
+        book: "CHALMERS, Alan. O que é ciência afinal? Tradução de Raul Filker. Editora Brasiliense, 1993.",
+        page: "177",
+        writer: "Alan F. Chalmers"
+    },
+    {
+        id: "CIA00000040",
+        from: "E000008",
+        to: "I000000001",
+        label: "Neutro",
+        sentence: "Se todos os cientistas fossem e permanecessem cientistas normais, então uma ciência específica ficaria presa em um único paradigma e não progrediria nunca para além dele. Este seria um erro grave, do ponto de vista kuhniano. [...] A mera existência de enigmas não resolvidos dentro de um paradigma não constitui uma crise. Kuhn reconhece que os paradigmas sempre encontrarão dificuldades. Anomalias haverá sempre.",
+        book: "CHALMERS, Alan. O que é ciência afinal? Tradução de Raul Filker. Editora Brasiliense, 1993.",
+        page: "130, 135",
+        writer: "Alan F. Chalmers"
+    },
+    {
+        id: "CIA00000041",
+        from: "E000008",
+        to: "I000000002",
+        label: "Discorda",
+        sentence: "Eu aceito o ponto de vista de Feyerabend de que algumas teorias rivais não podem ser comparadas por meios lógicos. Sugiro que sua inferência de conseqüências subjetivistas deste fato necessita ser questionada e rebatida de várias maneiras. Se nos concentrarmos na questão de escolha de teoria, então estou preparado para admitir que haverá algum elemento subjetivo envolvido. (Ele aceita a premissa, mas discorda das conclusões subjetivas)",
+        book: "CHALMERS, Alan. O que é ciência afinal? Tradução de Raul Filker. Editora Brasiliense, 1993.",
+        page: "180",
+        writer: "Alan F. Chalmers"
+    },
+    // novas
 {
-    id: "CIA00000039",
+    id: "CIA00000042",
     from: "E000001", 
     to: "I000000025", 
     label: "Discorda",
@@ -310,7 +350,7 @@ const conexoes_ideia_autor = [{
     book: "Novum Organum",
     writer: "Francis Bacon"
 }, {
-    id: "CIA00000040",
+    id: "CIA00000043",
     from: "E000002", 
     to: "I000000027", 
     label: "Discorda",
@@ -318,7 +358,7 @@ const conexoes_ideia_autor = [{
     book: "A Lógica da Pesquisa Científica",
     writer: "Karl Popper"
 }, {
-    id: "CIA00000041",
+    id: "CIA00000044",
     from: "E000005", 
     to: "I000000026",
     label: "Discorda",
@@ -326,7 +366,7 @@ const conexoes_ideia_autor = [{
     book: "O Objetivo e a Estrutura da Teoria Física",
     writer: "Pierre Duhem"
 }, {
-    id: "CIA00000042",
+    id: "CIA00000045",
     from: "E000007",
     to: "I000000026",
     label: "Discorda",
