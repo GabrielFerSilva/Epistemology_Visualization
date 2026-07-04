@@ -116,9 +116,7 @@ const conexoes_ideia_autor = [{
     page: "65",
     writer: "Karl Popper",
 },
-// Continuação do array conexoes_ideia_autor
-{
-}, {
+ {
     id: "CIA00000014",
     from: "E000003",
     to: "I000000013",
@@ -127,22 +125,13 @@ const conexoes_ideia_autor = [{
     book: "Lógica da Descoberta ou Psicologia da Pesquisa? (In: A Crítica e o Desenvolvimento do Conhecimento)",
     page: "20",
     writer: "Thomas Kuhn"
-}, {
-    id: "CIA00000015",
-    from: "E000001",
-    to: "I000000014",
-    label: "Concorda",
-    sentence: "O conhecimento não pode ser gerado de modo puramente intelectual; ele deve ser baseado na observação, no experimento e na indução sistemática.",
-    book: "Novum Organum ou Verdadeiras Indicações Acerca da Interpretação da Natureza",
-    page: "Aforismo XIV",
-    writer: "Francis Bacon"
-}, {
+},{
     id: "CIA00000016",
     from: "E000001",
     to: "I000000015",
     label: "Concorda",
     sentence: "A lógica tal como hoje é usada vale mais para consolidar e perpetuar erros, fundados em noções vulgares, que para a indagação da verdade, de sorte que é mais danosa do que útil.",
-    book: "Novum Organum ou Verdadeiras Indicações Acerca da Interpretação da Natureza",
+    book: "Novum Organum",
     page: "Aforismo XII",
     writer: "Francis Bacon"
 }, {
@@ -150,8 +139,8 @@ const conexoes_ideia_autor = [{
     from: "E000001",
     to: "I000000016",
     label: "Concorda",
-    sentence: "Tudo o mais que o homem até aqui tem usado são aberrações... Aqui está por que a única esperança radica na verdadeira indução.",
-    book: "Novum Organum ou Verdadeiras Indicações Acerca da Interpretação da Natureza",
+    sentence: "O silogismo consta de proposições, as proposições de palavras, as palavras são o signo das noções. Pelo que, se as próprias noções (que constituem a base dos fatos) são confusas e temerariamente abstraídas das coisas, nada que delas depende pode pretender solidez Aqui está por que a única esperança radica na verdadeira indução.",
+    book: "Novum Organum",
     page: "Aforismo XIV",
     writer: "Francis Bacon"
 }, {
@@ -159,8 +148,8 @@ const conexoes_ideia_autor = [{
     from: "E000001",
     to: "I000000017",
     label: "Concorda",
-    sentence: "Os ídolos e noções falsas que ora ocupam o intelecto humano e nele se acham implantados não somente o obstruem a ponto de ser difícil o acesso da verdade, como, mesmo depois de seu pórtico logrado, reviverão.",
-    book: "Novum Organum ou Verdadeiras Indicações Acerca da Interpretação da Natureza",
+    sentence: "Os ídolos e noções falsas que ora ocupam o intelecto humano e nele se acham implantados não somente o obstruem a ponto de ser difícil o acesso da verdade, como, mesmo depois de seu pórtico logrado poderão ressurgir como obstáculo à própria instauração das ciências, a não ser que os homens, já precavidos contra eles, se cuidem o mais que possam",
+    book: "Novum Organum",
     page: "Aforismo XXXVIII",
     writer: "Francis Bacon"
 },
@@ -320,7 +309,7 @@ const conexoes_ideia_autor = [{
     to: "I000000025", 
     label: "Discorda",
     sentence: "Bacon argumenta que o método indutivo correto afasta of ídolos e constrói axiomas firmes a partir da experiência empírica estável, opondo-se à ideia de que o conhecimento de leis naturais seja eternamente uma conjectura incerta.",
-    book: "Novum Organum ou Verdadeiras Indicações Acerca da Interpretação da Natureza",
+    book: "Novum Organum",
     writer: "Francis Bacon"
 }, {
     id: "CIA00000040",
