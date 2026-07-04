@@ -197,25 +197,24 @@ const conexoes_ideia_autor = [{
     book: "POPPER, Karl R. A Lógica da Pesquisa Científica. Tradução de Leônidas Hegenberg e Octanny Silveira da Mota. São Paulo: Cultrix, 2001.",
     page: "42",
     writer: "Karl Popper"
-}, {
+},{
     id: "CIA00000028",
     from: "E000006",
     to: "I000000027",
     label: "Concorda",
-    sentence: "O físico nunca pode submeter ao controle da experiência uma hipótese isolada, mas somente todo um conjunto de hipóteses. Nossos enunciados sobre o mundo exterior enfrentam o tribunal da experiência empírica como um corpo coletivo.",
-    book: "O Objetivo e a Estrutura da Teoria Física / Dois Dogmas do Empirismo",
-    page: "41",
-    writer: "Pierre Duhem / Willard Van Orman Quine"
-},
-, {
+    sentence: "Nossos enunciados sobre o mundo exterior enfrentam o tribunal da experiência empírica não individualmente, mas apenas como um corpo coletivo.",
+    book: "QUINE, Willard Van Orman. Dois Dogmas do Empirismo. In: De um Ponto de Vista Lógico. Tradução de Giselda Shaw. São Paulo: UNESP, 2011.",
+    page: "257",
+    writer: "Willard Van Orman Quine"
+}, {
     id: "CIA00000029",
     from: "E000007",
     to: "I000000027",
     label: "Concorda",
-    sentence: "O físico nunca pode submeter ao controle da experiência uma hipótese isolada, mas somente todo um conjunto de hipóteses. Nossos enunciados sobre o mundo exterior enfrentam o tribunal da experiência empírica como um corpo coletivo.",
-    book: "O Objetivo e a Estrutura da Teoria Física / Dois Dogmas do Empirismo",
-    page: "41",
-    writer: "Pierre Duhem / Willard Van Orman Quine"
+    sentence: "O físico nunca pode submeter ao controle da experiência uma hipótese isolada, mas somente todo um conjunto de hipóteses.",
+    book: "DUHEM, Pierre. O Objetivo e a Estrutura da Teoria Física. Tradução de Afonso Neves. Rio de Janeiro: Contraponto, 2011.",
+    page: "Parte II, Cap. VI, Seção 2",
+    writer: "Pierre Duhem"
 },
     // Conexões Feyerabend (E000004)
     {
