@@ -58,7 +58,7 @@ const epistemologos = [{
     data_nascimento: "1861-06-10",
     data_morte: "1916-09-14",
     livros: ["DUHEM, Pierre. O Objetivo e a Estrutura da Teoria Física. Tradução de Auto Filho. Rio de Janeiro: Contraponto, 2011."],
-    image: "assets/photos/pierreDuhem.jpeg",
+    image: "assets/photos/pierreDuhem.jpg",
 }, {
     id: "E000007",
     nome: "Willard Van Orman Quine",
@@ -68,7 +68,7 @@ const epistemologos = [{
     data_nascimento: "1908-06-25",
     data_morte: "2000-12-25",
     livros: ["QUINE, Willard Van Orman. Dois Dogmas do Empirismo. In: De um Ponto de Vista Lógico. Tradução de Jorge Luiz Viesenteiner. São Paulo: Unesp, 2011."],
-    image: "assets/photos/willardQuine.jpeg",
+    image: "assets/photos/willardQuine.jpg",
 }, {
     id: "E000008",
     nome: "Alan Chalmers",

@@ -1,7 +1,7 @@
 const container = document.getElementById('grafo');
 const todosOsNos = [];
 const corBaseIdeia = '#f4d35e';
-const corConcorda = '#2e7d32';
+const corConcorda = '#409144';
 const corDiscorda = '#c62828';
 const corPadraoBordaPorTopico = {
     Incomensurabilidade: '#67c4ca'
@@ -42,12 +42,12 @@ function corDoPreenchimentoPorConexao(totalConcorda, totalDiscorda) {
     if (total === 0) return corBaseIdeia;
 
     const saldo = (totalConcorda - totalDiscorda) / total;
-    const maxIntensidade = 0.1;
+    const maxIntensidade = 0.8;
     if (saldo >= 0) {
         return mixHexColors(corBaseIdeia, corConcorda, saldo * maxIntensidade);
     }
 
-    return mixHexColors(corDiscorda, corBaseIdeia, (1 + saldo) * maxIntensidade);
+    return mixHexColors(corBaseIdeia, corDiscorda, (1 + saldo) * maxIntensidade);
 }
 
 // 1. Formatando Epistemólogos
@@ -57,7 +57,7 @@ epistemologos.forEach(e => {
         label: e.label,
         shape: "circularImage",
         image: e.image,
-        size: 40,
+        size: 60,
         borderWidth: 4,
         borderWidthSelected: 4,
         color: {
@@ -178,8 +178,9 @@ nodesData.get().forEach(no => {
     if (no.tipo === "ideia") {
         const numConexoes = contagemConexoes[no.id] || 0;
         const tamanhoBase = 15;
-        const fatorEscala = 10; 
-        const tamanhoNovo = tamanhoBase + 10*Math.log(numConexoes * fatorEscala);
+        const fatorEscala = 10;
+        const logValue = Math.max(1, numConexoes * fatorEscala);
+        const tamanhoNovo = tamanhoBase + 10 * Math.log(logValue);
         nodesData.update({ id: no.id, size: tamanhoNovo });
     }
 });
@@ -197,7 +198,7 @@ const options = {
     },
     edges: {
         width: 3,
-        length: 200,
+        length: 250,
         arrows: { to: { enabled: true, scaleFactor: 0.8 } },
         smooth: { type: "dynamic" },
         font: {
@@ -208,8 +209,49 @@ const options = {
         },
         hoverWidth: 5
     },
-    interaction: { hover: true }
+    interaction: { hover: true },
+    physics: {
+        enabled: true,
+        barnesHut: {
+            gravitationalConstant: -2500,
+            centralGravity: 0.15,
+            springLength: 250,
+            springConstant: 0.02,
+            damping: 0.09,
+            avoidOverlap: 1.2
+        },
+        stabilization: {
+            enabled: true,
+            iterations: 1000,
+            updateInterval: 25,
+            onlyDynamicEdges: false,
+            fit: true
+        }
+    }
 };
+
+// Define posições iniciais mais espaçadas para os nós,
+// antes da física estabilizar o layout.
+(function definirPosicoesIniciais() {
+    const allNodes = nodesData.get();
+    if (allNodes.length === 0) return;
+
+    const containerWidth = container.clientWidth || 1000;
+    const containerHeight = container.clientHeight || 700;
+    const centerX = containerWidth / 2;
+    const centerY = containerHeight / 2;
+    const layoutRadius = Math.min(containerWidth, containerHeight) * 0.45;
+
+    allNodes.forEach((no, index) => {
+        const angle = (2 * Math.PI * index) / allNodes.length;
+        const radius = layoutRadius * (0.6 + 0.4 * Math.random());
+        nodesData.update({
+            id: no.id,
+            x: centerX + Math.cos(angle) * radius,
+            y: centerY + Math.sin(angle) * radius
+        });
+    });
+})();
 
 const network = new vis.Network(container, data, options);
 
