@@ -13,4 +13,14 @@ const conexoes_ideia_ideia = [{
     from: "I000000001", 
     to: "I000000011",
     label: "Se Conecta"
+}, {
+    id: "CII00000004",
+    from: "I000000006", 
+    to: "I000000007",
+    label: "Se Conecta"
+}, {
+    id: "CII00000005",
+    from: "I000000001", 
+    to: "I000000012",
+    label: "Se Conecta"
 }];

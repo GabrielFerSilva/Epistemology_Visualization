@@ -79,4 +79,22 @@ const conexoes_ideia_autor = [{
     book: "KUHN, Thomas S. A Estrutura das Revoluções Científicas. Tradução de Beatriz Vianna Boeira e Nelson Boeira. São Paulo: Editora Perspectiva, [1962].",
     page: "23",
     writer: "Thomas Kuhn",
+},{
+    id: "CIA00000010", 
+    from: "E000003", 
+    to: "I000000007", 
+    label: "Concorda", 
+    sentence: "Uma crise envolve um período de pesquisa extraordinária, mais do que normal, com uma “proliferação de articulações concorrentes, a disposição de tentar qualquer coisa, a expressão de descontentamento explícito, o recurso à filosofia e ao debate sobre os fundamentos” (p. 176).",
+    book: "KUHN, Thomas S. A Estrutura das Revoluções Científicas. Tradução de Beatriz Vianna Boeira e Nelson Boeira. São Paulo: Editora Perspectiva, [1962].",
+    page: "23",
+    writer: "Thomas Kuhn",
+}, {
+    id: "CIA00000011", 
+    from: "E000003", 
+    to: "I000000008", 
+    label: "Concorda", 
+    sentence: "Precisamente por não envolver a introdução de objetos ou conceitos adicionais, a transição da mecânica newtoniana para a einsteiniana ilustra com particular clareza a revolução científica como sendo um deslocamento da rede conceituai através da qual os cientistas veem o mundo.",
+    book: "KUHN, Thomas S. A Estrutura das Revoluções Científicas. Tradução de Beatriz Vianna Boeira e Nelson Boeira. São Paulo: Editora Perspectiva, [1962].",
+    page: "124",
+    writer: "Thomas Kuhn",
 }];
