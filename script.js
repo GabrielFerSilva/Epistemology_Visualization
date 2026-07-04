@@ -222,7 +222,7 @@ const options = {
         },
         stabilization: {
             enabled: true,
-            iterations: 200,
+            iterations: 1000,
             updateInterval: 25,
             onlyDynamicEdges: false,
             fit: true
