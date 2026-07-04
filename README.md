@@ -1,53 +1,99 @@
-**Project: Philosophy of Science Visualizations**
+# Epistemology Visualization
 
-This repository collects the plan and artifacts for the course final project. The goal is to produce visualizations of ideas and debates in the philosophy of science.
+Visualização interativa das relações entre epistemólogos e ideias desenvolvida como projeto final da disciplina **HU31 – Epistemologia da Ciência** do **IMPA Tech**, ministrada pelo professor Rafael Beraldo.
 
-**Group Members**:
+A aplicação permite explorar como diferentes autores se relacionam com conceitos centrais da epistemologia, mostrando concordâncias, críticas e conexões entre ideias ao longo do tempo por meio de um grafo interativo.
 
-- **Group:** Arthur Farias Zaneti, Bruno Pereira de Paula, Gabriel Ferreira Silva, Igor Augusto Zwirtes, Pedro Pereira Carvalho
+## Demonstração
 
+Acesse a versão hospedada no GitHub Pages:
 
-**Work Plan and Task Division**:
+**https://gabrielfersilva.github.io/Epistemology_Visualization/**
 
-- Deliverables: 1) bibliographic dataset; 2) interactive prototype/mockup; 3) source code and short documentation; 4) final presentation.
-- Example schedule:
-	- Week 1: select bibliography and divide tasks.
-	- Week 2: extract data and define attributes to represent.
-	- Week 3: initial prototype (mockup and/or code sketch).
-	- Week 4: implementation and refinement.
-	- Week 5: documentation, testing, and presentation prep.
-- Example responsibilities:
-	- Text extraction and curation: Arthur Zaneti, Pedro Pereira, Bruno Pereira
-	- Data modeling (metadata, relations): Igor Zwirtes, Gabriel Ferreira
-	- Frontend / visualization: Artur Zaneti, Igor Zwirtes
-	- Design and UX: Gabriel Ferreira, Igor Zwirtes
-	- Integration and deployment: Bruno Pereira, Pedro Pereira
+## Integrantes
 
-**Minimum Bibliography to Represent**:
+* Arthur Farias Zaneti
+* Bruno Pereira de Paula
+* Gabriel Ferreira Silva
+* Igor Augusto Zwirtes
+* Pedro Pereira Carvalho
 
-- BACON, Francis. Novum organum e Nova Atlântida. São Paulo: Abril, 1973. 
-- CHALMERS, Alan F. O que é ciência, afinal? São Paulo: Editora Brasiliense, 2017. 
-- FEYERABEND, Paul. Contra o método. São Paulo: Editora da Unesp, 2011. 
-- KUHN, Thomas S. The structure of scientific revolutions. Chicago: University of Chicago Press, 1962. 
-- LAKATOS, Imre; MUSGRAVE, Alan (ORGS.). A crítica e o desenvolvimento do conhecimento. São Paulo: Editora da USP, 1979. 
-- POPPER, Karl. The Logic of Scientific Discovery. London, Routledge, 2020a.
+## Objetivo
 
-**Type of Visualization (proposed choice)**:
-- Using a connected graph where connects onto the ideas they wrote or have a opinion about. Subject to change by a timeline that shows how the opinions differed through time.
+O projeto busca facilitar a exploração da evolução histórica da epistemologia por meio de uma visualização em grafo.
 
-**Visualization Sketch**:
-- Mockup:
+Diferentemente de representações centradas apenas nos filósofos, o foco da visualização está nas **ideias**. Autores e conceitos são representados como vértices do grafo, enquanto as relações entre eles indicam apoio, crítica, autoria ou outras conexões relevantes.
 
-![Mockup preview](assets/mockup.jpeg)
+Essa abordagem permite analisar tanto a trajetória de um autor quanto o desenvolvimento histórico de uma determinada ideia.
 
-- Preliminary code (example):
+## Funcionalidades
 
+* Visualização interativa em grafo utilizando Vis.js.
+* Filtro por autor.
+* Filtro por ideia.
+* Linha do tempo para visualizar a evolução histórica dos conceitos.
+* Modo de intervalo temporal para comparar períodos específicos.
+* Reprodução automática da linha do tempo.
+* Destaque das ideias compartilhadas entre múltiplos autores (interseção).
+* Painel lateral com informações sobre autores, ideias e relações.
+* Exibição de citações e referências bibliográficas associadas às conexões.
+* Modo escuro.
+* Opções de personalização da visualização (ocultar rótulos das arestas e detalhes do fundo).
 
-**Inspiration Examples**:
-- Deniz Cemon Duygu — philo gallery: https://www.denizcemonduygu.com/philo/
-- Other visual references and repositories to consider (list links).
+## Como interpretar o grafo
 
-**Final Notes & Next Steps**:
-- Fill this section with names and contact info.
+* **Autores** são representados por nós com fotografia.
+* **Ideias** são representadas por nós coloridos.
+* As **arestas direcionadas** indicam relações entre autores e ideias ou entre ideias.
+* A **cor das ideias** varia conforme o balanço entre concordâncias e críticas recebidas.
+* O **tamanho das ideias** aumenta conforme sua relevância na rede, medida pelo número de conexões visíveis.
+* A barra temporal permite observar como autores e ideias surgem ao longo da história.
 
+## Estrutura do projeto
 
+```text
+.
+├── assets/                 # Ícones e imagens
+├── dataset/                # Dados dos autores, ideias e conexões
+├── index.html              # Estrutura da aplicação
+├── style.css               # Estilos da interface
+├── script.js               # Lógica da visualização
+└── README.md
+```
+
+Os dados são armazenados em arquivos JavaScript estruturados como coleções de objetos, contendo informações sobre autores, ideias e relações entre eles.
+
+## Tecnologias utilizadas
+
+* HTML5
+* CSS3
+* JavaScript (ES6)
+* Vis.js (vis-network)
+* GitHub Pages
+
+## Execução
+
+Para acessar o projeto localmente, basta clonar o repositório e abrir o arquivo `index.html` em um navegador moderno.
+
+Também é possível utilizar qualquer servidor HTTP local, por exemplo:
+
+```bash
+python -m http.server
+```
+
+e acessar:
+
+```text
+http://localhost:8000
+```
+
+## Referências
+
+A visualização foi inspirada em:
+
+* Deniz Cem Önduygu — *History of Philosophy*
+  https://www.denizcemonduygu.com/philo/
+
+## Licença
+
+Este projeto está licenciado sob a licença **MIT**.
