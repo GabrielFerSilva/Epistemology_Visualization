@@ -347,4 +347,38 @@ const conexoes_ideia_autor = [{
         sentence: "Chalmers dedica extensas análises ao conceito de incomensurabilidade, admitindo a complexidade de comparar teorias rivais na ausência de uma linguagem neutra, mas rechaça o uso do conceito para justificar o vale-tudo metodológico.",
         book: "O que é ciência afinal?",
         writer: "Alan F. Chalmers"
-    }];
+    },
+    
+{
+    id: "CIA00000039",
+    from: "E000001", 
+    to: "I000000025", 
+    label: "Discorda",
+    sentence: "Bacon argumenta que o método indutivo correto afasta of ídolos e constrói axiomas firmes a partir da experiência empírica estável, opondo-se à ideia de que o conhecimento de leis naturais seja eternamente uma conjectura incerta.",
+    book: "Novum Organum ou Verdadeiras Indicações Acerca da Interpretação da Natureza",
+    writer: "Francis Bacon"
+}, {
+    id: "CIA00000040",
+    from: "E000002", 
+    to: "I000000027", 
+    label: "Discorda",
+    sentence: "Popper rejeita o holismo radical porque ele pode imunizar sistemas teóricos inteiros contra a falsificação. Para o racionalismo crítico, o cientista deve ser capaz de isolar e expor hipóteses específicas ao teste severo da demarcação.",
+    book: "A Lógica da Pesquisa Científica",
+    writer: "Karl Popper"
+}, {
+    id: "CIA00000041",
+    from: "E000005", 
+    to: "I000000026",
+    label: "Discorda",
+    sentence: "Como a experiência atinge o sistema inteiro de proposições e nunca uma peça isolada, um experimento negativo não pode apontar qual hipótese foi falseada. A contradição experimental não realiza um falseamento limpo.",
+    book: "O Objetivo e a Estrutura da Teoria Física",
+    writer: "Pierre Duhem"
+}, {
+    id: "CIA00000042",
+    from: "E000007",
+    to: "I000000026",
+    label: "Discorda",
+    sentence: "Qualquer enunciado pode ser mantido como verdadeiro, venha o que vier, se fizermos ajustes drásticos o suficiente em outra parte do sistema. Por isso, a falsificação definitiva de uma única lei isolada por um teste é logicamente inviável.",
+    book: "Dois Dogmas do Empirismo",
+    writer: "Willard Van Orman Quine"
+}];
