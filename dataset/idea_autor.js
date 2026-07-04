@@ -125,14 +125,14 @@ const conexoes_ideia_autor = [{
     book: "Lógica da Descoberta ou Psicologia da Pesquisa? (In: A Crítica e o Desenvolvimento do Conhecimento)",
     page: "20",
     writer: "Thomas Kuhn"
-},{
+}, {
     id: "CIA00000016",
     from: "E000001",
     to: "I000000015",
     label: "Concorda",
     sentence: "A lógica tal como hoje é usada vale mais para consolidar e perpetuar erros, fundados em noções vulgares, que para a indagação da verdade, de sorte que é mais danosa do que útil.",
-    book: "Novum Organum",
-    page: "Aforismo XII",
+    book: "BACON, Francis. Novum Organum ou Verdadeiras Indicações Acerca da Interpretação da Natureza. Tradução de José Aluysio Reis de Andrade. São Paulo: Nova Cultural, 1999.",
+    page: "Livro I, Aforismo XII",
     writer: "Francis Bacon"
 }, {
     id: "CIA00000017",
@@ -140,8 +140,8 @@ const conexoes_ideia_autor = [{
     to: "I000000016",
     label: "Concorda",
     sentence: "O silogismo consta de proposições, as proposições de palavras, as palavras são o signo das noções. Pelo que, se as próprias noções (que constituem a base dos fatos) são confusas e temerariamente abstraídas das coisas, nada que delas depende pode pretender solidez Aqui está por que a única esperança radica na verdadeira indução.",
-    book: "Novum Organum",
-    page: "Aforismo XIV",
+    book: "BACON, Francis. Novum Organum ou Verdadeiras Indicações Acerca da Interpretação da Natureza. Tradução de José Aluysio Reis de Andrade. São Paulo: Nova Cultural, 1999.",
+    page: "Livro I, Aforismo XIV",
     writer: "Francis Bacon"
 }, {
     id: "CIA00000018",
@@ -149,17 +149,16 @@ const conexoes_ideia_autor = [{
     to: "I000000017",
     label: "Concorda",
     sentence: "Os ídolos e noções falsas que ora ocupam o intelecto humano e nele se acham implantados não somente o obstruem a ponto de ser difícil o acesso da verdade, como, mesmo depois de seu pórtico logrado poderão ressurgir como obstáculo à própria instauração das ciências, a não ser que os homens, já precavidos contra eles, se cuidem o mais que possam",
-    book: "Novum Organum",
-    page: "Aforismo XXXVIII",
+    book: "BACON, Francis. Novum Organum ou Verdadeiras Indicações Acerca da Interpretação da Natureza. Tradução de José Aluysio Reis de Andrade. São Paulo: Nova Cultural, 1999.",
+    page: "Livro I, Aforismo XXXVIII",
     writer: "Francis Bacon"
-},
-{
+}, {
     id: "CIA00000023",
     from: "E000002",
     to: "I000000022",
     label: "Concorda",
     sentence: "O que me impressionou mais na teoria da relatividade de Einstein foi a clara afirmação do próprio Einstein de que consideraria sua teoria insustentável se ela viesse a falhar em certos testes.",
-    book: "Conjecturas e Refutações",
+    book: "POPPER, Karl R. Conjecturas e Refutações. Tradução de Sérgio Bath. Brasília: Editora UnB, 1982.",
     page: "36",
     writer: "Karl Popper"
 }, {
@@ -168,7 +167,7 @@ const conexoes_ideia_autor = [{
     to: "I000000023",
     label: "Concorda",
     sentence: "O método da ciência é o método de conjecturas ousadas e de tentativas engenhosas e severas de refutá-las.",
-    book: "Conjecturas e Refutações",
+    book: "POPPER, Karl R. Conjecturas e Refutações. Tradução de Sérgio Bath. Brasília: Editora UnB, 1982.",
     page: "51",
     writer: "Karl Popper"
 }, {
@@ -177,7 +176,7 @@ const conexoes_ideia_autor = [{
     to: "I000000024",
     label: "Concorda",
     sentence: "O critério de demarcação inerente à lógica indutiva equivale à exigência de que todos os enunciados da ciência empírica devem ser passíveis de uma decisão definitiva quanto à sua verdade e falsidade... Mas eu proponho a falseabilidade como critério.",
-    book: "A Lógica da Pesquisa Científica",
+    book: "POPPER, Karl R. A Lógica da Pesquisa Científica. Tradução de Leônidas Hegenberg e Octanny Silveira da Mota. São Paulo: Cultrix, 2001.",
     page: "40",
     writer: "Karl Popper"
 }, {
@@ -186,7 +185,7 @@ const conexoes_ideia_autor = [{
     to: "I000000025",
     label: "Concorda",
     sentence: "Nenhuma teoria científica pode ser provada definitivamente verdadeira. Se ela sobrevive a repetidos e variados testes de falsificação ela ganha corroboração, mas permanece sempre conjectural.",
-    book: "A Lógica da Pesquisa Científica",
+    book: "POPPER, Karl R. A Lógica da Pesquisa Científica. Tradução de Leônidas Hegenberg e Octanny Silveira da Mota. São Paulo: Cultrix, 2001.",
     page: "45",
     writer: "Karl Popper"
 }, {
@@ -195,7 +194,7 @@ const conexoes_ideia_autor = [{
     to: "I000000026",
     label: "Concorda",
     sentence: "Os testes e experimentos não servem para verificar ou comprovar a verdade de uma teoria, mas sim como instâncias rigorosas através das quais tentamos ativamente falseá-la.",
-    book: "A Lógica da Pesquisa Científica",
+    book: "POPPER, Karl R. A Lógica da Pesquisa Científica. Tradução de Leônidas Hegenberg e Octanny Silveira da Mota. São Paulo: Cultrix, 2001.",
     page: "42",
     writer: "Karl Popper"
 }, {
