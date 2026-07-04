@@ -108,7 +108,7 @@ const ideias = [{
     sentence: "A pesquisa normal é o trabalho rotineiro e de aperfeiçoamento levado a cabo pelos cientistas. Eles não tentam testar ou deitar abaixo as teorias basilares da sua área, mas sim aplicá-las rigorosamente para resolver pequenos enigmas específicos definidos pelo paradigma em vigor."
 }, {
     id: "I000000013",
-    label: "Escolha de Teorias", 
+    label: "Inexistência do Algoritmo da Escolha", 
     ano: 1970,
     categoria: "Argumentação",
     color: "#f4d35e",
