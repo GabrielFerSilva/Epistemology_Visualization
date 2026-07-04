@@ -57,7 +57,7 @@ epistemologos.forEach(e => {
         label: e.label,
         shape: "circularImage",
         image: e.image,
-        size: 40,
+        size: 60,
         borderWidth: 4,
         borderWidthSelected: 4,
         color: {
