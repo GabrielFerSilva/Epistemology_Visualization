@@ -6,7 +6,7 @@ const epistemologos = [{
     resumo: "Francis Bacon é considerado o pai do empirismo moderno. Ele enfatizou a importância da observação e da experimentação na aquisição do conhecimento, defendendo que a ciência deve ser baseada em evidências empíricas e não apenas em raciocínio abstrato.",
     data_nascimento : "1561-01-22",
     data_morte: "1626-04-09",
-    livros: ["Novum Organum"],
+    livros: ["Novum Organum (1620)"],
     image: "assets/photos/francisBacon.jpg",
 },{
     id: "E000002",
@@ -16,7 +16,7 @@ const epistemologos = [{
     resumo: "Karl Popper é conhecido por sua filosofia da ciência baseada no falsificacionismo. Ele argumentou que a ciência avança por meio de conjecturas ousadas e refutações, e que teorias científicas devem ser testáveis e passíveis de serem falseadas.",
     data_nascimento: "1902-07-28",
     data_morte: "1994-09-17",
-    livros: ["The Logic of Scientific Discovery"],
+    livros: ["A Lógica da Descoberta Científica (1934)"],
     image: "assets/photos/karlPopper.jpg",
 },{
     id: "E000003",
@@ -26,7 +26,7 @@ const epistemologos = [{
     resumo: "Thomas Kuhn é conhecido por sua teoria da revolução científica. Ele argumentou que a ciência avança por meio de paradigmas alternativos, onde os cientistas trabalham dentro de um quadro teórico compartilhado até que uma crise leve a uma mudança fundamental.",
     data_nascimento: "1922-07-18",
     data_morte: "1996-06-17",
-    livros: ["KUHN, Thomas S. A Estrutura das Revoluções Científicas. Tradução de Beatriz Vianna Boeira e Nelson Boeira. São Paulo: Editora Perspectiva."],
+    livros: ["A Estrutura das Revoluções Científicas (1962)"],
     image: "assets/photos/thomasKuhn.jpg",
 }, {
     id: "E000004",
@@ -47,7 +47,7 @@ const epistemologos = [{
     resumo: "Imre Lakatos foi um filósofo húngaro da matemática e da ciência, conhecido por sua tese sobre a falibilidade da matemática e sua metodologia de provas e refutações nos estágios pré-axiomáticos de desenvolvimento da disciplina, bem como por introduzir o conceito de 'research program' em sua metodologia dos programas de pesquisa científica",
     data_nascimento: "1922-11-09",
     data_morte: "1974-02-02",
-    livros: ["LAKATOS, Imre; MUSGRAVE, Alan (Org.). A Crítica e o Desenvolvimento do Conhecimento. Tradução de Octavio Mendes Cajado. São Paulo: Cultrix; Ed. da Universidade de São Paulo, 1979."],
+    livros: ["A Crítica e o Desenvolvimento do Conhecimento (1970)"],
     image: "assets/photos/imreLakatos.jpeg",
 }, {
     id: "E000006",
@@ -57,7 +57,7 @@ const epistemologos = [{
     resumo: "Pierre Duhem foi um físico, matemático e filósofo da ciência francês. É célebre por formular a tese de que uma hipótese na física não pode ser submetida isoladamente ao controle da experiência, mas apenas como parte de um conjunto de hipóteses teóricas, estabelecendo a base fundamental da Tese de Duhem-Quine.",
     data_nascimento: "1861-06-10",
     data_morte: "1916-09-14",
-    livros: ["DUHEM, Pierre. O Objetivo e a Estrutura da Teoria Física. Tradução de Auto Filho. Rio de Janeiro: Contraponto, 2011."],
+    livros: ['O Objetivo e a Estrutura da Teoria Física (1906)'],
     image: "assets/photos/pierreDuhem.jpg",
 }, {
     id: "E000007",
@@ -67,7 +67,7 @@ const epistemologos = [{
     resumo: "Willard Van Orman Quine foi um influente filósofo e lógico americano. Ele radicalizou e expandiu o holismo de Duhem para além da física, aplicando-o a todo o conhecimento humano em seu célebre ensaio 'Dois Dogmas do Empirismo', onde defendeu que nossos enunciados sobre o mundo exterior enfrentam o tribunal da experiência como um corpo coletivo.",
     data_nascimento: "1908-06-25",
     data_morte: "2000-12-25",
-    livros: ["QUINE, Willard Van Orman. Dois Dogmas do Empirismo. In: De um Ponto de Vista Lógico. Tradução de Jorge Luiz Viesenteiner. São Paulo: Unesp, 2011."],
+    livros: ["Dois Dogmas do Empirismo (1951)"],
     image: "assets/photos/willardQuine.jpg",
 }, {
     id: "E000008",
