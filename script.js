@@ -175,7 +175,7 @@ todasAsArestas.forEach(aresta => {
 nodesData.get().forEach(no => {
     if (no.tipo === "ideia") {
         const numConexoes = contagemConexoes[no.id] || 0;
-        const tamanhoBase = 25;
+        const tamanhoBase = 15;
         const fatorEscala = 10; 
         const tamanhoNovo = tamanhoBase + 10*Math.log(numConexoes * fatorEscala);
         nodesData.update({ id: no.id, size: tamanhoNovo });
@@ -211,35 +211,40 @@ const options = {
 
 const network = new vis.Network(container, data, options);
 
-const tamanhoPadraoBase = 40;
+// ==========================================================================
+// Fundo Interativo e Sem Flicker (Renderizado no Canvas)
+// ==========================================================================
 const limiteZoomParaOcultarPadrao = 0.35;
 const gridToggle = document.getElementById('grid-toggle');
 
-function atualizarPadraoDeFundo(scale = 1) {
-    const escala = Number(scale) || 1;
-    const ocultarPeloZoom = escala <= limiteZoomParaOcultarPadrao;
-    const ocultarPeloToggle = gridToggle ? gridToggle.checked : false;
-    const deveOcultar = ocultarPeloZoom || ocultarPeloToggle;
+network.on('beforeDrawing', function (ctx) {
+    if (gridToggle && gridToggle.checked) return;
+    if (container && container.classList.contains('sem-grid')) return;
 
-    if (!container) return;
+    const escala = network.getScale();
+    if (escala <= limiteZoomParaOcultarPadrao) return;
 
-    container.classList.toggle('sem-grid', deveOcultar);
+    const topoEsq = network.DOMtoCanvas({ x: 0, y: 0 });
+    const infDir = network.DOMtoCanvas({ x: container.clientWidth, y: container.clientHeight });
 
-    if (deveOcultar) {
-        container.style.removeProperty('background-size');
-        return;
+    const espacamento = 40;
+    const inicioX = Math.floor(topoEsq.x / espacamento) * espacamento;
+    const fimX = Math.ceil(infDir.x / espacamento) * espacamento;
+    const inicioY = Math.floor(topoEsq.y / espacamento) * espacamento;
+    const fimY = Math.ceil(infDir.y / espacamento) * espacamento;
+
+    ctx.save();
+    const modoEscuro = document.body.classList.contains('dark-mode');
+    ctx.fillStyle = modoEscuro ? '#2f2a24' : '#d8d8d8';
+
+    for (let x = inicioX; x <= fimX; x += espacamento) {
+        for (let y = inicioY; y <= fimY; y += espacamento) {
+            ctx.fillRect(x - 3, y - 0.5, 6, 1);
+            ctx.fillRect(x - 0.5, y - 3, 1, 6);
+        }
     }
-
-    const tamanho = Math.max(16, Math.round(tamanhoPadraoBase * escala));
-    container.style.setProperty('background-size', `${tamanho}px ${tamanho}px`, 'important');
-}
-
-network.on('zoom', function(params) {
-    const escala = (params && params.scale) || 1;
-    atualizarPadraoDeFundo(escala);
+    ctx.restore();
 });
-
-atualizarPadraoDeFundo(1);
 
 // ==========================================================================
 // Timeline e Controles
@@ -923,6 +928,7 @@ if (helpPanel) {
     helpPanel.classList.remove('panel-hidden');
 }
 
+
 // ==========================================================================
 // Configuração: Ocultar/Mostrar Textos das Flechas
 // ==========================================================================
@@ -974,8 +980,9 @@ if (edgeLabelsToggle) {
 // ==========================================================================
 
 if (gridToggle) {
-    gridToggle.addEventListener('change', () => {
-        atualizarPadraoDeFundo(network.getScale());
+    gridToggle.addEventListener('change', (e) => {
+        if (container) container.classList.toggle('sem-grid', e.target.checked);
+        network.redraw(); // Atualiza o canvas instantaneamente
     });
 }
 
@@ -1042,6 +1049,14 @@ document.addEventListener('click', (e) => {
         }
     }
 }, true);
+
+// Configuração: Ocultar/Mostrar Detalhes do Fundo
+if (gridToggle) {
+    gridToggle.addEventListener('change', (e) => {
+        if (container) container.classList.toggle('sem-grid', e.target.checked);
+        network.redraw();
+    });
+}
 
 // ==========================================================================
 // Inicialização do Sistema
