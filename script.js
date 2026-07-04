@@ -1,7 +1,7 @@
 const container = document.getElementById('grafo');
 const todosOsNos = [];
 const corBaseIdeia = '#f4d35e';
-const corConcorda = '#2e7d32';
+const corConcorda = '#409144';
 const corDiscorda = '#c62828';
 const corPadraoBordaPorTopico = {
     Incomensurabilidade: '#67c4ca'
@@ -42,12 +42,12 @@ function corDoPreenchimentoPorConexao(totalConcorda, totalDiscorda) {
     if (total === 0) return corBaseIdeia;
 
     const saldo = (totalConcorda - totalDiscorda) / total;
-    const maxIntensidade = 0.1;
+    const maxIntensidade = 0.8;
     if (saldo >= 0) {
         return mixHexColors(corBaseIdeia, corConcorda, saldo * maxIntensidade);
     }
 
-    return mixHexColors(corDiscorda, corBaseIdeia, (1 + saldo) * maxIntensidade);
+    return mixHexColors(corBaseIdeia, corDiscorda, (1 + saldo) * maxIntensidade);
 }
 
 // 1. Formatando Epistemólogos
