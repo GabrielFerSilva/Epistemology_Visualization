@@ -177,7 +177,7 @@ nodesData.get().forEach(no => {
         const numConexoes = contagemConexoes[no.id] || 0;
         const tamanhoBase = 25;
         const fatorEscala = 10; 
-        const tamanhoNovo = tamanhoBase + (numConexoes * fatorEscala);
+        const tamanhoNovo = tamanhoBase + 10*Math.log(numConexoes * fatorEscala);
         nodesData.update({ id: no.id, size: tamanhoNovo });
     }
 });
