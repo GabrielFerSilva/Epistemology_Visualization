@@ -97,4 +97,22 @@ const conexoes_ideia_autor = [{
     book: "KUHN, Thomas S. A Estrutura das Revoluções Científicas. Tradução de Beatriz Vianna Boeira e Nelson Boeira. São Paulo: Editora Perspectiva, [1962].",
     page: "124",
     writer: "Thomas Kuhn",
+}, {
+    id: "CIA00000012", 
+    from: "E000002", 
+    to: "I000000011", 
+    label: "Concorda", 
+    sentence: "A ciência “normal”, no sentido de Kuhn, existe. É a atividade do profissional não-revolucionário, ou melhor, não muito crítico: do estudioso da ciência que aceita o dogma dominante do dia",
+    book: "POPPER, Karl. A Ciência Normal e Seus Perigos. In: LAKATOS, Imre; MUSGRAVE, Alan (Org.). A Crítica e o Desenvolvimento do Conhecimento. Tradução de Octavio Mendes Cajado. São Paulo: Cultrix; Ed. da Universidade de São Paulo, 1979.",
+    page: "64",
+    writer: "Karl Popper",
+}, {
+    id: "CIA00000013", 
+    from: "E000002", 
+    to: "I000000001", 
+    label: "Discorda", 
+    sentence: "A meu ver, o cientista “normal”, tal como Kuhn o descreve, é uma pessoa da qual devemos ter pena. (...) O cientista “normal”, a meu juízo, foi mal ensinado.",
+    book: "POPPER, Karl. A Ciência Normal e Seus Perigos. In: LAKATOS, Imre; MUSGRAVE, Alan (Org.). A Crítica e o Desenvolvimento do Conhecimento. Tradução de Octavio Mendes Cajado. São Paulo: Cultrix; Ed. da Universidade de São Paulo, 1979.",
+    page: "65",
+    writer: "Karl Popper",
 }];
