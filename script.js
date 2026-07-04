@@ -50,6 +50,63 @@ function corDoPreenchimentoPorConexao(totalConcorda, totalDiscorda) {
     return mixHexColors(corBaseIdeia, corDiscorda, (1 + saldo) * maxIntensidade);
 }
 
+function atualizarAtributosIdeiasComBaseNaVisibilidade() {
+    const todosOsNosAtuais = nodesData.get();
+    const idsNosVisiveis = new Set(
+        todosOsNosAtuais.filter(no => !no.hidden).map(no => no.id)
+    );
+
+    const arestasVisiveis = todasAsArestas.filter(aresta => {
+        return idsNosVisiveis.has(aresta.from) && idsNosVisiveis.has(aresta.to);
+    });
+
+    const votosPorIdeia = {};
+    arestasVisiveis.forEach(aresta => {
+        if (aresta.tipo !== 'autor-idea') return;
+        if (!votosPorIdeia[aresta.to]) {
+            votosPorIdeia[aresta.to] = { concorda: 0, discorda: 0 };
+        }
+        if (aresta.label === 'Concorda' || aresta.label === 'Criador') votosPorIdeia[aresta.to].concorda += 1;
+        if (aresta.label === 'Discorda') votosPorIdeia[aresta.to].discorda += 1;
+    });
+
+    const contagemConexoes = {};
+    arestasVisiveis.forEach(aresta => {
+        contagemConexoes[aresta.from] = (contagemConexoes[aresta.from] || 0) + 1;
+        contagemConexoes[aresta.to] = (contagemConexoes[aresta.to] || 0) + 1;
+    });
+
+    const updates = todosOsNosAtuais
+        .filter(no => no.tipo === 'ideia')
+        .map(no => {
+            const votos = votosPorIdeia[no.id] || { concorda: 0, discorda: 0 };
+            const corPreenchimento = corDoPreenchimentoPorConexao(votos.concorda, votos.discorda);
+            const corBorda = corPadraoBordaPorTopico[no.categoria] || '#9e9e9e';
+            const numConexoes = contagemConexoes[no.id] || 0;
+            const tamanhoBase = 15;
+            const fatorEscala = 10;
+            const logValue = Math.max(1, numConexoes * fatorEscala);
+            const tamanhoNovo = tamanhoBase + 10 * Math.log(logValue);
+
+            return {
+                id: no.id,
+                size: tamanhoNovo,
+                color: {
+                    background: corPreenchimento,
+                    border: corBorda,
+                    highlight: {
+                        background: corPreenchimento,
+                        border: corBorda
+                    }
+                }
+            };
+        });
+
+    if (updates.length > 0) {
+        nodesData.update(updates);
+    }
+}
+
 // 1. Formatando Epistemólogos
 epistemologos.forEach(e => {
     todosOsNos.push({
@@ -136,54 +193,7 @@ conexoes_ideia_ideia.forEach(c => {
 
 const edgesData = new vis.DataSet(todasAsArestas);
 
-// Recalcular cores das ideias com base nas conexões
-const votosPorIdeia = {};
-todasAsArestas.forEach(aresta => {
-    if (aresta.tipo !== 'autor-idea') return;
-    if (!votosPorIdeia[aresta.to]) {
-        votosPorIdeia[aresta.to] = { concorda: 0, discorda: 0 };
-    }
-    if (aresta.label === 'Concorda' || aresta.label === 'Criador') votosPorIdeia[aresta.to].concorda += 1;
-    if (aresta.label === 'Discorda') votosPorIdeia[aresta.to].discorda += 1;
-});
-
-nodesData.get().forEach(no => {
-    if (no.tipo === 'ideia') {
-        const votos = votosPorIdeia[no.id] || { concorda: 0, discorda: 0 };
-        const corPreenchimento = corDoPreenchimentoPorConexao(votos.concorda, votos.discorda);
-        const corBorda = corPadraoBordaPorTopico[no.categoria] || '#9e9e9e';
-
-        nodesData.update({
-            id: no.id,
-            color: {
-                background: corPreenchimento,
-                border: corBorda,
-                highlight: {
-                    background: corPreenchimento,
-                    border: corBorda
-                }
-            }
-        });
-    }
-});
-
-// Calcular tamanho das ideias
-const contagemConexoes = {};
-todasAsArestas.forEach(aresta => {
-    contagemConexoes[aresta.from] = (contagemConexoes[aresta.from] || 0) + 1;
-    contagemConexoes[aresta.to] = (contagemConexoes[aresta.to] || 0) + 1;
-});
-
-nodesData.get().forEach(no => {
-    if (no.tipo === "ideia") {
-        const numConexoes = contagemConexoes[no.id] || 0;
-        const tamanhoBase = 15;
-        const fatorEscala = 10;
-        const logValue = Math.max(1, numConexoes * fatorEscala);
-        const tamanhoNovo = tamanhoBase + 10 * Math.log(logValue);
-        nodesData.update({ id: no.id, size: tamanhoNovo });
-    }
-});
+atualizarAtributosIdeiasComBaseNaVisibilidade();
 
 const data = { nodes: nodesData, edges: edgesData };
 const options = {
@@ -509,6 +519,7 @@ function atualizarTimeline(ano){
     });
     nodesData.update(atualizacoes);
     atualizarArestas();
+    atualizarAtributosIdeiasComBaseNaVisibilidade();
 }
 
 function atualizarTimelineIntervalo(inicio, fim) {
@@ -523,6 +534,7 @@ function atualizarTimelineIntervalo(inicio, fim) {
     });
     nodesData.update(atualizacoes);
     atualizarArestas();
+    atualizarAtributosIdeiasComBaseNaVisibilidade();
 }
 
 function atualizarArestas(){
