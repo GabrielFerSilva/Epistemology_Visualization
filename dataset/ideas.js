@@ -270,4 +270,13 @@ const ideias = [{
     size: 25,
     image: "assets/ideas/lampada.png",
     sentence: "Se o princípio do 'tudo vale' for aceito na sua totalidade, a ciência não será distinguível de outras formas de conhecimento como a astrologia, caindo em um relativismo absoluto."
+}, {
+    id: "I000000031",
+    label: "Falseabilismo Dogmático", 
+    ano: 1934,
+    categoria: "Argumentação",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "Síntese que aceita a busca por verdades objetivas, mas reconhece que todo conhecimento humano é incompleto e sujeito a erros"
 }];

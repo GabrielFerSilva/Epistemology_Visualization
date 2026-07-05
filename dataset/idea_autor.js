@@ -391,16 +391,16 @@ const conexoes_ideia_autor = [{
     book: "LAKATOS, Imre. O Falseamento e a Metodologia dos Programas de Pesquisa Científica. In: LAKATOS, Imre; MUSGRAVE, Alan (Org.). A Crítica e o Desenvolvimento do Conhecimento. Tradução de Octavio Mendes Cajado. São Paulo: Cultrix; Ed. da Universidade de São Paulo, 1979.",
     page: "146",
     writer: "Imre Lakatos"
-}, {
-    id: "CIA00000048",
-    from: "E000005",
-    to: "I000000027",
-    label: "Concorda",
-    sentence: "Já vimos que Duhem prenunciou esses padrões em termos de “simplicidade” e “bom senso”. 103 Mas quando a falta de “simplicidade” no cinto protetor dos ajustamentos teóricos atinge o ponto em que a teoria precisa ser abandonada?101 Em que sentido foi a teoria coperniciana, por exemplo, “mais simples” que a ptolemaica? 105 A vaga noção da “simplicidade’ duhemiana deixa a decisão, como o falseacionista ingênuo argumentou corretamente, à mercê do gosto e da moda. ",
-    book: "LAKATOS, Imre. O Falseamento e a Metodologia dos Programas de Pesquisa Científica. In: LAKATOS, Imre; MUSGRAVE, Alan (Org.). A Crítica e o Desenvolvimento do Conhecimento. Tradução de Octavio Mendes Cajado. São Paulo: Cultrix; Ed. da Universidade de São Paulo, 1979.",
-    page: "143",
-    writer: "Imre Lakatos"
-}, {
+},{
+    "id": "CIA00000048",
+    "from": "E000005",
+    "to": "I000000027",
+    "label": "Concorda",
+    "sentence": "O processo de refutação 'inexorável' do falseacionismo dogmático deixa de funcionar em tais casos mesmo que haja uma base empírica firmemente estabelecida para servir de plataforma de lançamento para a seta do modus tollens: o alvo principal continua irremediavelmente esquivo. E o fato é que são exatamente as teorias mais importantes, 'maduras', da história da ciência que são prima facie irrefutáveis dessa maneira.",
+    "book": "LAKATOS, Imre. O Falseamento e a Metodologia dos Programas de Pesquisa Científica. In: LAKATOS, Imre; MUSGRAVE, Alan (Org.). A Crítica e o Desenvolvimento do Conhecimento. Tradução de Octavio Mendes Cajado. São Paulo: Cultrix; Ed. da Universidade de São Paulo, 1979.",
+    "page": "123",
+    "writer": "Imre Lakatos"
+  }, {
     id: "CIA00000049",
     from: "E000005",
     to: "I000000005",
@@ -427,4 +427,33 @@ const conexoes_ideia_autor = [{
     book: "LAKATOS, Imre. O Falseamento e a Metodologia dos Programas de Pesquisa Científica. In: LAKATOS, Imre; MUSGRAVE, Alan (Org.). A Crítica e o Desenvolvimento do Conhecimento. Tradução de Octavio Mendes Cajado. São Paulo: Cultrix; Ed. da Universidade de São Paulo, 1979.",
     page: "118",
     writer: "Imre Lakatos"
-}];
+},{
+    "id": "CIA00000052",
+    "from": "E000005",
+    "to": "I000000031",
+    "label": "Discorda",
+    "sentence": "O falseacionismo dogmático, no entanto, é insustentável. Repousa sobre duas suposições falsas e sobre um critério demasiado rigoroso de demarcação entre o científico e o não-científico. [...] Assim sendo, não podemos provar teorias e tampouco podemos refutá-las.",
+    "book": "LAKATOS, Imre. O Falseamento e a Metodologia dos Programas de Pesquisa Científica. In: LAKATOS, Imre; MUSGRAVE, Alan (Org.). A Crítica e o Desenvolvimento do Conhecimento. Tradução de Octavio Mendes Cajado. São Paulo: Cultrix; Ed. da Universidade de São Paulo, 1979.",
+    "page": "118",
+    "writer": "Imre Lakatos"
+  }, 
+  {
+    "id": "CIA00000053",
+    "from": "E000005",
+    "to": "I000000014",
+    "label": "Discorda",
+    "sentence": "O valor-de-verdade das proposições 'observacionais' não pode ser indubitavelmente decidido: nenhuma proposição fatual pode ser provada a partir de uma experiência. As proposições só se podem derivar de outras proposições, não se podem derivar de fatos: não se pode provar afirmações com experiências.",
+    "book": "LAKATOS, Imre. O Falseamento e a Metodologia dos Programas de Pesquisa Científica. In: LAKATOS, Imre; MUSGRAVE, Alan (Org.). A Crítica e o Desenvolvimento do Conhecimento. Tradução de Octavio Mendes Cajado. São Paulo: Cultrix; Ed. da Universidade de São Paulo, 1979.",
+    "page": "120",
+    "writer": "Imre Lakatos"
+  }, 
+  {
+    "id": "CIA00000054",
+    "from": "E000005",
+    "to": "I000000008",
+    "label": "Discorda",
+    "sentence": "Kuhn, tendo reconhecido o fracasso do justificacionismo e do falseacionismo no proporcionar explicações racionais do desenvolvimento científico, parece agora recair no irracionalismo. [...] A mudança científica — de um 'paradigma' a outro — é uma conversão mística, que não é, nem pode ser, governada por regras da razão e cai totalmente no reino da psicologia (social) da descoberta.",
+    "book": "LAKATOS, Imre. O Falseamento e a Metodologia dos Programas de Pesquisa Científica. In: LAKATOS, Imre; MUSGRAVE, Alan (Org.). A Crítica e o Desenvolvimento do Conhecimento. Tradução de Octavio Mendes Cajado. São Paulo: Cultrix; Ed. da Universidade de São Paulo, 1979.",
+    "page": "112",
+    "writer": "Imre Lakatos"
+  }];
