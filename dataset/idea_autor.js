@@ -373,4 +373,58 @@ const conexoes_ideia_autor = [{
     sentence: "Qualquer enunciado pode ser mantido como verdadeiro, venha o que vier, se fizermos ajustes drásticos o suficiente em outra parte do sistema. Por isso, a falsificação definitiva de uma única lei isolada por um teste é logicamente inviável.",
     book: "Dois Dogmas do Empirismo",
     writer: "Willard Van Orman Quine"
+}, {
+    id: "CIA00000046",
+    from: "E000005",
+    to: "I000000011",
+    label: "Concorda",
+    sentence: "Nessas condições, longe de expressar dúvidas a respeito da existência da “ciência normal” de Kuhn, aceito-a por verdadeira",
+    book: "LAKATOS, Imre. O Falseamento e a Metodologia dos Programas de Pesquisa Científica. In: LAKATOS, Imre; MUSGRAVE, Alan (Org.). A Crítica e o Desenvolvimento do Conhecimento. Tradução de Octavio Mendes Cajado. São Paulo: Cultrix; Ed. da Universidade de São Paulo, 1979.",
+    page: "73",
+    writer: "Imre Lakatos"
+}, {
+    id: "CIA00000047",
+    from: "E000005",
+    to: "I000000010",
+    label: "Concorda",
+    sentence: "Contrariando o falseacionismo ingênuo, nenhuma experiência, nenhum relato experimental, nenhum enunciado de observação ou hipótese falseadora de baixo nível bem corroborada pode levar sozinha ao falseamento",
+    book: "LAKATOS, Imre. O Falseamento e a Metodologia dos Programas de Pesquisa Científica. In: LAKATOS, Imre; MUSGRAVE, Alan (Org.). A Crítica e o Desenvolvimento do Conhecimento. Tradução de Octavio Mendes Cajado. São Paulo: Cultrix; Ed. da Universidade de São Paulo, 1979.",
+    page: "146",
+    writer: "Imre Lakatos"
+}, {
+    id: "CIA00000048",
+    from: "E000005",
+    to: "I000000027",
+    label: "Concorda",
+    sentence: "Já vimos que Duhem prenunciou esses padrões em termos de “simplicidade” e “bom senso”. 103 Mas quando a falta de “simplicidade” no cinto protetor dos ajustamentos teóricos atinge o ponto em que a teoria precisa ser abandonada?101 Em que sentido foi a teoria coperniciana, por exemplo, “mais simples” que a ptolemaica? 105 A vaga noção da “simplicidade’ duhemiana deixa a decisão, como o falseacionista ingênuo argumentou corretamente, à mercê do gosto e da moda. ",
+    book: "LAKATOS, Imre. O Falseamento e a Metodologia dos Programas de Pesquisa Científica. In: LAKATOS, Imre; MUSGRAVE, Alan (Org.). A Crítica e o Desenvolvimento do Conhecimento. Tradução de Octavio Mendes Cajado. São Paulo: Cultrix; Ed. da Universidade de São Paulo, 1979.",
+    page: "143",
+    writer: "Imre Lakatos"
+}, {
+    id: "CIA00000049",
+    from: "E000005",
+    to: "I000000005",
+    label: "Discorda",
+    sentence: "Para Popper a mudança científica é racional ou, pelo menos, pode ser racionalmente reconstruída e cai no domínio da lógica da descoberta. Para Kuhn a mudança científica — de um 'paradigma' a outro — é uma conversão mística, que não é, nem pode ser, governada por regras da razão e cai totalmente no reino da psicologia (social) da descoberta. A mudança científica é uma espécie de mudança religiosa.",
+    book: "LAKATOS, Imre. O Falseamento e a Metodologia dos Programas de Pesquisa Científica. In: LAKATOS, Imre; MUSGRAVE, Alan (Org.). A Crítica e o Desenvolvimento do Conhecimento. Tradução de Octavio Mendes Cajado. São Paulo: Cultrix; Ed. da Universidade de São Paulo, 1979.",
+    page: "112",
+    writer: "Imre Lakatos"
+}, {
+    id: "CIA00000050",
+    from: "E000005",
+    to: "I000000008",
+    label: "Discorda",
+    sentence: "Para Popper a mudança científica é racional ou, pelo menos, pode ser racionalmente reconstruída e cai no domínio da lógica da descoberta. Para Kuhn a mudança científica — de um 'paradigma' a outro — é uma conversão mística, que não é, nem pode ser, governada por regras da razão e cai totalmente no reino da psicologia (social) da descoberta. A mudança científica é uma espécie de mudança religiosa.",
+    book: "LAKATOS, Imre. O Falseamento e a Metodologia dos Programas de Pesquisa Científica. In: LAKATOS, Imre; MUSGRAVE, Alan (Org.). A Crítica e o Desenvolvimento do Conhecimento. Tradução de Octavio Mendes Cajado. São Paulo: Cultrix; Ed. da Universidade de São Paulo, 1979.",
+    page: "112",
+    writer: "Imre Lakatos"
+}, {
+    id: "CIA00000051",
+    from: "E000005",
+    to: "I000000024",
+    label: "Concorda",
+    sentence: "Tais suposições são completadas por um 'critério de demarcação' só são “científicas” as teorias que impedem certos estados de cõisas observáveis e, portanto, são fatualmente refutáveis. Ou, uma teoria será científica” se tiver uma base empírica.",
+    book: "LAKATOS, Imre. O Falseamento e a Metodologia dos Programas de Pesquisa Científica. In: LAKATOS, Imre; MUSGRAVE, Alan (Org.). A Crítica e o Desenvolvimento do Conhecimento. Tradução de Octavio Mendes Cajado. São Paulo: Cultrix; Ed. da Universidade de São Paulo, 1979.",
+    page: "118",
+    writer: "Imre Lakatos"
 }];
