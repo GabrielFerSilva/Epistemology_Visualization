@@ -32,5 +32,11 @@ const conexoes_ideia_ideia = [
     { id: "CII00000023", from: "I000000028", to: "I000000001", label: "Oposição" }, // Tudo Vale (Feyerabend) vs Ciência Normal dogmática (Kuhn)
     { id: "CII00000024", from: "I000000028", to: "I000000030", label: "Oposição" }, // Tudo Vale (Feyerabend) vs Perigo do Relativismo (Chalmers)
     { id: "CII00000025", from: "I000000005", to: "I000000029", label: "Oposição" }, // Paradigma único (Kuhn) vs Proliferação de Teorias (Feyerabend)
-    { id: "CII00000026", from: "I000000025", to: "I000000014", label: "Oposição" }  // Incompletude da Prova (Popper) vs Base Empírica firme (Bacon)
+    { id: "CII00000026", from: "I000000025", to: "I000000014", label: "Oposição" },  // Incompletude da Prova (Popper) vs Base Empírica firme (Bacon)
+
+
+    // Relações envolvendo o Objetivismo
+    { id: "CII00000028", from: "I000000032", to: "I000000028", label: "Oposição" }, // Objetivismo vs Tudo Vale (Feyerabend foca no indivíduo/subjetivo)
+    { id: "CII00000029", from: "I000000032", to: "I000000030", label: "Complementar" }, // Objetivismo <-> Perigo do Relativismo (O objetivismo é a cura proposta para o relativismo)
+    { id: "CII00000030", from: "I000000032", to: "I000000005", label: "Oposição" }  // Objetivismo vs Paradigma (na medida em que Kuhn atrela o paradigma estritamente ao consenso da comunidade)
 ];

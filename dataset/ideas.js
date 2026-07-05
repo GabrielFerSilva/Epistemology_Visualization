@@ -279,4 +279,13 @@ const ideias = [{
     size: 25,
     image: "assets/ideas/lampada.png",
     sentence: "Síntese que aceita a busca por verdades objetivas, mas reconhece que todo conhecimento humano é incompleto e sujeito a erros"
+}, {
+    id: "I000000032",
+    label: "Objetivismo", 
+    ano: 1976,
+    categoria: "Epistemologia",
+    color: "#f4d35e",
+    size: 25,
+    image: "assets/ideas/lampada.png",
+    sentence: "O conhecimento científico possui propriedades e características que transcendem as crenças, atitudes e estados de consciência dos indivíduos que o projetam e contemplam. O conhecimento é exterior às mentes individuais."
 }];

@@ -456,4 +456,33 @@ const conexoes_ideia_autor = [{
     "book": "LAKATOS, Imre. O Falseamento e a Metodologia dos Programas de Pesquisa Científica. In: LAKATOS, Imre; MUSGRAVE, Alan (Org.). A Crítica e o Desenvolvimento do Conhecimento. Tradução de Octavio Mendes Cajado. São Paulo: Cultrix; Ed. da Universidade de São Paulo, 1979.",
     "page": "112",
     "writer": "Imre Lakatos"
-  }];
+  }, {
+    id: "CIA00000055",
+    from: "E000008",
+    to: "I000000032",
+    label: "Define",
+    sentence: "Objetivismo quanto ao conhecimento humano é um ponto de vista que enfatiza que itens do conhecimento, desde proposições simples até teorias complexas, possuem propriedades e características que transcendem as crenças e estados de consciência dos indivíduos que os projetam e contemplam.",
+    book: "CHALMERS, Alan. O que é ciência afinal? Tradução de Raul Filker. Editora Brasiliense, 1993.",
+    page: "152",
+    writer: "Alan F. Chalmers"
+}, {
+    id: "CIA00000056",
+    from: "E000002",
+    to: "I000000032",
+    label: "Concorda",
+    sentence: "O conhecimento no sentido objetivo é completamente independente da afirmação de qualquer pessoa de que sabe; é independente também da crença de qualquer um, ou da disposição de assentir; ou de afirmar, ou agir. O conhecimento no sentido objetivo é o conhecimento sem conhecedor; é o conhecimento sem um sujeito que sabe.",
+    book: "POPPER, Karl. Objective Knowledge. In: CHALMERS, Alan. O que é ciência afinal? Tradução de Raul Filker. Editora Brasiliense, 1993.",
+    page: "161",
+    writer: "Karl Popper"
+}, {
+    id: "CIA00000057",
+    from: "E000005",
+    to: "I000000032",
+    label: "Concorda",
+    sentence: "O valor cognitivo de uma teoria nada tem a ver com sua influência psicológica nas mentes das pessoas. Crenças, compromisso e compreensão são estados da mente humana... Mas o valor objetivo, científico de uma teoria... é independente da mente humana que a cria ou a compreende.",
+    book: "LAKATOS, Imre. Philosophical Papers. In: CHALMERS, Alan. O que é ciência afinal? Tradução de Raul Filker. Editora Brasiliense, 1993.",
+    page: "162",
+    writer: "Imre Lakatos"
+}
+
+];
