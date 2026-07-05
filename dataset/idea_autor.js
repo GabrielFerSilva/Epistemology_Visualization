@@ -347,7 +347,7 @@ const conexoes_ideia_autor = [{
     to: "I000000025", 
     label: "Discorda",
     sentence: "Bacon argumenta que o método indutivo correto afasta of ídolos e constrói axiomas firmes a partir da experiência empírica estável, opondo-se à ideia de que o conhecimento de leis naturais seja eternamente uma conjectura incerta.",
-    book: "Novum Organum",
+    book: "BACON, Francis. Novum Organum ou Verdadeiras Indicações Acerca da Interpretação da Natureza. Tradução de José Aluysio Reis de Andrade. São Paulo: Nova Cultural, 1999.",
     writer: "Francis Bacon"
 }, {
     id: "CIA00000043",
