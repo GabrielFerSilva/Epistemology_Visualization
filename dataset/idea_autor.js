@@ -307,7 +307,7 @@ const conexoes_ideia_autor = [{
         label: "Define",
         sentence: "De acordo com a visão mais extremada dos escritos de Feyerabend, a ciência não tem características especiais que a tornem intrinsecamente superior a outros ramos do conhecimento tais como mitos antigos ou vodu. [...] Feyerabend contrasta a ciência com o vodu, com a astrologia e coisas semelhantes e argumenta que estes últimos não podem ser excluídos recorrendo-se a algum critério de cientificidade ou racionalidade. Há dois motivos para que eu esteja infeliz com esta ênfase. O primeiro é que não estou convencido de que um estudo detalhado como vodu ou astrologia revelaria que eles possuem objetivos bem definidos e métodos de alcançálos... Certamente nada que Feyerabend escreve me encoraja a mudar de opinião. O segundo motivo é que o status do vodu, da astrologia e similares não é um problema urgente em nossa sociedade, aqui e agora. ",
         book: "CHALMERS, Alan. O que é ciência afinal?, Tradução: Raul Filker. Editora Brasiliense, 1993",
-        page: "20, 184, 185",
+        page: "20, 183, 184",
         writer: "Alan F. Chalmers"
     },
     {
@@ -327,7 +327,7 @@ const conexoes_ideia_autor = [{
         label: "Neutro",
         sentence: "Se todos os cientistas fossem e permanecessem cientistas normais, então uma ciência específica ficaria presa em um único paradigma e não progrediria nunca para além dele. Este seria um erro grave, do ponto de vista kuhniano. [...] A mera existência de enigmas não resolvidos dentro de um paradigma não constitui uma crise. Kuhn reconhece que os paradigmas sempre encontrarão dificuldades. Anomalias haverá sempre.",
         book: "CHALMERS, Alan. O que é ciência afinal? Tradução de Raul Filker. Editora Brasiliense, 1993.",
-        page: "130, 135",
+        page: "129, 134",
         writer: "Alan F. Chalmers"
     },
     {
@@ -337,7 +337,7 @@ const conexoes_ideia_autor = [{
         label: "Discorda",
         sentence: "Eu aceito o ponto de vista de Feyerabend de que algumas teorias rivais não podem ser comparadas por meios lógicos. Sugiro que sua inferência de conseqüências subjetivistas deste fato necessita ser questionada e rebatida de várias maneiras. Se nos concentrarmos na questão de escolha de teoria, então estou preparado para admitir que haverá algum elemento subjetivo envolvido. (Ele aceita a premissa, mas discorda das conclusões subjetivas)",
         book: "CHALMERS, Alan. O que é ciência afinal? Tradução de Raul Filker. Editora Brasiliense, 1993.",
-        page: "180",
+        page: "179",
         writer: "Alan F. Chalmers"
     },
     // novas
@@ -460,10 +460,10 @@ const conexoes_ideia_autor = [{
     id: "CIA00000055",
     from: "E000008",
     to: "I000000032",
-    label: "Define",
+    label: "Concorda",
     sentence: "Objetivismo quanto ao conhecimento humano é um ponto de vista que enfatiza que itens do conhecimento, desde proposições simples até teorias complexas, possuem propriedades e características que transcendem as crenças e estados de consciência dos indivíduos que os projetam e contemplam.",
     book: "CHALMERS, Alan. O que é ciência afinal? Tradução de Raul Filker. Editora Brasiliense, 1993.",
-    page: "152",
+    page: "153",
     writer: "Alan F. Chalmers"
 }, {
     id: "CIA00000056",
@@ -472,7 +472,7 @@ const conexoes_ideia_autor = [{
     label: "Concorda",
     sentence: "O conhecimento no sentido objetivo é completamente independente da afirmação de qualquer pessoa de que sabe; é independente também da crença de qualquer um, ou da disposição de assentir; ou de afirmar, ou agir. O conhecimento no sentido objetivo é o conhecimento sem conhecedor; é o conhecimento sem um sujeito que sabe.",
     book: "POPPER, Karl. Objective Knowledge. In: CHALMERS, Alan. O que é ciência afinal? Tradução de Raul Filker. Editora Brasiliense, 1993.",
-    page: "161",
+    page: "162",
     writer: "Karl Popper"
 }, {
     id: "CIA00000057",
@@ -481,8 +481,26 @@ const conexoes_ideia_autor = [{
     label: "Concorda",
     sentence: "O valor cognitivo de uma teoria nada tem a ver com sua influência psicológica nas mentes das pessoas. Crenças, compromisso e compreensão são estados da mente humana... Mas o valor objetivo, científico de uma teoria... é independente da mente humana que a cria ou a compreende.",
     book: "LAKATOS, Imre. Philosophical Papers. In: CHALMERS, Alan. O que é ciência afinal? Tradução de Raul Filker. Editora Brasiliense, 1993.",
-    page: "162",
+    page: "163",
     writer: "Imre Lakatos"
+}, {
+    id: "CIA00000058",
+    from: "E000003",
+    to: "I000000032",
+    label: "Discorda",
+    sentence: "Não há padrão mais alto que o assentimento da comunidade relevante.",
+    book: "KUHN, Thomas S. A Estrutura das Revoluções Científicas. In: CHALMERS, Alan. O que é ciência afinal? Tradução de Raul Filker. Editora Brasiliense, 1993.",
+    page: "139",
+    writer: "Thomas Kuhn"
+}, {
+    id: "CIA00000059",
+    from: "E000004",
+    to: "I000000032",
+    label: "Discorda",
+    sentence: "O que permanece (depois que removemos a possibilidade de comparar logicamente as teorias...) são julgamentos estéticos, julgamentos de gosto, preconceitos metafísicos, desejos religiosos, em resumo, o que permanece são nossos desejos subjetivos.",
+    book: "FEYERABEND, Paul. Contra o Método. In: CHALMERS, Alan. O que é ciência afinal? Tradução de Raul Filker. Editora Brasiliense, 1993.",
+    page: "179",
+    writer: "Paul Feyerabend"
 }
 
 ];
