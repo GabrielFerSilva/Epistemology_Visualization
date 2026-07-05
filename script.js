@@ -215,7 +215,7 @@ const options = {
     },
     edges: {
         width: 3,
-        length: 250,
+        length: 350,
         arrows: { to: { enabled: true, scaleFactor: 0.8 } },
         smooth: { type: "dynamic" },
         font: {
@@ -230,12 +230,12 @@ const options = {
     physics: {
         enabled: true,
         barnesHut: {
-            gravitationalConstant: -2500,
-            centralGravity: 0.15,
-            springLength: 250,
-            springConstant: 0.02,
-            damping: 0.09,
-            avoidOverlap: 1.2
+            gravitationalConstant: -4000,
+            centralGravity: 0.12,
+            springLength: 350,
+            springConstant: 0.015,
+            damping: 0.1,
+            avoidOverlap: 1.5
         },
         stabilization: {
             enabled: true,
