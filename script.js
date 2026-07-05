@@ -160,7 +160,7 @@ const todasAsArestas = [];
 conexoes_ideia_autor.forEach(c => {
     let cor = "#888";
     if(c.label === "Concorda") cor = "#2e7d32";
-    if(c.label === "Discorda") cor = "#c62828";
+    if(c.label === "Discorda") cor = "#ad0c0c";
     if(c.label === "Define") cor = '#c1d2dd';
     if(c.label === "Neutro") cor = '#898989';
     todasAsArestas.push({
