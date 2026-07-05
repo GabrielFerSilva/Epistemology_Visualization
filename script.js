@@ -161,7 +161,7 @@ conexoes_ideia_autor.forEach(c => {
     let cor = "#888";
     if(c.label === "Concorda") cor = "#2e7d32";
     if(c.label === "Discorda") cor = "#c62828";
-    if(c.label === "Criador") cor = '#c1d2dd';
+    if(c.label === "Define") cor = '#c1d2dd';
     if(c.label === "Neutro") cor = '#898989';
     todasAsArestas.push({
         id: c.id,
@@ -179,14 +179,21 @@ conexoes_ideia_autor.forEach(c => {
 });
 
 conexoes_ideia_ideia.forEach(c => {
+    let cor = "#1565c0"; // Padrão (Azul)
+    
+    if (c.label === "Complementar") cor = "#1565c0"; // Azul
+    if (c.label === "Subordinada") cor = "#26a69a";  // Verde água
+    if (c.label === "Contém") cor = "#81d4fa";       // Azul claro / gelo
+    if (c.label === "Oposição") cor = "#f60a59";     // Rosa avermelhado (distinto do vermelho de discorda)
+
     todasAsArestas.push({
         id: c.id,
         from: c.from,
         to: c.to,
         label: c.label,
         tipo: "ideia-idea",
-        color: { color: "#1565c0" },
-        original_color: "#1565c0",
+        color: { color: cor },
+        original_color: cor,
         arrows: "to"
     });
 });
