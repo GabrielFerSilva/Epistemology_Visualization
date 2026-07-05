@@ -7,7 +7,7 @@ const conexoes_ideia_ideia = [
     { id: "CII00000006", from: "I000000017", to: "I000000020", label: "Contém" }, // Teoria dos Ídolos -> Mercado
     { id: "CII00000007", from: "I000000017", to: "I000000021", label: "Contém" }, // Teoria dos Ídolos -> Teatro
     { id: "CII00000008", from: "I000000023", to: "I000000024", label: "Contém" }, // Conjecturas e Refutações -> Falseabilidade
-    { id: "CII00000008", from: "I000000024", to: "I000000031", label: "Contém" }, // Falseabilidade -> falibilismo dogmático
+    { id: "CII00000027", from: "I000000024", to: "I000000031", label: "Contém" }, // Falseabilidade -> falibilismo dogmático
 
     // Relações de Subordinação (Dependência / Derivação Causais)
     { id: "CII00000003", from: "I000000001", to: "I000000012", label: "Subordinada" }, // Ciência Normal -> Pesquisa Normal
