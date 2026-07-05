@@ -94,6 +94,22 @@ A visualização foi inspirada em:
 * Deniz Cem Önduygu — *History of Philosophy*
   https://www.denizcemonduygu.com/philo/
 
+* BACON, Francis. Novum Organum ou Verdadeiras Indicações Acerca da Interpretação da Natureza. Tradução de José Aluysio Reis de Andrade. São Paulo: Nova Cultural, 1999.
+
+* CHALMERS, Alan. O que é ciência afinal?, Tradução: Raul Filker. Editora Brasiliense, 1993
+
+* DUHEM, Pierre. O Objetivo e a Estrutura da Teoria Física. Tradução de Afonso Neves. Rio de Janeiro: Contraponto, 2011.
+
+* FEYERABEND, Paul. Contra o método. Tradução de Octanny S. da Mota e Leonidas Hegenberg. Rio de Janeiro, F. Alves, 1977.
+
+* KUHN, Thomas S. A Estrutura das Revoluções Científicas. Tradução de Beatriz Vianna Boeira e Nelson Boeira. São Paulo: Editora Perspectiva, [1962].
+
+* LAKATOS, Imre; MUSGRAVE, Alan (Org.). A Crítica e o Desenvolvimento do Conhecimento. Tradução de Octavio Mendes Cajado. São Paulo: Cultrix; Ed. da Universidade de São Paulo, 1979.
+
+* POPPER, Karl R. A Lógica da Pesquisa Científica. Tradução de Leônidas Hegenberg e Octanny Silveira da Mota. São Paulo: Cultrix, 2001.
+
+* QUINE, Willard Van Orman. Dois Dogmas do Empirismo. In: De um Ponto de Vista Lógico. Tradução de Giselda Shaw. São Paulo: UNESP, 2011.
+
 ## Licença
 
 Este projeto está licenciado sob a licença **MIT**.
