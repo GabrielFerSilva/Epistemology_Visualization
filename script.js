@@ -174,7 +174,8 @@ conexoes_ideia_autor.forEach(c => {
         arrows: "to",
         book: c.book,
         writer: c.writer,
-        sentence: c.sentence
+        sentence: c.sentence,
+        page: c.page
     });
 });
 
@@ -854,23 +855,44 @@ network.on("click", function (params) {
             const noOrigem = nodesData.get(arestaSelecionada.from).label;
             const noDestino = nodesData.get(arestaSelecionada.to).label;
 
-            // Formata a citação (se existir) com limite de 150 caracteres
-            const citacaoFormatada = formatarTextoExpansivel(arestaSelecionada.sentence, 150);
+            // Se for conexão de idea idea , remove livro, autor da citação
+            if (arestaSelecionada.tipo === 'ideia-idea') {
+                sidebarConteudo.innerHTML = `
+                    <h2>Conexão: ${arestaSelecionada.label || 'Sem Nome'}</h2>
+                    <p style="margin-top: 15px;"><strong>Conecta:</strong> ${noOrigem} ➔ ${noDestino}</p>
+                `;
+            }
 
-            sidebarConteudo.innerHTML = `
-                <h2>Conexão: ${arestaSelecionada.label || 'Sem Nome'}</h2>
-                <p style="margin-top: 15px;"><strong>Conecta:</strong> ${noOrigem} ➔ ${noDestino}</p>
-                <p><strong>Livro de Referência:</strong> ${arestaSelecionada.book || 'N/A'}</p>
-                <p><strong>Autor da Citação:</strong> ${arestaSelecionada.writer || 'N/A'}</p>
-                ${arestaSelecionada.sentence ? `
-                <div style="margin-top: 15px;">
-                    <strong>Citação:</strong>
-                    <blockquote class="citacao-ideia" style="margin-top: 5px;">
-                        ${citacaoFormatada}
-                    </blockquote>
-                </div>` : ''}
-            `;
-        }
+            // Para autor idea mostra tudo
+            else {
+                // Formata a citação (se existir) com limite de 150 caracteres
+                const citacaoFormatada = formatarTextoExpansivel(arestaSelecionada.sentence, 150);
+                let conteudoHTML = `
+                    <h2>Conexão: ${arestaSelecionada.label || 'Sem Nome'}</h2>
+                    <p style="margin-top: 15px;"><strong>Conecta:</strong> ${noOrigem} ➔ ${noDestino}</p>
+                    <p><strong>Livro de Referência:</strong> ${arestaSelecionada.book || 'N/A'}</p>
+                `;
+
+                // quando tem pagina informada, mostra a página
+                if (arestaSelecionada.page) {
+                    conteudoHTML += `<p><strong>Página:</strong> ${arestaSelecionada.page}</p>`;
+                }
+
+                conteudoHTML += `<p><strong>Autor da Citação:</strong> ${arestaSelecionada.writer || 'N/A'}</p>`;
+
+                if (arestaSelecionada.sentence) {
+                    conteudoHTML += `
+                    <div style="margin-top: 15px;">
+                        <strong>Citação:</strong>
+                        <blockquote class="citacao-ideia" style="margin-top: 5px;">
+                            ${citacaoFormatada}
+                        </blockquote>
+                    </div>`;
+                }
+
+                sidebarConteudo.innerHTML = conteudoHTML;
+                }
+            }
         else {
             // Se clicar no VAZIO do grafo, fechar o painel se estiver aberto
             if (modoInterseccao) {
